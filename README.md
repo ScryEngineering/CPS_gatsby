@@ -19,6 +19,27 @@ Then you can run it by:
 yarn run develop
 ```
 
+
+## Development
+
+To run Gatsby in development mode:
+
+```sh
+gatsby develop
+```
+Will fire up a development server on localhost.
+
+Note that you may need to run as sudo and specify the port if you have used
+the Vagrant box with Alpine linux:
+
+```sh
+sudo gatsby develop -H 0.0.0.0
+```
+(There might be a way set up the linux box such that specifying to serve on 0.0.0.0
+is not necessary but I haven't done that, if you fix this please upstream the fix to:
+https://github.com/customprogrammingsolutions/gatsbyjs-vagrant)
+
+
 ## Deploy
 
 Build the files
