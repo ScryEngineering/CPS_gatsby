@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
 import './index.css'
+import NavigationLinks from '../components/NavigationLinks';
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -15,6 +16,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
+    <NavigationLinks />
     <div
       style={{
         margin: '0 auto',
