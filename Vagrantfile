@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apk update
     apk upgrade
-    apk add nodejs
+    apk add nodejs --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/main/
     apk add yarn --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community/
     yarn global add gatsby-cli
   SHELL
