@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import './index.css'
 import NavigationLinks from '../components/NavigationLinks';
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data }) => (
   <div>
     <Helmet
       title="Custom Programming Solutions"
