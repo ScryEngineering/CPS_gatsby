@@ -7,7 +7,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `tutorials`,
-        path: `${__dirname}/src/tutorial-pages`,
+        path: `${__dirname}/data/tutorial-pages`,
       },
     },
     'gatsby-plugin-react-helmet',
