@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import './index.css'
 import NavigationLinks from '../components/NavigationLinks';
+require("prismjs/themes/prism-solarizedlight.css");
 
 const TemplateWrapper = ({ children, data }) => (
   <div>
