@@ -2,34 +2,19 @@ import React from 'react'
 import Link from "gatsby-link";
 
 import styles from "./tutorials.module.css"
+import PostListing from "../components/PostListing/PostListing";
+
 
 export default ({ data }) => {
-  console.log(data);
+  const postEdges = data.allMarkdownRemark.edges;
+
   return (
     <div>
       <h1 display={"inline-block"} borderBottom={"1px solid"}>
         Tutorial pages
       </h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link
-            to={node.fields.slug}
-            css={{ textDecoration: `none`, color: `inherit` }}
-          >
-          <h3>
-            {node.frontmatter.title}{" "}
-            <span color="#BBB">— {node.frontmatter.date}</span>
-          </h3>
-          </Link>
-          <Link
-            to={node.fields.slug}
-            className={styles.summarytext}
-          >
-          <p>{node.excerpt}</p>
-          </Link>
-        </div>
-      ))}
+      <PostListing postEdges={postEdges} />
     </div>
   );
 };
