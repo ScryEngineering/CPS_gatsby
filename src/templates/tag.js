@@ -5,9 +5,9 @@ export default class TagTemplate extends React.Component {
     const tag = this.props.pathContext.tag;
     console.log(tag);
     return (
-      <div>
+      <h1>
         Posts tagged as {tag}
-      </div>
+      </h1>
     );
   }
 }
