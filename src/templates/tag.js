@@ -1,13 +1,20 @@
 import React from "react";
+import Link from "gatsby-link";
+import PostListing from "../components/PostListing/PostListing";
+
 
 export default class TagTemplate extends React.Component {
   render(){
     const tag = this.props.pathContext.tag;
+    const postEdges = this.props.data.allMarkdownRemark.edges;
     console.log(tag);
     return (
-      <h1>
-        Posts tagged as {tag}
-      </h1>
+      <div>
+        <h1>
+          Posts tagged as {tag}
+        </h1>
+        <PostListing postEdges={postEdges} />
+      </div>
     );
   }
 }
