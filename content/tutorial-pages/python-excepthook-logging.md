@@ -1,5 +1,4 @@
 ---
-path: "/logging-uncaught-exceptions-python-applications"
 title: "Logging uncaught exceptions in Python applications"
 date: "2018-02-06"
 tags:
