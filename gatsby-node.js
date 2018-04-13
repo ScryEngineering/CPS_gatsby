@@ -40,6 +40,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `).then(result => {
+      if (result.errors) {
+        /* eslint no-console: "off" */
+        console.log(result.errors);
+        reject(result.errors);
+      }
+
       console.log(JSON.stringify(result, null, 4))
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         const tutorialPagePath = node.fields.slug
