@@ -1,15 +1,15 @@
 import React from "react";
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const {tag} = data;
-  console.log(data);
-  return (
-    <div>
-      Posts tagged as {tag}
-    </div>
-  );
+export default class TagTemplate extends React.Component {
+  render(){
+    const tag = this.props.pathContext.tag;
+    console.log(tag);
+    return (
+      <div>
+        Posts tagged as {tag}
+      </div>
+    );
+  }
 }
 
 /* eslint no-undef: "off" */
