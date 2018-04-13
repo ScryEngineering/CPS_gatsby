@@ -7,12 +7,13 @@ export default class TagTemplate extends React.Component {
   render(){
     const tag = this.props.pathContext.tag;
     const postEdges = this.props.data.allMarkdownRemark.edges;
-    console.log(tag);
+    const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     return (
       <div>
         <h1>
           Posts tagged as {tag}
         </h1>
+        <h4>{numberOfPosts} Posts</h4>
         <PostListing postEdges={postEdges} />
       </div>
     );
