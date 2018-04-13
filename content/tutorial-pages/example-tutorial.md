@@ -1,5 +1,4 @@
 ---
-path: "/example-markdown-page"
 title: "Example tutorial md page"
 date: "2017-08-10"
 ---

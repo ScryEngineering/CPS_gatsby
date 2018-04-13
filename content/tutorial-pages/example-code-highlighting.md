@@ -1,5 +1,4 @@
 ---
-path: "/example-code-page"
 title: "Example code highighting md page"
 date: "2017-09-10"
 ---
