@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from "gatsby-link";
 
+import styles from "./tutorials.module.css"
+
 export default ({ data }) => {
   console.log(data);
   return (
@@ -19,6 +21,11 @@ export default ({ data }) => {
             {node.frontmatter.title}{" "}
             <span color="#BBB">— {node.frontmatter.date}</span>
           </h3>
+          </Link>
+          <Link
+            to={node.fields.slug}
+            className={styles.summarytext}
+          >
           <p>{node.excerpt}</p>
           </Link>
         </div>
