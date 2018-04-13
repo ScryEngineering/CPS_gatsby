@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "cps-gatsby-website",
+  "description": "CPS website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Janis Lesinskis <janis@customprogrammingsolutions.com>",
   "dependencies": {
     "gatsby": "^1.9.241",
     "gatsby-link": "^1.6.39",
@@ -27,5 +27,6 @@
   },
   "devDependencies": {
     "prettier": "^1.11.1"
-  }
+  },
+  "private": true
 }
