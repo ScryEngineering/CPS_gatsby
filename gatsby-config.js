@@ -25,6 +25,7 @@ module.exports = {
         path: `${__dirname}/content/${config.peopleDir}`
       }
     },
+    "gatsby-transformer-json",
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,
