@@ -32,7 +32,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const tagPage = path.resolve("src/templates/tag.js");
-  const authorPage = path.resolve("src/templates/author.jsx");
+  const authorPage = path.resolve("src/templates/person.js");
 
   return new Promise((resolve, reject) => {
     if (
@@ -68,11 +68,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
 
       const tagSet = new Set();
+      const authorSet = new Set();
+      authorSet.add(siteConfig.defaultAuthorId);
+
       result.data.allMarkdownRemark.edges.forEach(edge => {
         if (edge.node.frontmatter.tags) {
           edge.node.frontmatter.tags.forEach(tag => {
             tagSet.add(tag);
           });
+        }
+        if (edge.node.frontmatter.author) {
+          authorSet.add(edge.node.frontmatter.author);
         }
       });
 
@@ -87,6 +93,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         });
       });
 
+      console.log("Creating markdown pages")
       console.log(JSON.stringify(result, null, 4))
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         const tutorialPagePath = node.fields.slug
@@ -98,7 +105,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             slug: tutorialPagePath,
           },
         })
-      })
+      });
+      console.log("Creating personal about pages")
+      const authorList = Array.from(authorSet);
+      authorList.forEach(author => {
+        createPage({
+          path: `/about/${_.kebabCase(author)}/`,
+          component: authorPage,
+          context: {
+            author
+          }
+        });
+      });
+
       resolve()
     })
   })
