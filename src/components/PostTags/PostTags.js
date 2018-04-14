@@ -5,6 +5,7 @@ import Link from "gatsby-link";
 class PostTags extends Component {
   render() {
     const { tags } = this.props;
+    console.log("tags", tags)
     return (
       <div className="post-tag-container">
         {tags &&

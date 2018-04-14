@@ -18,7 +18,7 @@ class Footer extends Component {
     const { promoteGatsby } = this.props;
     const { label, url, year } = this.props.copyright;
     return (
-      <footer className={styles.siteFooter} clearfix>
+      <footer className={styles.siteFooter}>
         <section className={styles.copyright}>
           <a href={url || "/"}>{label}</a> &copy;{" "}
           {year || new Date().getFullYear()}
