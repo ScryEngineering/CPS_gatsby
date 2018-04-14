@@ -31,12 +31,7 @@ class PostListing extends React.Component {
         <div className={styles.post}>
           <Link to={post.path} key={post.title}>
             <h1>{post.title}</h1>
-          </Link>
-          <Link
-            to={post.path}
-            className={styles.summarytext}
-            >
-            <p>{post.excerpt}</p>
+            <p className={styles.summarytext}>{post.excerpt}</p>
           </Link>
         </div>
         ))}
