@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
-import './index.css'
 import NavigationLinks from '../components/NavigationLinks';
+import Footer from '../components/Footer/Footer';
+
+import './index.css'
+
 require("prismjs/themes/prism-solarizedlight.css");
 
 const TemplateWrapper = ({ children, data }) => (
@@ -28,6 +31,13 @@ const TemplateWrapper = ({ children, data }) => (
     >
       {children()}
     </div>
+    <Footer
+      copyright={{
+        label: "Custom Programming Solutions",
+        url: "https://www.customprogrammingsolutions.com"
+      }}
+      promoteGatsby={true}
+    />
   </div>
 )
 
