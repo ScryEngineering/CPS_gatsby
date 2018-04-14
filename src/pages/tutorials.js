@@ -10,7 +10,7 @@ export default ({ data }) => {
 
   return (
     <div>
-      <h1 display={"inline-block"} borderBottom={"1px solid"}>
+      <h1 display={"inline-block"}>
         Tutorial pages
       </h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
