@@ -6,6 +6,7 @@ import React from "react";
 import Link from "gatsby-link";
 
 import styles from "./PostListing.module.css"
+import PostTags from "../PostTags/PostTags";
 
 class PostListing extends React.Component {
   getPostList() {
@@ -33,7 +34,8 @@ class PostListing extends React.Component {
             <h1>{post.title}</h1>
             <p className={styles.summarytext}>{post.excerpt}</p>
           </Link>
-        </div>
+          <PostTags tags={post.tags} />
+         </div>
         ))}
       </div>
     );
