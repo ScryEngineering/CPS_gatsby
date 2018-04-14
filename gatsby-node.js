@@ -4,6 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const fs = require("fs");
+const siteConfig = require("./data/SiteConfig.js");
+
 const _ = require("lodash");
 const webpackLodashPlugin = require("lodash-webpack-plugin");
 
@@ -29,7 +32,19 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const tagPage = path.resolve("src/templates/tag.js");
+  const authorPage = path.resolve("src/templates/author.jsx");
+
   return new Promise((resolve, reject) => {
+    if (
+      !fs.existsSync(
+        path.resolve(`content/${siteConfig.peopleDir}/`)
+      )
+    ) {
+      reject(
+        "The 'people' folder is missing within the 'content' folder."
+      );
+    }
+
     graphql(`
       {
         allMarkdownRemark {

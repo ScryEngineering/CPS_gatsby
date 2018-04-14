@@ -1,3 +1,5 @@
+const config = require("./data/SiteConfig.js");
+
 module.exports = {
   siteMetadata: {
     title: 'Custom Programming Solutions',
@@ -15,6 +17,13 @@ module.exports = {
         name: `tutorials`,
         path: `${__dirname}/content/tutorial-pages`,
       },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `people`,
+        path: `${__dirname}/content/${config.peopleDir}`
+      }
     },
     'gatsby-plugin-react-helmet',
     {
