@@ -66,15 +66,16 @@ You would use this like so:
 
 ```markdown
 ---
-title: "Logging uncaught exceptions in Python applications"
+title: "how to use the excerpt separator"
 date: "2018-02-06"
 tags:
-    - exception-handling
-    - Python
-    - logging
+    - markdown
+    - excerpts
+    - howto
+    - someOtherTag
 ---
 
-A common situation is that you want to be able to get good logging data from your applications to be able to reduce the amount of time that you require in order to fix issues and debug problems. This tutorial will show you a convienent way of achieving this.
+The excerpt written here can be used on various pages to render a summary, don't make it too long though as that might break formatting on some listing pages in the site!
 
 <!-- end excerpt -->
 
