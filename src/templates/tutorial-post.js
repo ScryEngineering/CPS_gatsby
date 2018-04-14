@@ -5,6 +5,7 @@ export default function Template({
 }) {
   console.log(data)
   const post = data.markdownRemark; // data.markdownRemark holds our post data
+  const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
   return (
     <div className="tutorial-post-container">
       <div className="tutorial-post">
@@ -14,6 +15,9 @@ export default function Template({
           className="tutorial-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+        { postHasTags &&
+          <div>This post has some tags</div>
+        }
       </div>
     </div>
   );
@@ -26,6 +30,7 @@ export const query = graphql`
       frontmatter {
         date(formatString: "DD MMMM, YYYY")
         title
+        tags
       }
     }
   }
