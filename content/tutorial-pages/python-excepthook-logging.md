@@ -2,7 +2,7 @@
 title: "Logging uncaught exceptions in Python applications"
 date: "2018-02-06"
 tags:
-    - programming
+    - exception-handling
     - Python
     - logging
 ---
@@ -12,9 +12,9 @@ A common situation is that you want to be able to get good logging data from you
 
 Example code for this tutorial can be found on our GitHub page: [https://github.com/customprogrammingsolutions/excepthook\_logging\_example](https://github.com/customprogrammingsolutions/excepthook_logging_example)
 
-However one situation that you very likely want to cover is when an unhandled exception occurs in the program. You might think of executing everything in a try-catch but that's a bit bad for a few reasons, you may not want to have the exception caught, such as a `KeyboardInterrupt` when people are running your code from the REPL.
+One situation that you want to make sure you get in your logs is when an unhandled exception occurs in the program. Since this will always crash the program you will want to be able to gather some information immediately from a user by giveing them the ability to send in a log with enough details to start pointing you in the right direction. This is important because the user may not be a technical user and uploading a logfile is much easier to explain then getting them to find the right stacktrace to email you.
 
-For example you could modify your code to run it in a big exception block by doing something like:
+You might think of executing everything in a try-catch to make sure any uncaught exception gets logged. This is better than nothing as it will capture exceptions on the main thread (more about threading later) but it requires modifying existing code. For example you could modify your code to run it in a big exception block by doing something like:
 
 ```python
 import sys
@@ -25,6 +25,7 @@ except:
     print("Unhandled exception:", sys.exc_info()[0])
     raise
 ```
+(Note that you may not want to have the exception caught, such as a `KeyboardInterrupt` when people are running your code from the REPL. We do this in the next step)
 
 A better approach that doesn't require modifying existing code is to make use of the [sys module](https://docs.python.org/3/library/sys.html) which provides [excepthook](https://docs.python.org/3/library/sys.html#sys.excepthook) to allow you to attach a handler for any unhandled exception.
 
@@ -46,7 +47,7 @@ def handle_unhandled_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_unhandled_exception
 ```
 
-This is something we can use with logging to make sure any unhandled exception will end up in our log files without us having to modify the source of other modules. Unfortunately this won't work well with threading or multiprocessing without a few modifications that we will explain shortly:
+This is something we can use with logging to make sure any unhandled exception will end up in our log files without us having to modify the source of other modules. Unfortunately this won't work well with threading or multiprocessing without a few modifications that we will explain shortly. Take for example the situation where some code runs on another thread such as a GUI thread:
 
 ```python
 Exception in thread Thread-1:
@@ -92,6 +93,6 @@ sys.excepthook(*sys.exc_info(), thread_identifier=threading.get_ident())
 
 This assumes a slight modification to our excepthook handler to take a default argument that will handle the threading identifier passed into it.
 
-Now that we have done this the excepthook approach for logging unhandled exceptions works great, we can't get this to work with the naive approach though as the exception that occurs on the other thread cannot be logged in the main thread of execution.
+Now that we have done this the excepthook approach for logging unhandled exceptions works great, we can't get this to work with the naive try-catch-everything approach though since the exception that occurs on the other thread cannot be logged in the main thread of execution.
 
 So that's it, you should be able to log all unhandled exceptions now with your function specified in `sys.excepthook` even if they are running in other threads (unless code similar to what Thread does handles it before you get a chance to first).
