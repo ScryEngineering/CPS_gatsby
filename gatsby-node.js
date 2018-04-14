@@ -81,7 +81,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug: tutorialPagePath,
-            tags: node.frontmatter.tags
           },
         })
       })

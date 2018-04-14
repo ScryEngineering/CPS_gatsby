@@ -52,3 +52,34 @@ yarn run build
 ```
 
 Then upload them to the host.
+
+
+## Writing posts
+Right now this site is set up such that it is convienent to write posts using markdown because we are leveraging the gatsby-transformer-remark plugin to create pages on the site from markdown input.
+
+The directory that content is pulled from is specified in `gatsby-config.js` as settings to `gatsby-source-filesystem` plugin.
+
+When you are writing a post in markdown you can specify the excerpt by using the separator configured in `gatsby-config.js` in the `excerpt_separator` option for the `gatsby-transformer-remark` plugin.
+
+For now it is `<!-- end excerpt -->`. 
+You would use this like so:
+
+```markdown
+---
+title: "how to use the excerpt separator"
+date: "2018-02-06"
+tags:
+    - markdown
+    - excerpts
+    - howto
+    - someOtherTag
+---
+
+The excerpt written here can be used on various pages to render a summary, don't make it too long though as that might break formatting on some listing pages in the site!
+
+<!-- end excerpt -->
+
+Rest of the tutorial text is here....
+```
+
+Note how various metadata is specified in the frontmatter (the bit separated by the `---`)
