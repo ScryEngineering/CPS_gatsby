@@ -1,5 +1,7 @@
 import React from "react";
 
+import PostTags from "../components/PostTags/PostTags";
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -16,7 +18,7 @@ export default function Template({
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         { postHasTags &&
-          <div>This post has some tags</div>
+          <PostTags tags={post.frontmatter.tags} />
         }
       </div>
     </div>
