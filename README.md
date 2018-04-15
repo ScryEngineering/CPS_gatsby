@@ -83,3 +83,9 @@ Rest of the tutorial text is here....
 ```
 
 Note how various metadata is specified in the frontmatter (the bit separated by the `---`)
+
+## Author information
+We are using json files to store the information about the people/authors the file path is in `content/people`.
+This information is extracted via [gatsby-transformer-json](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-json)
+
+Modify the JSON file to add in a new author, the templating system will then create the page for all people specified in that file.
