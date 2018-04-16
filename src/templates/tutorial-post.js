@@ -12,7 +12,7 @@ export default function Template({
     <div className="tutorial-post-container">
       <div className="tutorial-post">
         <h1>{post.frontmatter.title}</h1>
-        <h2>{post.frontmatter.date}</h2>
+        <h2>{post.frontmatter.author} {post.frontmatter.date}</h2>
         <div
           className="tutorial-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -33,6 +33,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         title
         tags
+        author
       }
     }
   }

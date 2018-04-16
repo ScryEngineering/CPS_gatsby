@@ -8,13 +8,15 @@ export default class TutorialTemplate extends React.Component {
   render(){
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
+    console.log("TutorialTemplate props...", this.props)
+    const allAuthors = this.props.data.authors.edges;
     return (
       <div>
         <h1>
           Tutorials
         </h1>
         <h4>{numberOfPosts} Posts</h4>
-        <PostListing postEdges={postEdges} />
+        <PostListing postEdges={postEdges} allAuthorsInfo={allAuthors}/>
       </div>
     );
   }
@@ -22,6 +24,24 @@ export default class TutorialTemplate extends React.Component {
 
 export const query = graphql`
 query IndexQuery {
+  # authors
+  authors: allPeopleJson {
+    edges {
+      node {
+        id
+        name
+        image
+        url
+        bio
+        location
+        socialUrls
+        fields {
+          internalURL
+        }
+      }
+    }
+  }
+  # tutorial posts
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
   ) {
@@ -36,6 +56,7 @@ query IndexQuery {
           title
           tags
           date(formatString: "DD MMMM, YYYY")
+          author
         }
       }
     }

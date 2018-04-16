@@ -7,6 +7,7 @@ import Link from "gatsby-link";
 
 import styles from "./PostListing.module.css"
 import PostTags from "../PostTags/PostTags";
+import AuthorsInfo from "../AuthorsInfo/AuthorsInfo";
 
 class PostListing extends React.Component {
   getPostList() {
@@ -16,6 +17,7 @@ class PostListing extends React.Component {
         path: postEdge.node.fields.slug,
         tags: postEdge.node.frontmatter.tags,
         title: postEdge.node.frontmatter.title,
+        authors: postEdge.node.frontmatter.author,
         date: postEdge.node.frontmatter.date,
         excerpt: postEdge.node.excerpt,
         timeToRead: postEdge.node.timeToRead
@@ -34,6 +36,7 @@ class PostListing extends React.Component {
             <h1>{post.title}</h1>
             <p className={styles.summarytext}>{post.excerpt}</p>
           </Link>
+          <AuthorsInfo authorNames={post.authors} allAuthorsInfo={this.props.allAuthorsInfo}/>
           <PostTags tags={post.tags} />
          </div>
         ))}

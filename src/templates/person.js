@@ -2,8 +2,9 @@ import React from "react";
 
 export default class PersonalAboutTemplate extends React.Component {
     render(){
+      console.log("PersonalAboutTemplate props", this.props)
+
       const currentPerson = this.props.data.allPeopleJson.edges[0].node;
-      console.log("this.props.data.allPeopleJson", this.props.data.allPeopleJson)
       console.log("current person", currentPerson);
 
       return (
@@ -26,9 +27,10 @@ export default class PersonalAboutTemplate extends React.Component {
 };
 
   /* eslint no-undef: "off" */
+  //TODO: this query is failing because it doesn't match the required info over in gatsby-node
 export const pageQuery = graphql`
 query AuthorPage($author: String) {
-  allPeopleJson(filter: { id: { eq: $author } }) {
+  allPeopleJson(filter: { name: { eq: $author } }) {
     edges {
       node {
         id

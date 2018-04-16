@@ -14,6 +14,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({
@@ -25,6 +26,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: `slug`,
       value: `/tutorials${slug}`,
+    })
+  }
+  if (node.internal.type === `PeopleJson`) {
+    createNodeField({
+      node,
+      name: `internalURL`,
+      value: `/about/${_.kebabCase(node.name)}/`,
     })
   }
 };
@@ -52,6 +60,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               frontmatter {
                 tags
+                author
               }
               fields {
                 slug
@@ -69,7 +78,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       const tagSet = new Set();
       const authorSet = new Set();
-      authorSet.add(siteConfig.defaultAuthorId);
+      authorSet.add(siteConfig.defaultAuthorName);
 
       result.data.allMarkdownRemark.edges.forEach(edge => {
         if (edge.node.frontmatter.tags) {
@@ -108,6 +117,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       });
       console.log("Creating personal about pages")
       const authorList = Array.from(authorSet);
+      console.log("With authors:", authorList)
       authorList.forEach(author => {
         createPage({
           path: `/about/${_.kebabCase(author)}/`,
