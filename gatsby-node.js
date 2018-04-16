@@ -60,6 +60,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               frontmatter {
                 tags
+                author
               }
               fields {
                 slug
