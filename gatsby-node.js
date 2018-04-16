@@ -78,9 +78,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       const tagSet = new Set();
       const authorSet = new Set();
-      authorSet.add(siteConfig.defaultAuthorId);
+      authorSet.add(siteConfig.defaultAuthorName);
 
       result.data.allMarkdownRemark.edges.forEach(edge => {
+        console.log("Frontmatter:", edge.node.frontmatter)
         if (edge.node.frontmatter.tags) {
           edge.node.frontmatter.tags.forEach(tag => {
             tagSet.add(tag);
@@ -117,6 +118,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       });
       console.log("Creating personal about pages")
       const authorList = Array.from(authorSet);
+      console.log("With authors:", authorList)
       authorList.forEach(author => {
         createPage({
           path: `/about/${_.kebabCase(author)}/`,

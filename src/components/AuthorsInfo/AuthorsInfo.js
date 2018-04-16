@@ -2,6 +2,9 @@ import React from "react";
 
 import Author from "../Author/Author.js"
 
+const siteConfig = require("../../../data/SiteConfig.js");
+
+
 /* Extract the relevant author objects for
 the given names from the collection of all_authors.
 
@@ -37,8 +40,9 @@ export default class AuthorsInfo extends React.Component{
     let authors = [];
     if (authorNames === undefined || authorNames === null){
       /* handle the case where the post has no author information attached */
-      const defaultAuthorName = "Custom Programming Solutions"
-      authors = extract_authors(defaultAuthorName, allAuthorsInfo)
+      //const defaultAuthorName = "Custom Programming Solutions"
+      console.log("siteConfig.defaultAuthorName", siteConfig.defaultAuthorName)
+      authors = extract_authors(siteConfig.defaultAuthorName, allAuthorsInfo)
     } else {
       authors = extract_authors(authorNames, allAuthorsInfo)
     }
