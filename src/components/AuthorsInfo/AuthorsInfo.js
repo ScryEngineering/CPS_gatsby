@@ -35,7 +35,7 @@ export default class AuthorsInfo extends React.Component{
     console.log("in AuthorsInfo component", this.props);
     const { authorNames, allAuthorsInfo } = this.props
     let authors = [];
-    if (authorNames === undefined){
+    if (authorNames === undefined || authorNames === null){
       /* handle the case where the post has no author information attached */
       const defaultAuthorName = "Custom Programming Solutions"
       authors = extract_authors(defaultAuthorName, allAuthorsInfo)
