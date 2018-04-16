@@ -14,6 +14,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({
@@ -25,6 +26,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: `slug`,
       value: `/tutorials${slug}`,
+    })
+  }
+  if (node.internal.type === `PeopleJson`) {
+    createNodeField({
+      node,
+      name: `internalURL`,
+      value: `/about/${_.kebabCase(node.name)}/`,
     })
   }
 };
