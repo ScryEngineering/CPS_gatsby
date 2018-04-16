@@ -23,25 +23,18 @@ function extract_authors(author_names, all_authors){
     author_names = [author_names];
   }
   for (let authorname of author_names) {
-    console.log("authorname in loop:", authorname)
     const current_author_obj = all_authors.find(x => x.node.name === authorname)
     authorsList.push(current_author_obj)
   }
-  console.log("author_names:", author_names)
-  console.log("all_authors:", all_authors)
-  console.log("authorsList", authorsList)
   return authorsList;
 }
 
 export default class AuthorsInfo extends React.Component{
   render(){
-    console.log("in AuthorsInfo component", this.props);
     const { authorNames, allAuthorsInfo } = this.props
     let authors = [];
     if (authorNames === undefined || authorNames === null){
       /* handle the case where the post has no author information attached */
-      //const defaultAuthorName = "Custom Programming Solutions"
-      console.log("siteConfig.defaultAuthorName", siteConfig.defaultAuthorName)
       authors = extract_authors(siteConfig.defaultAuthorName, allAuthorsInfo)
     } else {
       authors = extract_authors(authorNames, allAuthorsInfo)

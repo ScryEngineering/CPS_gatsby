@@ -81,7 +81,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       authorSet.add(siteConfig.defaultAuthorName);
 
       result.data.allMarkdownRemark.edges.forEach(edge => {
-        console.log("Frontmatter:", edge.node.frontmatter)
         if (edge.node.frontmatter.tags) {
           edge.node.frontmatter.tags.forEach(tag => {
             tagSet.add(tag);
