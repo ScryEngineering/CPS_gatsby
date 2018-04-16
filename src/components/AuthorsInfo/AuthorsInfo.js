@@ -45,7 +45,7 @@ export default class AuthorsInfo extends React.Component{
     return(
       <div>
         {authors.map(author => (
-        <Author name={author.node.name} authorLink={author.node.url}/>
+        <Author name={author.node.name} authorLink={author.node.fields.internalURL}/>
       ))}
       </div>
     );

@@ -35,6 +35,9 @@ query IndexQuery {
         bio
         location
         socialUrls
+        fields {
+          internalURL
+        }
       }
     }
   }
