@@ -36,9 +36,7 @@ class PostListing extends React.Component {
             <h1>{post.title}</h1>
             <p className={styles.summarytext}>{post.excerpt}</p>
           </Link>
-          {post.authors &&
-          <AuthorsInfo authorName={post.authors} allAuthorsInfo={this.props.allAuthorsInfo}/>
-          }
+          <AuthorsInfo authorNames={post.authors} allAuthorsInfo={this.props.allAuthorsInfo}/>
           <PostTags tags={post.tags} />
          </div>
         ))}
