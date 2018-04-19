@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from 'react-helmet'
 
 export default class PersonalAboutTemplate extends React.Component {
     render(){
@@ -9,6 +10,9 @@ export default class PersonalAboutTemplate extends React.Component {
 
       return (
         <div>
+          <Helmet>
+            <title>About {currentPerson.name}</title>
+          </Helmet>
           <h1>
             About {currentPerson.name}
           </h1>

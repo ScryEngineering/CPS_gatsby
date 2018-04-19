@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Link from "gatsby-link";
 
 import styles from "./tutorials.module.css"
@@ -12,6 +13,9 @@ export default class TutorialTemplate extends React.Component {
     const allAuthors = this.props.data.authors.edges;
     return (
       <div>
+        <Helmet>
+          <title>Tutorials</title>
+        </Helmet>
         <h1>
           Tutorials
         </h1>

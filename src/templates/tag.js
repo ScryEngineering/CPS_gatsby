@@ -1,7 +1,8 @@
 import React from "react";
+import Helmet from 'react-helmet'
 import Link from "gatsby-link";
-import PostListing from "../components/PostListing/PostListing";
 
+import PostListing from "../components/PostListing/PostListing";
 
 export default class TagTemplate extends React.Component {
   render(){
@@ -10,6 +11,9 @@ export default class TagTemplate extends React.Component {
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     return (
       <div>
+        <Helmet>
+          <title>{tag} posts</title>
+        </Helmet>
         <h1>
           Posts tagged as {tag}
         </h1>

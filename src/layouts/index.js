@@ -14,6 +14,7 @@ const TemplateWrapper = ({ children, data }) => (
   <div>
     <Helmet
       title="Custom Programming Solutions"
+      titleTemplate="Custom Programming Solutions - %s"
       meta={[
         { name: 'description', content: 'Custom Programming Solutions' },
         { name: 'keywords', content: 'CPS' },

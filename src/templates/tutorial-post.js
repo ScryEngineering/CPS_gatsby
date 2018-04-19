@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from 'react-helmet'
 
 import PostTags from "../components/PostTags/PostTags";
 
@@ -10,6 +11,9 @@ export default function Template({
   const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
   return (
     <div className="tutorial-post-container">
+      <Helmet>
+        <title>{post.frontmatter.title}</title>
+      </Helmet>
       <div className="tutorial-post">
         <h1>{post.frontmatter.title}</h1>
         <h2>{post.frontmatter.author} {post.frontmatter.date}</h2>

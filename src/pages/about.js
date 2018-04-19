@@ -1,8 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 const IndexPage = () => (
   <div>
+    <Helmet>
+      <title>About</title>
+    </Helmet>
     <h1>About CPS</h1>
     <p>Custom programming solutions is a high end consulting firm that leverages technology to solve problems.
     </p>
