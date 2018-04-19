@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import Author from "../Author/Author.js"
 
 const siteConfig = require("../../../data/SiteConfig.js");
-
 
 /* Extract the relevant author objects for
 the given names from the collection of all_authors.
@@ -47,4 +47,8 @@ export default class AuthorsInfo extends React.Component{
       </div>
     );
   }
+}
+
+AuthorsInfo.propTypes = {
+  allAuthorsInfo: React.PropTypes.array.isRequired
 }
