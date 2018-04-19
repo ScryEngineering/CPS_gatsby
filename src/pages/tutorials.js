@@ -48,6 +48,7 @@ query IndexQuery {
   # tutorial posts
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
+    filter: { frontmatter: { draft: { ne: true } } }
   ) {
     totalCount
     edges {
