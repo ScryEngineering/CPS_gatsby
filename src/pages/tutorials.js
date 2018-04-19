@@ -61,6 +61,7 @@ query IndexQuery {
           tags
           date(formatString: "DD MMMM, YYYY")
           author
+          draft
         }
       }
     }
