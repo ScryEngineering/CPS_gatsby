@@ -20,17 +20,19 @@ class PostListing extends React.Component {
         authors: postEdge.node.frontmatter.author,
         date: postEdge.node.frontmatter.date,
         excerpt: postEdge.node.excerpt,
-        timeToRead: postEdge.node.timeToRead
+        timeToRead: postEdge.node.timeToRead,
+        draft: postEdge.node.frontmatter.draft
       });
     });
     return postList;
   }
   render() {
     const postList = this.getPostList();
+    const nonDraftPosts = postList.filter(post => post.draft !== true);
     return (
       <div>
         {/* Your post list here. */
-        postList.map(post => (
+        nonDraftPosts.map(post => (
         <div className={styles.post}>
           <Link to={post.path} key={post.title}>
             <h1>{post.title}</h1>

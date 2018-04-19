@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 export default class Author extends React.Component{
   render(){
-    console.log("in Author component", this.props);
     const {name, authorLink} = this.props;
     let authorNameElement = ""
     if (authorLink === undefined){

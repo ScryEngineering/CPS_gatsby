@@ -9,7 +9,6 @@ export default class TutorialTemplate extends React.Component {
   render(){
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
-    console.log("TutorialTemplate props...", this.props)
     const allAuthors = this.props.data.authors.edges;
     return (
       <div>
@@ -48,6 +47,7 @@ query IndexQuery {
   # tutorial posts
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
+    filter: { frontmatter: { draft: { ne: true } } }
   ) {
     totalCount
     edges {
@@ -61,6 +61,7 @@ query IndexQuery {
           tags
           date(formatString: "DD MMMM, YYYY")
           author
+          draft
         }
       }
     }

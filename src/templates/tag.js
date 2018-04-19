@@ -9,6 +9,7 @@ export default class TagTemplate extends React.Component {
     const tag = this.props.pathContext.tag;
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
+    const allAuthors = this.props.data.authors.edges;
     return (
       <div>
         <Helmet>
@@ -18,7 +19,7 @@ export default class TagTemplate extends React.Component {
           Posts tagged as {tag}
         </h1>
         <h4>{numberOfPosts} Posts</h4>
-        <PostListing postEdges={postEdges} />
+        <PostListing postEdges={postEdges} allAuthorsInfo={allAuthors}/>
       </div>
     );
   }
@@ -27,6 +28,23 @@ export default class TagTemplate extends React.Component {
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query TagPage($tag: String) {
+    # authors
+    authors: allPeopleJson {
+      edges {
+        node {
+          id
+          name
+          image
+          url
+          bio
+          location
+          socialUrls
+          fields {
+            internalURL
+          }
+        }
+      }
+    }
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }

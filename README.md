@@ -59,6 +59,22 @@ Right now this site is set up such that it is convienent to write posts using ma
 
 The directory that content is pulled from is specified in `gatsby-config.js` as settings to `gatsby-source-filesystem` plugin.
 
+### Drafts
+Add in a `draft: true` in the frontmatter to prevent a post from being published on the site:
+
+```markdown
+---
+title: "how to use mark a post as a draft"
+date: "2018-02-06"
+tags:
+    - markdown
+draft: true
+---
+
+This page won't be built when you run gatsby-build
+```
+
+### Excerpts
 When you are writing a post in markdown you can specify the excerpt by using the separator configured in `gatsby-config.js` in the `excerpt_separator` option for the `gatsby-transformer-remark` plugin.
 
 For now it is `<!-- end excerpt -->`. 

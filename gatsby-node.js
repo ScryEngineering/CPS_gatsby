@@ -61,6 +61,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               frontmatter {
                 tags
                 author
+                draft
               }
               fields {
                 slug
@@ -105,15 +106,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       console.log("Creating markdown pages")
       console.log(JSON.stringify(result, null, 4))
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        const tutorialPagePath = node.fields.slug
-        createPage({
-          path: tutorialPagePath,
-          component: path.resolve(`./src/templates/tutorial-post.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: tutorialPagePath,
-          },
-        })
+        if(node.frontmatter.draft === true){
+          console.log("Skipping page creation for page ",
+                      node.fields.slug, "as it is marked as a draft");  
+        }else{
+          const tutorialPagePath = node.fields.slug
+          createPage({
+            path: tutorialPagePath,
+            component: path.resolve(`./src/templates/tutorial-post.js`),
+            context: {
+              // Data passed to context is available in page queries as GraphQL variables.
+              slug: tutorialPagePath,
+            },
+          })
+        }
       });
       console.log("Creating personal about pages")
       const authorList = Array.from(authorSet);
