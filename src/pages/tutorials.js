@@ -9,7 +9,6 @@ export default class TutorialTemplate extends React.Component {
   render(){
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
-    console.log("TutorialTemplate props...", this.props)
     const allAuthors = this.props.data.authors.edges;
     return (
       <div>
