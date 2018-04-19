@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 export default class PersonalAboutTemplate extends React.Component {
     render(){
       console.log("PersonalAboutTemplate props", this.props)
-
+      //Note that if 2 people have the exact same name this will fail
       const currentPerson = this.props.data.allPeopleJson.edges[0].node;
       console.log("current person", currentPerson);
 
@@ -30,8 +30,7 @@ export default class PersonalAboutTemplate extends React.Component {
     }
 };
 
-  /* eslint no-undef: "off" */
-  //TODO: this query is failing because it doesn't match the required info over in gatsby-node
+ /* eslint no-undef: "off" */
 export const pageQuery = graphql`
 query AuthorPage($author: String) {
   allPeopleJson(filter: { name: { eq: $author } }) {
