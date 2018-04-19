@@ -9,7 +9,9 @@ const IndexPage = () => (
       <title>Home</title>
     </Helmet>
     <h1>Welcome to Custom Programming Solutions</h1>
-    <p>TODO: content for front page</p>
+    <p>
+      We specialize in making your business more efficient.
+    </p>
   </div>
 )
 
