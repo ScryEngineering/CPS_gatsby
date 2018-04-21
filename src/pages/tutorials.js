@@ -5,7 +5,7 @@ import Link from "gatsby-link";
 import styles from "./tutorials.module.css"
 import PostListing from "../components/PostListing/PostListing";
 
-export default class TutorialTemplate extends React.Component {
+export default class TutorialListingTemplate extends React.Component {
   render(){
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
