@@ -26,7 +26,7 @@ export default class TutorialListingTemplate extends React.Component {
 }
 
 export const query = graphql`
-query IndexQuery {
+query TutorialIndexQuery {
   # authors
   authors: allPeopleJson {
     edges {
