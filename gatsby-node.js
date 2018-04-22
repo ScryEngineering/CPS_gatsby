@@ -13,46 +13,35 @@ const webpackLodashPlugin = require("lodash-webpack-plugin");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 
+const createMarkdownNode = (node, getNode, createNodeField, fileSourcePath, pageType)=> {
+  if(!(pageType === "blog" || pageType === "tutorial")){
+    throw new Error(`Only "blog" and "tutorial" are supported for pageType, got: ${pageType}`);
+  }
+  const slug = createFilePath({
+    node,
+    getNode,
+    basePath: fileSourcePath,
+  })
+  createNodeField({
+    node,
+    name: `slug`,
+    value: `/${pageType}${slug}`,
+  })
+}
+
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     console.log("creating node", node)
     if(node.frontmatter.contentType === "tutorial"){
-      const slug = createFilePath({
-        node,
-        getNode,
-        basePath: `content/tutorial-pages`,
-      })
-      createNodeField({
-        node,
-        name: `slug`,
-        value: `/tutorials${slug}`,
-      })
+      createMarkdownNode(node, getNode, createNodeField, "content/tutorial-pages", "tutorial")
     } else if(node.frontmatter.contentType === "blog"){
-      const slug = createFilePath({
-        node,
-        getNode,
-        basePath: `content/blog-posts`,
-      })
-      createNodeField({
-        node,
-        name: `slug`,
-        value: `/blog${slug}`,
-      })
+      createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
     } else {
       console.log("No contentType was found in the frontmatter, \
 creating blog post as a defualt for: ", node)
-      const slug = createFilePath({
-        node,
-        getNode,
-        basePath: `content/blog-posts`,
-      })
-      createNodeField({
-        node,
-        name: `slug`,
-        value: `/blog${slug}`,
-      })
+      createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
     }
   }
   if (node.internal.type === `PeopleJson`) {
