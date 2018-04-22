@@ -78,6 +78,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 tags
                 author
                 draft
+                contentType
               }
               fields {
                 slug

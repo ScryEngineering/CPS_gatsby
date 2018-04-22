@@ -10,6 +10,10 @@ export default class BlogListingTemplate extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
+
+    console.log("postEdges", postEdges)
+    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
+
     return (
       <div>
         <Helmet>
@@ -19,7 +23,7 @@ export default class BlogListingTemplate extends React.Component {
           Blog posts
         </h1>
         <h4>{numberOfPosts} Posts</h4>
-        <PostListing postEdges={postEdges} allAuthorsInfo={allAuthors}/>
+        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
       </div>
     );
   }
@@ -44,7 +48,7 @@ query IndexQuery {
       }
     }
   }
-  # tutorial posts
+  # blog posts
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
     filter: { frontmatter: { draft: { ne: true } } }
@@ -62,6 +66,7 @@ query IndexQuery {
           date(formatString: "DD MMMM, YYYY")
           author
           draft
+          contentType
         }
       }
     }
