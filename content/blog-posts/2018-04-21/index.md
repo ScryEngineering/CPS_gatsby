@@ -6,6 +6,7 @@ tags:
     - drupal
     - CMS
     - web-development
+contentType: "blog"
 ---
 
 We have re-launched the site with a new technology, Gatsby.js.

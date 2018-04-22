@@ -7,6 +7,7 @@ tags:
     - OpenAPI
     - REST
 draft: true
+contentType: "tutorial"
 ---
 
 API first design with OpenAPI
