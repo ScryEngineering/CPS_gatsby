@@ -10,6 +10,7 @@ export default class TutorialListingTemplate extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
+    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "tutorial");
     return (
       <div>
         <Helmet>
@@ -19,7 +20,7 @@ export default class TutorialListingTemplate extends React.Component {
           Tutorials
         </h1>
         <h4>{numberOfPosts} Posts</h4>
-        <PostListing postEdges={postEdges} allAuthorsInfo={allAuthors}/>
+        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
       </div>
     );
   }
@@ -62,6 +63,7 @@ query TutorialIndexQuery {
           date(formatString: "DD MMMM, YYYY")
           author
           draft
+          contentType
         }
       }
     }
