@@ -6,6 +6,7 @@ tags:
     - exception-handling
     - Python
     - logging
+contentType: "tutorial"
 ---
 
 

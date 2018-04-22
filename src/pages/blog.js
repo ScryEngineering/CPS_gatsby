@@ -5,30 +5,31 @@ import Link from "gatsby-link";
 import styles from "./tutorials.module.css"
 import PostListing from "../components/PostListing/PostListing";
 
-export default class TutorialListingTemplate extends React.Component {
+export default class BlogListingTemplate extends React.Component {
   render(){
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
-    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "tutorial");
+    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
     var postCount = filteredPosts.filter(() => true).length;
+
     return (
       <div>
         <Helmet>
-          <title>Tutorials</title>
+          <title>Blog</title>
         </Helmet>
         <h1>
-          Tutorials
+          Blog posts
         </h1>
         <h4>{postCount} Posts</h4>
-        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
       </div>
     );
   }
 }
 
 export const query = graphql`
-query TutorialIndexQuery {
+query IndexQuery {
   # authors
   authors: allPeopleJson {
     edges {
@@ -46,7 +47,7 @@ query TutorialIndexQuery {
       }
     }
   }
-  # tutorial posts
+  # blog posts
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
     filter: { frontmatter: { draft: { ne: true } } }
