@@ -34,7 +34,7 @@ console.log(test.length);
 ```
 We get a result of 11!
 
-Now if this is "astonishing" to you then it is because you'd expect something else here.
+Now if this is ["astonishing"](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) to you then it is because you'd expect something else here.
 
 From [the standard](https://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-array-instances-length) the length is defined as:
 > The length property of an Array instance is a data property whose value is always numerically greater than the name of every configurable own property whose name is an array index.
@@ -49,19 +49,7 @@ console.log(test.length);
 ```
 Going to the developer console and looking and copying out the element in Firefox gives you this:
 ```javascript
-[
-  1,
-  2,
-  3,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  4
-]
+[ 1, 2, 3, null, null, null, null, null, null, null, 4]
 ```
 The implementation appears to be a dense representation that pads intermediate values with `null`s.
 
@@ -74,10 +62,10 @@ const count = test.filter(() => true).length;
 And now we get the expected results! Go play around with this over on https://es6console.com/ or https://jsfiddle.net/ or something.
 
 ## What you can learn from this when making your own APIs
-I feel like there's a learning opportunity here, this post isn't meant to be a "lets all bash on javascript" post, there's plenty of those out there already.
+I feel like there's a learning opportunity here, this post isn't meant to be a "lets all bash on xyz language" post, there's plenty of [those out there already](https://www.destroyallsoftware.com/talks/wat).
 Rather I think that seeing exactly why this is clunky can help us make better APIs.
 
-Overall the newer javascript language standards present a modern usable language but there's definitely some conceptual overhead if you want to understand how things are implemented at a deeper level, especially the cruft from the early pre-standardized language that's stayed around.
+Overall the newer javascript language standards present a modern usable language but there's definitely some conceptual overhead if you want to understand how things are implemented at a deeper level, especially the cruft from the early pre-standardized language that's had to stay around.
 Looking at a comparison with a language that has a better type system that is also highly dynamic is quite enlightening.
 
 Python in contrast very clearly separates the notions of associative mappings and sequences.
