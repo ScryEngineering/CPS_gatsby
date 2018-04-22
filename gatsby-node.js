@@ -17,16 +17,43 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: `content/tutorial-pages`,
-    })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: `/tutorials${slug}`,
-    })
+    console.log("creating node", node)
+    if(node.frontmatter.contentType === "tutorial"){
+      const slug = createFilePath({
+        node,
+        getNode,
+        basePath: `content/tutorial-pages`,
+      })
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `/tutorials${slug}`,
+      })
+    } else if(node.frontmatter.contentType === "blog"){
+      const slug = createFilePath({
+        node,
+        getNode,
+        basePath: `content/blog-posts`,
+      })
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `/blog${slug}`,
+      })
+    } else {
+      console.log("No contentType was found in the frontmatter, \
+creating blog post as a defualt for: ", node)
+      const slug = createFilePath({
+        node,
+        getNode,
+        basePath: `content/blog-posts`,
+      })
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `/blog${slug}`,
+      })
+    }
   }
   if (node.internal.type === `PeopleJson`) {
     createNodeField({
