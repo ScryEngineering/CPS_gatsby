@@ -10,9 +10,8 @@ export default class BlogListingTemplate extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
-
-    console.log("postEdges", postEdges)
     const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
+    var postCount = filteredPosts.filter(() => true).length;
 
     return (
       <div>
@@ -22,7 +21,7 @@ export default class BlogListingTemplate extends React.Component {
         <h1>
           Blog posts
         </h1>
-        <h4>{numberOfPosts} Posts</h4>
+        <h4>{postCount} Posts</h4>
         <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
       </div>
     );

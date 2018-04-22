@@ -11,6 +11,7 @@ export default class TutorialListingTemplate extends React.Component {
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
     const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "tutorial");
+    var postCount = filteredPosts.filter(() => true).length;
     return (
       <div>
         <Helmet>
@@ -19,7 +20,7 @@ export default class TutorialListingTemplate extends React.Component {
         <h1>
           Tutorials
         </h1>
-        <h4>{numberOfPosts} Posts</h4>
+        <h4>{postCount} Posts</h4>
         <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
       </div>
     );
