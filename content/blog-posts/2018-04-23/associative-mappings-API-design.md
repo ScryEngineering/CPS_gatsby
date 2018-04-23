@@ -34,7 +34,7 @@ console.log(test.length);
 ```
 We get a result of 11!
 
-Now if this is ["astonishing"](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) to you then it is because you'd expect something else here.
+Now if this is ["astonishing"](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) to you then it is because you'd expect something else here (I expected to see an index error of some sort here).
 
 From [the standard](https://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-array-instances-length) the length is defined as:
 > The length property of an Array instance is a data property whose value is always numerically greater than the name of every configurable own property whose name is an array index.
@@ -54,7 +54,7 @@ Going to the developer console and looking and copying out the element in Firefo
 The implementation appears to be a dense representation that pads intermediate values with `null`s.
 
 ## Our solution
-There's probably a library for this [somewhere on NPM](https://www.npmjs.com/package/array-length) (there's a NPM library for *everything*!) but we just went about it with this ES6 snippet:
+There's probably a library for this [somewhere on NPM](https://www.npmjs.com/package/array-length) (there's a NPM library for *everything*!) but we didn't want to introduce a dependency for something this simple and just used this ES6 snippet:
 
 ```javascript
 const count = test.filter(() => true).length;
@@ -76,7 +76,6 @@ Specifically you the interface to the associative mappings and the sequences are
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 IndexError: list assignment index out of range
->>> 
 ```
 Because the indexes are not dictionary keys in Python this straight up fails, you have to supply a valid index into the array.
 
