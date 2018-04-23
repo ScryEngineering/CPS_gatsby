@@ -15,5 +15,8 @@ Vagrant.configure("2") do |config|
     apk add nodejs --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/main/
     apk add yarn --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community/
     yarn global add gatsby-cli
+    apk add --no-cache make gcc g++ python # Required to get install from source of gatsby-plugin-sharp working
+    apk add vips-dev fftw-dev --update-cache --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
+    yarn global add node-gyp
   SHELL
 end
