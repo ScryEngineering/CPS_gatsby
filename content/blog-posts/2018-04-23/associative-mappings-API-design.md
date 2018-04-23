@@ -10,16 +10,14 @@ tags:
     - programming-languages
 contentType: "blog"
 ---
-Associative mappings in language design
 
-We have been working on projects in Javascript and Python a fair bit lately. In the past we ported a few legacy PHP apps over to newer systems.
+We have been working on projects in Javascript and Python a fair bit lately. In the past we ported a few legacy PHP apps over to newer systems. A thought that has been in my mind for a while has been that the associative mapping types in languages work much better if they are completely distinct from sequence types.
 
-A thought that has been in my mind for a while has been that the associative mapping types in languages work much better if they are completely distinct from sequence types. It took something from today to finally prompt me to write about it though.
+It took something from today to finally prompt me to write about it though.
 
 ## Why `.length` doesn't always work for finding the count of the elements
 
-We were filtering some data and wanted to get a count of how elements there were in the Array.
-A really simple way to go about this would be to use the `length` property:
+We were filtering some data and wanted to get a count of how elements there were in the Array. A really simple way to go about this would be to use the `length` property:
 
 ```javascript
 const test = [1,2,3];
@@ -51,13 +49,13 @@ test[10] = 4;
 console.log(test.length);
 ```
 
-Going to the developer console and looking and copying out the element in Firefox gives you this:
+Going to the developer console shows that the array `test` is now this:
 
 ```javascript
 [ 1, 2, 3, null, null, null, null, null, null, null, 4]
 ```
 
-The implementation appears to be a dense representation that pads intermediate values with `null`s.
+The implementation appears to be a dense representation that has padded intermediate values with `null`s.
 
 ## Our solution
 
