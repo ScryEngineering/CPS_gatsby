@@ -10,6 +10,8 @@ export default class TagTemplate extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
+    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.draft !== true);
+    var postCount = filteredPosts.filter(() => true).length;
     return (
       <div>
         <Helmet>
@@ -18,8 +20,8 @@ export default class TagTemplate extends React.Component {
         <h1>
           Posts tagged as {tag}
         </h1>
-        <h4>{numberOfPosts} Posts</h4>
-        <PostListing postEdges={postEdges} allAuthorsInfo={allAuthors}/>
+        <h4>{postCount} Posts</h4>
+        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
       </div>
     );
   }
@@ -63,6 +65,7 @@ export const pageQuery = graphql`
             tags
             date
             author
+            draft
           }
         }
       }
