@@ -1,7 +1,7 @@
 ---
 title: "Pytest fixtures"
 author: "Janis Lesinskis"
-date: "2018-04-24"
+date: "2018-05-06"
 tags:
     - Python
     - OpenAPI
