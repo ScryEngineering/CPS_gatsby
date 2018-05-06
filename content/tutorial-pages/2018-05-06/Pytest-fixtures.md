@@ -66,7 +66,6 @@ def test_audio_uploads_endpoint(client):
 
 This test fails and 500 errors, so I turn on the debug mode via the flask configuration by adding the following to the client fixture setup:
 
-
 ```python
 app = connexion.FlaskApp(__name__)
 app.add_api('../swagger/api_spec.yaml', resolver=RestyResolver('api'))
@@ -81,9 +80,9 @@ def client():
         yield c
 ```
 
-So now when this fails I at least get a message as to why as opposed to just getting a 500 response that I would like to see if I were actually running this in production.
+So now when this fails I at least get a message as to why as opposed to just getting the non-descript 500 response that I would like to see if I were actually running this in production.
 
-Basically it comes down to configuration not being set up. Which isn't really a suprise, but does hint at a general type of issue, you want to make sure that if you are doing an integration type of test that you are actually testing the same thing which means that the configuration must be the same. So I add in a bunch of configuration which is essentially just duplicating the app configuration:
+One test working while the other doesn't comes down to configuration not being set up properly for the file uploads. Generally you want to make sure that if you are doing an integration type of test that you are actually testing the same thing which means that the configuration must be the same. So I set up the required configuration which closely mirrors the actual app config:
 
 ```python
 @pytest.fixture(scope='module')
@@ -124,4 +123,30 @@ Now eveything works well, the test no longer errors. The test itself is fairly s
 So I went about fixing these issues in this PR.
 
 # Using pytest fixtures with Flask
-In order to deal with this duplication of the test fixtures we can make use of Pytest's test fixtures.
+
+In order to deal with this duplication of the test fixtures we can make use of Pytest's test fixtures. Specifically Pytest provides the ability to specify a fixture to multiple test files via conftest.
+
+So we set up a file `tests/conftest.py` in which we can set up fixtures that will be available to all the tests we wish to run.
+
+If we just copied the existing setup directly it won't work immediately as we are running a few things that must be run only once more than once now:
+
+```
+E           AssertionError: A setup function was called after the first request was handled.  This usually indicates a bug in the application where a module was not imported and decorators or other functionality was called too late.
+E           To fix this make sure to import all your view modules, database models and everything related at a central place before the application starts serving requests.
+```
+
+So we have to make sure that these functions that create DB tables are called only once. To do this we can make good use of the fact that Python modules are effectively singletons and we can place the relevant configuration at the top level of conftest.py:
+
+```python
+# conftest.py
+
+#Set up flask_app here
+
+@pytest.fixture
+def client():
+    """Create a test client to send requests to"""
+    with flask_app.test_client() as c:
+        yield c
+```
+
+So at this point we have now created a fixture and removed the duplicated code to set up the test server.
