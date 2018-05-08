@@ -12,9 +12,11 @@ draft: true
 contentType: "tutorial"
 ---
 
-So I ran into a slightly preplexing issue when testing the Persephone web API.
+There was a preplexing issue we ran into when testing the Persephone web API. There was a foreign key constraint specified in SQLAlchemy but you could add in new entries with bogus foreign keys without the DB engine raising an `IntegrityError`. Why did this happen?>
 
-Specifically I have some tables that have a foreign key relationship between them, no big deal I thought so I wrote some definitions as follows:
+<!-- end excerpt -->
+
+This API requires some tables that have foreign key relationships between them, no big deal I thought so I wrote some definitions as follows:
 
 ```python
 class Utterance(db.Model):
@@ -52,11 +54,11 @@ Which is then called like this:
     db.session.commit()
 ```
 
-Now given bogus IDs for foreign keys this should just fail. But it didn't! So I knew this was wrong and immediately wrote a failing test case to cover this behavior.
-After a diversion into the SQL alchemy docs for foreign keys to see if I'd done something stupid in my ORM definitions I hadn't spotted anything.
+Now given bogus IDs for foreign keys this should just fail. But it didn't! So I knew something was wrong and immediately wrote a failing test case to cover this behavior.
+After a diversion into the SQLAlchemy docs for foreign keys to see if I'd done something stupid in my ORM definitions but I hadn't spotted anything.
 
-I'm using SQLite for the tests and I remember that SQL implementations can differ so I look it up.
-Looking into this further it turns out that SQLite doesn't actually enforce FK constraints by default. This default behavior took me entirely by surprise.
+I'm using SQLite for the tests and I remember that SQL implementations can differ so I look it up issues relating to SQLite.
+Looking into this further it turns out that SQLite doesn't actually enforce FK constraints by default. It is this default behavior took me entirely by surprise.
 
 This is because SQLite only started supporting foreign keys in version 3.6.19, [see their page for details](https://www.sqlite.org/foreignkeys.html). So this means that for backwards compatibility reasons you have to turn that functionality on explicitly. This means we need to issue the following command:
 
@@ -64,7 +66,7 @@ This is because SQLite only started supporting foreign keys in version 3.6.19, [
 sqlite> PRAGMA foreign_keys = ON;
 ```
 
-To do this using SQLALchemy we have to use the following hook:
+To do this using SQLALchemy we can use the following hook:
 
 ```python
 from sqlalchemy import event
