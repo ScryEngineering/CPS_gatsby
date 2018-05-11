@@ -33,7 +33,6 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    console.log("creating node", node)
     if(node.frontmatter.contentType === "tutorial"){
       createMarkdownNode(node, getNode, createNodeField, "content/tutorial-pages", "tutorial")
     } else if(node.frontmatter.contentType === "blog"){
@@ -121,7 +120,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       });
 
       console.log("Creating markdown pages")
-      console.log(JSON.stringify(result, null, 4))
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if(node.frontmatter.draft === true){
           console.log("Skipping page creation for page ",
