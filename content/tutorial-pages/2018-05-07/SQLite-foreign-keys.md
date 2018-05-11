@@ -8,11 +8,10 @@ tags:
     - SQLAlchemy
     - SQL
     - Flask
-draft: true
 contentType: "tutorial"
 ---
 
-There was a preplexing issue we ran into when testing the Persephone web API. There was a foreign key constraint specified in SQLAlchemy but you could add in new entries with bogus foreign keys without the DB engine raising an `IntegrityError`. Why did this happen?>
+There was a preplexing issue we ran into when testing the [Persephone web API](https://github.com/persephone-tools/persephone-web-API/). There was a foreign key constraint specified in SQLAlchemy but you could add in new entries with bogus foreign keys without the DB engine raising an `IntegrityError`. Why did this happen?
 
 <!-- end excerpt -->
 
@@ -55,10 +54,10 @@ Which is then called like this:
 ```
 
 Now given bogus IDs for foreign keys this should just fail. But it didn't! So I knew something was wrong and immediately wrote a failing test case to cover this behavior.
-After a diversion into the SQLAlchemy docs for foreign keys to see if I'd done something stupid in my ORM definitions but I hadn't spotted anything.
+I spent some time studying the SQLAlchemy docs for foreign keys to see if I'd done something stupid in my ORM definitions but I didn't spot anything.
 
-I'm using SQLite for the tests and I remember that SQL implementations can differ so I look it up issues relating to SQLite.
-Looking into this further it turns out that SQLite doesn't actually enforce FK constraints by default. It is this default behavior took me entirely by surprise.
+So the next thing to look at is the rest of the configuration. I'm using SQLite for the tests and I remember that SQL implementations can differ so I look it up issues relating to SQLite.
+Looking into this further it turns out that SQLite doesn't actually enforce FK constraints by default. This default behavior took me entirely by surprise and was the cause of this behavior.
 
 This is because SQLite only started supporting foreign keys in version 3.6.19, [see their page for details](https://www.sqlite.org/foreignkeys.html). So this means that for backwards compatibility reasons you have to turn that functionality on explicitly. This means we need to issue the following command:
 
