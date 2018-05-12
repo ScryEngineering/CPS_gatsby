@@ -15,21 +15,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `tutorials`,
-        path: `${__dirname}/content/tutorial-pages`,
+        path: `${config.contentDir}/content/tutorial-pages`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/content/blog-posts`,
+        path: `${config.contentDir}/content/blog-posts`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `people`,
-        path: `${__dirname}/content/${config.peopleDir}`
+        path: `${config.contentDir}/content/${config.peopleDir}`
       }
     },
     "gatsby-transformer-json",
