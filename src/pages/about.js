@@ -18,7 +18,7 @@ const IndexPage = () => (
     In house we have experience with IT management, tech industry business strategy, project management, process improvement.
     We also have in house technical skills in content management systems, data analysis, advanced Python development including internals and performance engineering, web development, data analysis, embedded systems.
     We have a large network of professionals we partner with on projects, we regularly work with graphic designers and content writers along with other professionals that complement our core skills.
-    With this network we prefer to refer on work to others we know can deliver if we feel that we can't give a gaurantee we can do it.
+    With this network we can refer on work to others we know if we are too busy to do it ourselves.
     </p>
   </div>
 )
