@@ -9,7 +9,10 @@ const ContactPage = () => (
       <title>Contact</title>
     </Helmet>
     <h1>Contact us!</h1>
-    <p>TODO: content for contact page</p>
+    <p>
+      Do you have a question about projects, technologies, tutorial posts you'd like to see or something else that is of interest?
+      If you would like to start a discussion about how we can help you we'd love to hear from you, send us an email: hello at customprogrammingsolutions.
+    </p>
   </div>
 )
 
