@@ -3,6 +3,7 @@ const config = require("./data/SiteConfig.js");
 module.exports = {
   siteMetadata: {
     title: 'Custom Programming Solutions',
+    siteUrl: 'https://www.customprogrammingsolutions.com'
   },
   plugins: [
     {
@@ -33,6 +34,7 @@ module.exports = {
       }
     },
     "gatsby-transformer-json",
+    'gatsby-plugin-robots-txt',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,
