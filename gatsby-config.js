@@ -3,6 +3,7 @@ const config = require("./data/SiteConfig.js");
 module.exports = {
   siteMetadata: {
     title: 'Custom Programming Solutions',
+    siteUrl: 'https://www.customprogrammingsolutions.com'
   },
   plugins: [
     {
