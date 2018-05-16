@@ -39,7 +39,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
     } else {
       console.log("No contentType was found in the frontmatter, \
-creating blog post as a defualt for: ", node)
+creating blog post as a default for: ", node)
       createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
     }
   }
