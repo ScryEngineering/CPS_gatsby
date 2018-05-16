@@ -33,6 +33,7 @@ module.exports = {
       }
     },
     "gatsby-transformer-json",
+    'gatsby-plugin-robots-txt',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,
