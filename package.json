@@ -16,7 +16,8 @@
     "gatsby-transformer-remark": "^1.7.39",
     "lodash-webpack-plugin": "^0.11.4",
     "react-helmet": "^5.2.0",
-    "typography-theme-lawton": "^0.15.10"
+    "typography-theme-lawton": "^0.15.10",
+    "typography-theme-noriega": "^0.15.10"
   },
   "keywords": [
     "gatsby"
