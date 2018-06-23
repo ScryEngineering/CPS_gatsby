@@ -20,6 +20,9 @@ const IndexPage = () => (
     We have a large network of professionals we partner with on projects, we regularly work with graphic designers and content writers along with other professionals that complement our core skills.
     With this network we can refer on work to others we know if we are too busy to do it ourselves.
     </p>
+    <p>
+    If you would like to see some of the open source code we have contributed have a look at our <a href="https://github.com/customprogrammingsolutions">GitHub page</a>
+    </p>
   </div>
 )
 
