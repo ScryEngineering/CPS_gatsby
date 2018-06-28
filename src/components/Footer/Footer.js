@@ -30,7 +30,9 @@ class Footer extends Component {
         <section className={styles.socialButtons}>
           <SocialIcon url="https://github.com/customprogrammingsolutions" />
         </section>
-        <PoweredBy show={promoteGatsby} />
+        <section>
+          <PoweredBy show={promoteGatsby} />
+        </section>
       </footer>
     );
   }
