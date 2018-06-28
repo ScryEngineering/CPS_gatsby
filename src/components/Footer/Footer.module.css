@@ -9,7 +9,7 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.75em;
-    color: #bbc7cc;
+    color: #040404;
 }
 
 .site-footer a {
@@ -23,24 +23,30 @@
     border-bottom: #bbc7cc 1px solid;
 }
 
+.logo {
+    display: block;
+    width: 25%;
+    float: left;
+    text-align: right;    
+}
+
 .poweredby {
     display: block;
-    width: 45%;
     float: right;
     text-align: right;
 }
 
 .socialButtons {
     display: block;
-    width: 45%;
+    width: 25%;
     float: right;
     text-align: right;
 }
 
 .copyright {
     display: block;
-    width: 45%;
-    float: left;
+    width: 25%;
+    float: center;
 }
 
 /* ==========================================================================

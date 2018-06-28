@@ -20,6 +20,9 @@ class Footer extends Component {
     const { label, url, year } = this.props.copyright;
     return (
       <footer className={styles.siteFooter}>
+        <section className={styles.logo}>
+          <img src="/logo-CPS.png" alt="CPS logo"></img>
+        </section>
         <section className={styles.copyright}>
           <a href={url || "/"}>{label}</a> &copy;{" "}
           {year || new Date().getFullYear()}
