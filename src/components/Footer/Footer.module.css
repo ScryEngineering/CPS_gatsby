@@ -2,26 +2,27 @@
        Footer - The bottom of every page
    ========================================================================== */
 
-.site-footer {
+.siteFooter {
     position: relative;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    width: 95%;
+    width: 100%;
     margin: 8rem 0 0;
     padding: 1rem 15px;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.75em;
     background-color: #040404;
+    vertical-align: middle;
 }
 
-.site-footer a {
+.siteFooter a {
     color: #bbc7cc;
     text-decoration: none;
     font-weight: bold;
 }
 
-.site-footer a:hover {
+.siteFooter a:hover {
     color: #bbc7cc;
     border-bottom: #bbc7cc 1px solid;
 }
