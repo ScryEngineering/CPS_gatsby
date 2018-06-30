@@ -4,8 +4,9 @@
 
 .siteFooter {
     position: relative;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    display: flex;
+    flex-wrap: wrap;
+    /*grid-template-columns: 25% 35% 15% 25%;*/
     width: 100%;
     margin: 8rem 0 0;
     padding: 1rem 15px;
@@ -29,23 +30,21 @@
 }
 
 .logo {
-    float: left;
-    text-align: right;    
+    max-width: 50%;
+    text-align: left;
 }
 
 .poweredby {
     display: block;
-    float: right;
     text-align: right;
 }
 
 .socialButtons {
-    float: right;
-    text-align: right;
+    text-align: center;
 }
 
 .copyright {
-    float: center;
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -55,6 +54,8 @@
 @media only screen and (max-width: 500px) {
     .site-footer {
         margin-top: 3rem;
+        display: flex;
+        flex-flow: row wrap;
     }
 
     .post-template .site-footer,
