@@ -18,6 +18,10 @@
     vertical-align: middle;
 }
 
+.siteFooter > section {
+    flex: 1;
+}
+
 .siteFooter a {
     color: #bbc7cc;
     text-decoration: none;
@@ -30,13 +34,14 @@
 }
 
 .logo {
-    max-width: 50%;
-    text-align: left;
+    text-align: center;
 }
 
-.poweredby {
-    display: block;
-    text-align: right;
+.logo > img {
+    max-width: 50%;
+    min-width: 150px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .socialButtons {
@@ -52,14 +57,14 @@
    ========================================================================== */
 
 @media only screen and (max-width: 500px) {
-    .site-footer {
+    .siteFooter {
         margin-top: 3rem;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
     }
 
-    .post-template .site-footer,
-    .page-template .site-footer {
+    .post-template .siteFooter,
+    .page-template .siteFooter {
         margin-top: 0;
     }
 }

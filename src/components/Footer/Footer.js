@@ -4,19 +4,6 @@ var { SocialIcon } = require('react-social-icons');
 
 class Footer extends Component {
   render() {
-    const PoweredBy = props => {
-      const { show } = props;
-      if (show) {
-        return (
-          <section className={styles.poweredby}>
-            Proudly published with <a href="https://gatsbyjs.org">Gatsby</a>
-          </section>
-        );
-      }
-      return null;
-    };
-
-    const { promoteGatsby } = this.props;
     const { label, url, year } = this.props.copyright;
     return (
       <footer className={styles.siteFooter}>
@@ -30,7 +17,6 @@ class Footer extends Component {
         <section className={styles.socialButtons}>
           <SocialIcon url="https://github.com/customprogrammingsolutions" />
         </section>
-        <PoweredBy show={promoteGatsby} />
       </footer>
     );
   }
