@@ -20,6 +20,8 @@
 
 .siteFooter > section {
     flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .siteFooter a {
