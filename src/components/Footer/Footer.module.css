@@ -2,38 +2,54 @@
        Footer - The bottom of every page
    ========================================================================== */
 
-.site-footer {
+.siteFooter {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    /*grid-template-columns: 25% 35% 15% 25%;*/
+    width: 100%;
     margin: 8rem 0 0;
     padding: 1rem 15px;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.75em;
     color: #bbc7cc;
+    background-color: #040404;
+    vertical-align: middle;
 }
 
-.site-footer a {
+.siteFooter > section {
+    flex: 1;
+}
+
+.siteFooter a {
     color: #bbc7cc;
     text-decoration: none;
     font-weight: bold;
 }
 
-.site-footer a:hover {
+.siteFooter a:hover {
     color: #bbc7cc;
     border-bottom: #bbc7cc 1px solid;
 }
 
-.poweredby {
-    display: block;
-    width: 45%;
-    float: right;
-    text-align: right;
+.logo {
+    text-align: center;
+}
+
+.logo > img {
+    max-width: 50%;
+    min-width: 150px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.socialButtons {
+    text-align: center;
 }
 
 .copyright {
-    display: block;
-    width: 45%;
-    float: left;
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -41,12 +57,14 @@
    ========================================================================== */
 
 @media only screen and (max-width: 500px) {
-    .site-footer {
+    .siteFooter {
         margin-top: 3rem;
+        display: flex;
+        flex-flow: column wrap;
     }
 
-    .post-template .site-footer,
-    .page-template .site-footer {
+    .post-template .siteFooter,
+    .page-template .siteFooter {
         margin-top: 0;
     }
 }
