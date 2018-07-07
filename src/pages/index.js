@@ -10,7 +10,8 @@ const IndexPage = () => (
     </Helmet>
     <h1>Welcome to Custom Programming Solutions</h1>
     <p>
-      We specialize in making your business more efficient.
+    We are a versatile programming, software development and consulting firm driven by trusted industry experts.
+    Our clients are agile organizations who require high-quality, custom built solutions.
     </p>
   </div>
 )

@@ -8,21 +8,23 @@ const IndexPage = () => (
       <title>About</title>
     </Helmet>
     <h1>About CPS</h1>
-    <p>Custom programming solutions is a high end consulting firm that leverages technology to solve problems.
+    <p>
+    We create bespoke software solutions for clients in the software, process automation and optimization industries.
+    From engineering specialty software and improving performance to creating scalable systems that deliver long-term value,
+    we build products that help our clients thrive in highly competitive markets.
     </p>
     <p>
-    With many decades of collective experience in Business and technology we are well placed to deliver real gains on technology projects.
+    Our passion for problem solving and innovation is in project we engage in, and we are committed to building a long-term relationship that brings value to your business.
+    Whether you’re looking for outisde consulting help or augmentation for your existing internal team, we have the versatility and expertise to meet your specific requirements.
     </p>
     <p>
-    One of the biggest advantages we can bring as a result of our experience is knowing what our capabilites are.
-    In house we have experience with IT management, tech industry business strategy, project management, process improvement.
-    We also have in house technical skills in content management systems, data analysis, advanced Python development including internals and performance engineering, web development, data analysis, embedded systems.
-    We have a large network of professionals we partner with on projects, we regularly work with graphic designers and content writers along with other professionals that complement our core skills.
-    With this network we can refer on work to others we know if we are too busy to do it ourselves.
+    Our elite software developers bring years of experience in specialty fields such as combinatorial optimization, blockchain,
+    Internet of Things hardware/software interfacing and implementation, complex integrations between back-end systems and web technologies such as content management systems and web applications.
     </p>
     <p>
-    If you would like to see some of the open source code we have contributed have a look at our <a href="https://github.com/customprogrammingsolutions">GitHub page</a>
+    When you work with us, you’ll never be left wondering - our collaborative development process, passion for educating our clients and commitment to transparency means we guide you seamlessly through every step of your project, from first contact to launch.
     </p>
+
   </div>
 )
 
