@@ -24,6 +24,9 @@ const IndexPage = () => (
     <p>
     When you work with us, you’ll never be left wondering - our collaborative development process, passion for educating our clients and commitment to transparency means we guide you seamlessly through every step of your project, from first contact to launch.
     </p>
+    <p>
+    Please reach out to us with any questions via email: hello at customprogrammingsolutions.com
+    </p>
 
   </div>
 )
