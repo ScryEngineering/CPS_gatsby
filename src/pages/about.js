@@ -14,8 +14,8 @@ const IndexPage = () => (
     we build products that help our clients thrive in highly competitive markets.
     </p>
     <p>
-    Our passion for problem solving and innovation is in project we engage in, and we are committed to building a long-term relationship that brings value to your business.
-    Whether you’re looking for outisde consulting help or augmentation for your existing internal team, we have the versatility and expertise to meet your specific requirements.
+    Our passion for problem solving and innovation is in every project we engage in, and we are committed to building a long-term relationship that brings value to your business.
+    Whether you’re looking for outside consulting help or augmentation for your existing internal team, we have the versatility and expertise to meet your specific requirements.
     </p>
     <p>
     Our elite software developers bring years of experience in specialty fields such as combinatorial optimization, blockchain,
