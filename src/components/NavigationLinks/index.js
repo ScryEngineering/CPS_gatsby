@@ -4,15 +4,15 @@ import Link from 'gatsby-link'
 import styles from "./NavigationLinks.module.css"
 
 const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to}>
+  <li className={styles.li}>
+    <Link to={props.to} className={styles.link}>
       {props.children}
     </Link>
   </li>
 
 const NavigationLinks = () => (
-  <div className={styles.navigationLinks}>
-    <ul style={{ listStyle: `none`, float: `center` }}>
+  <div className={styles.div}>
+    <ul className={styles.ul}>
       <ListLink to="/">Home</ListLink>
       <ListLink to="/about/">About</ListLink>
       <ListLink to="/contact/">Contact</ListLink>

@@ -1,3 +1,41 @@
-.navigationLinks{
-    background: cadetblue;
+.div {
+    background: #292a2b;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 1rem;
+}
+
+.ul {
+    list-style: none;
+    float: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.li {
+    display: inline-block;
+    margin: 2px;
+    padding: 0px;
+    flex: 1;
+}
+
+.link {
+    padding: 0.6rem 1.2rem;
+    margin: 0px;
+    border-radius: 3px;
+}
+
+.link, .link:hover, .link:visited, a:active {
+    text-decoration: none;
+}
+
+.link, .link:visited, .link:active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.link:hover {
+    color: #ffffff;
+    background-color: #ffffff41;
 }
