@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import NavigationLinks from '../components/NavigationLinks';
 import Footer from '../components/Footer/Footer';
 
+import './reset.css'
 import './index.css'
 
 require("prismjs/themes/prism-solarizedlight.css");
