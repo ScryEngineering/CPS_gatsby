@@ -7,3 +7,17 @@ h1 {
   max-width: 960px;
   padding: 4rem 1.0875rem;
 }
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+}
+
+a, a:visited, a:active {
+  color: #636466;
+  border-bottom: 1px dashed #636466;
+}
+
+a:hover {
+  color: #000000;
+  border-bottom: 1px dashed #000000;
+}
