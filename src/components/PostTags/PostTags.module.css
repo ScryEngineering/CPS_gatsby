@@ -6,6 +6,7 @@
     padding: 0.3rem 0.8rem;
     margin: 2px;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .tag, .tag:hover, .tag:visited, a:active {

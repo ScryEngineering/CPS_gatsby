@@ -24,6 +24,7 @@
     padding: 0.6rem 1.2rem;
     margin: 0px;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .link, .link:hover, .link:visited, a:active {
