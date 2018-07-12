@@ -54,6 +54,11 @@
     text-align: center;
 }
 
+.cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
+    text-decoration: none;
+    color: #bbc7cc;
+}
+
 /* ==========================================================================
    13. Media Queries - Smaller than 500px
    ========================================================================== */
