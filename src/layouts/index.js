@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import NavigationLinks from '../components/NavigationLinks';
 import Footer from '../components/Footer/Footer';
 
+import './reset.css'
 import './index.css'
 
 require("prismjs/themes/prism-solarizedlight.css");
@@ -22,14 +23,7 @@ const TemplateWrapper = ({ children, data }) => (
     />
     <Header />
     <NavigationLinks />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
+    <div className="contentdiv">
       {children()}
     </div>
     <Footer

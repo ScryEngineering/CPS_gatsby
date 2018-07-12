@@ -1,0 +1,24 @@
+.tagContainer {
+    padding: 1rem 0px;
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    margin: 2px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.tag, .tag:hover, .tag:visited, a:active {
+    text-decoration: none;
+}
+
+.tag, .tag:visited, .tag:active {
+    color: #000000;
+    background-color: #b9b9b9;
+}
+
+.tag:hover {
+    color: #000000;
+    background-color: #dddddd;
+}

@@ -11,7 +11,7 @@ class Footer extends Component {
           <img src="/logo-CPS.png" alt="CPS logo"></img>
         </section>
         <section className={styles.copyright}>
-          <a href={url || "/"}>{label}</a> &copy;{" "}
+          <a href={url || "/"} className={styles.cpsLink}>{label}</a> &copy;{" "}
           {year || new Date().getFullYear()}
         </section>
         <section className={styles.socialButtons}>

@@ -14,7 +14,7 @@ const Header = () => (
         padding: '0.45rem 1.0875rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <span style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -24,7 +24,7 @@ const Header = () => (
         >
           <img src="/CPS-BW-header.png" alt="Custom Programming Solutions"></img>
         </Link>
-      </h1>
+      </span>
     </div>
   </div>
 )

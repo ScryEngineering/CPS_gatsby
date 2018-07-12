@@ -30,13 +30,11 @@ class PostListing extends React.Component {
     const postList = this.getPostList();
     const nonDraftPosts = postList.filter(post => post.draft !== true);
     return (
-      <div>
+      <div className={styles.postContainer}>
         {/* Your post list here. */
         nonDraftPosts.map(post => (
         <div className={styles.post}>
-          <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
-          </Link>
+          <h2><Link to={post.path} key={post.title} className={styles.postTitle}>{post.title}</Link></h2>
           <Link to={post.path} className={styles.summarytext}>
             <p>{post.excerpt}</p>
           </Link>

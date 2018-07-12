@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     /*grid-template-columns: 25% 35% 15% 25%;*/
     width: 100%;
-    margin: 8rem 0 0;
+    margin: 0px;
     padding: 1rem 15px;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
@@ -52,6 +52,11 @@
 
 .copyright {
     text-align: center;
+}
+
+.cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
+    text-decoration: none;
+    color: #bbc7cc;
 }
 
 /* ==========================================================================
