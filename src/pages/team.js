@@ -12,7 +12,7 @@ export default class TeamPage extends React.Component {
           <title>The CPS team</title>
         </Helmet>
         <h1>
-        Coming soon
+          The CPS team
         </h1>
         <ul>
         {allTeamMembers.map(person => (
