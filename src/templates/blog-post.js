@@ -2,13 +2,17 @@ import React from "react";
 import Helmet from 'react-helmet'
 
 import PostTags from "../components/PostTags/PostTags";
+import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   console.log(data)
+  console.log("I'm alive")
   const post = data.markdownRemark; // data.markdownRemark holds our post data
   const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
+  const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true
+  const postHasCallToActionText = post.frontmatter.callToActionText !== null
   return (
     <div className="blog-post-container">
       <Helmet>
@@ -23,6 +27,15 @@ export default function Template({
         />
         { postHasTags &&
           <PostTags tags={post.frontmatter.tags} />
+        }
+        {
+          postHasCallToAction &&
+            (
+              postHasCallToActionText ?
+              <ContactSnippet blurb={post.frontmatter.callToActionText} />
+              :
+              <ContactSnippet />
+            )
         }
       </div>
     </div>
@@ -39,6 +52,8 @@ export const query = graphql`
         tags
         author
         draft
+        callToActionText
+        hideCallToAction
       }
     }
   }

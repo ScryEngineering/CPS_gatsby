@@ -78,6 +78,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 author
                 draft
                 contentType
+                callToActionText
+                hideCallToAction
               }
               fields {
                 slug
