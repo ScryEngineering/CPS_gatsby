@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import NavigationLinks from '../components/NavigationLinks';
 import Footer from '../components/Footer/Footer';
 
@@ -12,7 +12,7 @@ import './index.css'
 require("prismjs/themes/prism-solarizedlight.css");
 
 const TemplateWrapper = ({ children, data }) => (
-  <div>
+  <div className="wrapper">
     <Helmet
       title="Custom Programming Solutions"
       titleTemplate="Custom Programming Solutions - %s"

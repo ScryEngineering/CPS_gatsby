@@ -1,11 +1,26 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+#___gatsby {
+  min-height: 100%;
+  position: relative;
+}
+
 h1 {
   padding-top: 1em;
 }
 
-.contentdiv {
+.header, .contentdiv, .footer {
   margin: 0 auto;
   max-width: 960px;
-  padding: 4rem 1.0875rem;
+  padding: 1.0875rem;
+}
+
+.contentdiv {
+  padding: 4rem 1.0875rem 10rem 1.0875rem;
 }
 
 a, a:hover, a:visited, a:active {
@@ -18,4 +33,27 @@ a, a:visited, a:active {
 
 a:hover {
   color: #000000;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer > section {
+  flex: 1;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media only screen and (min-width: 501px) {
+  .footer {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+  }
 }
