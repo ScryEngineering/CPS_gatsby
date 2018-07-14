@@ -29,14 +29,6 @@
     flex: 1;
 }
 
-.nameDiv {
-    margin-right: 1px;
-}
-
-.addressDiv {
-    margin-left: 1px;
-}
-
 .blurbDiv, .inputDiv, .commentDiv {
     margin-bottom: 2px;
 }
@@ -67,10 +59,28 @@
     .inputDiv {
         flex-direction: row;
     }
+
+    .nameDiv {
+        margin-right: 1px;
+        margin-bottom: 0px;
+    }
+
+    .addressDiv {
+        margin-left: 1px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     .inputDiv {
         flex-direction: column;
+    }
+
+    .nameDiv {
+        margin-right: 0px;
+        margin-bottom: 2px;
+    }
+
+    .addressDiv {
+        margin-left: 0px;
     }
 }
