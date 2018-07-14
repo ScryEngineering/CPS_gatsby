@@ -59,7 +59,7 @@ class ContactSnippet extends Component {
               </div>
             </div>
             <div className={styles.commentDiv}>
-              <textarea rows="6" className={styles.comment} placeholder="Tell us a little bit about you and/or your company" value={this.state.comment} onChange={this.handleChange('comment')} />
+              <textarea rows="3" className={styles.comment} placeholder="Tell us a little bit about you and/or your company" value={this.state.comment} onChange={this.handleChange('comment')} />
             </div>
             <div className={styles.submitDiv}>
               <input className={styles.submit} type="submit" value="Submit" />

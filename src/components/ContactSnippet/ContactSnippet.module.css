@@ -27,7 +27,6 @@
 
 .inputDiv {
     display: flex;
-    flex-direction: row;
     align-content: stretch;
 }
 
@@ -67,4 +66,16 @@
 
 .submit:hover {
     background-color: #dddddd;
+}
+
+@media only screen and (min-width: 501px) {
+    .inputDiv {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .inputDiv {
+        flex-direction: column;
+    }
 }
