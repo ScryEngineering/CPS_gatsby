@@ -1,5 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
+
 
 export default class TeamPage extends React.Component {
   render(){
@@ -14,7 +16,7 @@ export default class TeamPage extends React.Component {
         </h1>
         <ul>
         {allTeamMembers.map(person => (
-            <li>{person.node.name}</li>
+            <li><Link to={person.node.fields.internalURL}>{person.node.name}</Link></li>
         ))}
         </ul>
       </div>
