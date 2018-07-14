@@ -6,6 +6,7 @@ import Link from 'gatsby-link'
 export default class TeamPage extends React.Component {
   render(){
     const allTeamMembers = this.props.data.teamMembers.edges;
+    console.log("allTeamMembers: ", allTeamMembers);
     return (
       <div>
         <Helmet>
