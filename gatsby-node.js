@@ -56,6 +56,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const tagPage = path.resolve("src/templates/tag.js");
   const authorPage = path.resolve("src/templates/person.js");
+  const postPage = path.resolve(`./src/templates/post.js`);
 
   return new Promise((resolve, reject) => {
     if (
@@ -121,17 +122,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       console.log("Creating markdown pages")
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if(node.frontmatter.draft === true){
+        if (node.frontmatter.draft === true) {
           console.log("Skipping page creation for page ",
                       node.fields.slug, "as it is marked as a draft");  
-        }else{
-          const tutorialPagePath = node.fields.slug
+        } else {
+          const pagePath = node.fields.slug
           createPage({
-            path: tutorialPagePath,
-            component: path.resolve(`./src/templates/tutorial-post.js`),
+            path: pagePath,
+            component: postPage,
             context: {
               // Data passed to context is available in page queries as GraphQL variables.
-              slug: tutorialPagePath,
+              slug: pagePath,
             },
           })
         }
