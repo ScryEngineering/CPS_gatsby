@@ -3,15 +3,15 @@ import Helmet from 'react-helmet'
 
 export default class PersonalAboutTemplate extends React.Component {
     render(){
-      console.log("PersonalAboutTemplate props", this.props)
       //Note that if 2 people have the exact same name this will fail
       const currentPerson = this.props.data.allPeopleJson.edges[0].node;
       console.log("current person", currentPerson);
 
+      const title_text = `About ${currentPerson.name}`;
       return (
         <div>
           <Helmet>
-            <title>About {currentPerson.name}</title>
+            <title>{title_text}</title>
           </Helmet>
           <h1>
             About {currentPerson.name}
