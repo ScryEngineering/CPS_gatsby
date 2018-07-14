@@ -16,7 +16,7 @@ export default function Template({
       </Helmet>
       <div className="tutorial-post">
         <h1>{post.frontmatter.title}</h1>
-        <h2>{post.frontmatter.author} {post.frontmatter.date}</h2>
+        <h2>by {post.frontmatter.author} on {post.frontmatter.date}</h2>
         <div
           className="tutorial-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
