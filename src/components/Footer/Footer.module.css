@@ -3,7 +3,8 @@
    ========================================================================== */
 
 .siteFooter {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     display: flex;
     flex-wrap: wrap;
     /*grid-template-columns: 25% 35% 15% 25%;*/

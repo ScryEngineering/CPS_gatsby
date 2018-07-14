@@ -12,7 +12,7 @@ import './index.css'
 require("prismjs/themes/prism-solarizedlight.css");
 
 const TemplateWrapper = ({ children, data }) => (
-  <div>
+  <div className="wrapper">
     <Helmet
       title="Custom Programming Solutions"
       titleTemplate="Custom Programming Solutions - %s"

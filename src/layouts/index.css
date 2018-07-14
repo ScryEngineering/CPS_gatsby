@@ -1,3 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+#___gatsby {
+  min-height: 100%;
+  position: relative;
+}
+
 h1 {
   padding-top: 1em;
 }
@@ -5,7 +16,7 @@ h1 {
 .contentdiv {
   margin: 0 auto;
   max-width: 960px;
-  padding: 4rem 1.0875rem;
+  padding: 4rem 1.0875rem 10rem 1.0875rem;
 }
 
 a, a:hover, a:visited, a:active {
