@@ -2,38 +2,12 @@
        Footer - The bottom of every page
    ========================================================================== */
 
-.siteFooter {
+.wrapper {
     position: absolute;
     bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
-    /*grid-template-columns: 25% 35% 15% 25%;*/
+    background-color: #000000;
     width: 100%;
-    margin: 0px;
-    padding: 1rem 15px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1rem;
-    line-height: 1.75em;
     color: #bbc7cc;
-    background-color: #040404;
-    vertical-align: middle;
-}
-
-.siteFooter > section {
-    flex: 1;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.siteFooter a {
-    color: #bbc7cc;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.siteFooter a:hover {
-    color: #bbc7cc;
-    border-bottom: #bbc7cc 1px solid;
 }
 
 .logo {
@@ -41,7 +15,7 @@
 }
 
 .logo > img {
-    max-width: 50%;
+    max-width: 30%;
     min-width: 150px;
     padding: 0px;
     margin: 0px;
@@ -53,26 +27,17 @@
 
 .copyright {
     text-align: center;
+    font-size: 0.8em;
 }
 
 .cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
-    text-decoration: none;
     color: #bbc7cc;
 }
 
-/* ==========================================================================
-   13. Media Queries - Smaller than 500px
-   ========================================================================== */
+.cpsLink, .cpsLink:active, .cpsLink:visited {
+    text-decoration: none;
+}
 
-@media only screen and (max-width: 500px) {
-    .siteFooter {
-        margin-top: 3rem;
-        display: flex;
-        flex-flow: column wrap;
-    }
-
-    .post-template .siteFooter,
-    .page-template .siteFooter {
-        margin-top: 0;
-    }
+.cpsLink:hover {
+    text-decoration: underline;
 }
