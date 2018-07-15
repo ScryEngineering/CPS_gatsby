@@ -1,12 +1,41 @@
 .teamMemberSection {
-    border-bottom: 1px solid #cccccc;
-    margin: 1rem 0;
+    border-bottom: 1px dashed #cccccc;
+    margin: 0;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.teamMemberSection:last-child {
+    border-bottom: none;
+}
+
+.teamMemberSection > div {
+    padding: 0px;
 }
 
 .teamMemberPhotoContainer {
-    text-align: right;
+    flex: 1;
 }
 
 .teamMemberPhoto {
-    max-width: 25%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.teamMemberDetailsContainer {
+    flex: 3;
+    margin-left: 1.5rem;
+}
+
+.teamMemberName {
+    margin-bottom: 0.5rem;
+}
+
+.teamMemberTitle {
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.teamMemberLocation {
 }
