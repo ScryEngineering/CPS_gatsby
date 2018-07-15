@@ -12,8 +12,10 @@ class Footer extends Component {
             <img src="/logo-CPS.png" alt="CPS logo"></img>
           </section>
           <section className={styles.copyright}>
-            <a href={url || "/"} className={styles.cpsLink}>{label}</a> &copy;{" "}
-            {year || new Date().getFullYear()}
+            Copyright{" "}{year || new Date().getFullYear()}<br />
+            <a href={url || "/"} className={styles.cpsLink}>{label}</a><br />
+            ACN: 627 525 197<br />
+            ABN: 34627525197
           </section>
           <section className={styles.socialButtons}>
             <SocialIcon url="https://github.com/customprogrammingsolutions" />

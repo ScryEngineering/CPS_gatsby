@@ -28,10 +28,9 @@ const TemplateWrapper = ({ children, data }) => (
     </div>
     <Footer
       copyright={{
-        label: "Custom Programming Solutions",
+        label: "Custom Programming Solutions Pty Ltd",
         url: "https://www.customprogrammingsolutions.com"
       }}
-      promoteGatsby={true}
     />
   </div>
 )
