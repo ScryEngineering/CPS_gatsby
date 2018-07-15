@@ -10,8 +10,9 @@ const TeamMemberSection = props =>
       <img src="http://via.placeholder.com/400x400" className={styles.teamMemberPhoto} />
     </div>
     <div className={styles.teamMemberDetailsContainer}>
-      <h2>{props.name}</h2>
-      <p>{props.name}</p>
+      <h2 className={styles.teamMemberName}>{props.person.name}</h2>
+      <p className={styles.teamMemberTitle}>{props.person.bio}, <span className={styles.teamMemberLocation}>{props.person.location}</span></p>
+      <p>{props.person.bio}... <Link to={props.person.fields.internalURL}>Read more.</Link></p>
     </div>
   </section>
 
@@ -27,11 +28,11 @@ export default class TeamPage extends React.Component {
         </Helmet>
         <h1>Our Team</h1>
         <p>Something short about how awesome we are</p>
-        <ul>
+        <div className={styles.teamMembersContainer}>
         {allTeamMembers.map(person => (
-          <TeamMemberSection name={person.node.name} />
+          <TeamMemberSection person={person.node} />
         ))}
-        </ul>
+        </div>
         {/*<ContactSnippet blurb="Interested in how our expert team could transform your business? Fill out the form below and one of them will get in touch with you soon." />*/}
       </div>
     );
