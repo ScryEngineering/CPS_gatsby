@@ -1,0 +1,16 @@
+.wrapper {
+    background-color: #113f64;
+}
+
+.masthead h1, .masthead p {
+    color: #ffffff;
+    font-family: "Roboto";
+}
+
+.masthead h1 {
+    font-weight: 300;
+}
+
+.masthead p {
+    font-weight: 400;
+}

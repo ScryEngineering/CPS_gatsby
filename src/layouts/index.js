@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/Header/Header'
-import NavigationLinks from '../components/NavigationLinks';
+import NavBar from '../components/NavBar/NavBar'
+import Masthead from '../components/Masthead/Masthead'
 import Footer from '../components/Footer/Footer';
 
 import './reset.css'
@@ -21,8 +21,8 @@ const TemplateWrapper = ({ children, data }) => (
         { name: 'keywords', content: 'CPS' },
       ]}
     />
-    <Header />
-    <NavigationLinks />
+    <NavBar />
+    <Masthead />
     <div className="contentdiv">
       {children()}
     </div>
