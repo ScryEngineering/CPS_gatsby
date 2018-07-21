@@ -8,7 +8,7 @@ class Footer extends Component {
     return (
       <footer className={styles.wrapper}>
         <div className="footer">
-          <section className={styles.logo}>
+          <section className={styles.logoContainer}>
             <img src="/logo-CPS.png" alt="CPS logo"></img>
           </section>
           <section className={styles.copyright}>

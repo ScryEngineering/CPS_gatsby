@@ -1,8 +1,8 @@
 import React from 'react'
 
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
-import Header from '../components/Header/Header'
-import NavigationLinks from '../components/NavigationLinks';
+import NavBar from '../components/NavBar/NavBar'
+import Masthead from '../components/Masthead/Masthead'
 import Footer from '../components/Footer/Footer';
 
 import config from '../../data/SiteConfig';
@@ -14,7 +14,7 @@ require("prismjs/themes/prism-solarizedlight.css");
 
 export default class TemplateWrapper extends React.Component {
   render() {
-    return (
+    return(
       <div className="wrapper">
         <HelmetWrapper>
           <meta property="og:type" content="website" />
@@ -24,8 +24,8 @@ export default class TemplateWrapper extends React.Component {
           <meta property="og:url" content={config.siteUrl + this.props.location.pathname} />
           <meta name="twitter:url" value={config.siteUrl + this.props.location.pathname} />
         </HelmetWrapper>
-        <Header />
-        <NavigationLinks />
+        <NavBar />
+        <Masthead />
         <div className="contentdiv">
           {this.props.children()}
         </div>
