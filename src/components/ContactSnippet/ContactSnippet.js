@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import styles from "./ContactSnippet.module.css";
 
+import axios from "axios";
+
+import config from "../../../data/SiteConfig"
+
 class ContactSnippet extends Component {
   // Props are both strings
   static propTypes = {
@@ -20,10 +24,12 @@ class ContactSnippet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      submitted: false,
+      status: "empty",
       name: '',
       address: '',
-      comment: this.props.comment
+      comment: this.props.comment,
+      source: window.location.href,
+      blurb: this.props.blurb
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,8 +47,19 @@ class ContactSnippet extends Component {
 
   // Submit the form
   handleSubmit(event) {
-    console.log(this.state)
-    this.setState({submitted: true});
+    this.setState({status: "sending"})
+    axios.post(config.contactFormEndpoint, this.state)
+      .then(res => {
+        console.log(res)
+        if ("success" in res.data && res.data.success) {
+          this.setState({status: "success"})
+        } else {
+          this.setState({status: "error"})
+        }
+      })
+      .catch(err => {
+        this.setState({status: "error"})
+      })
     event.preventDefault();
   }
 
@@ -54,11 +71,25 @@ class ContactSnippet extends Component {
             <p className={styles.blurb}>{ this.props.blurb }</p>
           </div>
           {
-            this.state.submitted ?
-              <div className={styles.submittedContainer}>
-                <p>{this.props.submittedBlurb}</p>
-              </div>
-            :
+            this.state.status == "sending" &&
+            <div className={styles.submittedContainer}>
+              <p>Submitting form...</p>
+            </div>
+          }
+          {
+            this.state.status == "success" &&
+            <div className={styles.submittedContainer}>
+              <p>{this.props.submittedBlurb}</p>
+            </div>
+          }
+          {
+            this.state.status == "error" &&
+            <div className={styles.submittedContainer}>
+              <p>There was an error submitting the form, please try again.</p>
+            </div>
+          }
+          {
+            (this.state.status == "empty" || this.state.status == "error") &&
               <div className={styles.snippetContainer}>
                 <div className={styles.inputDiv}>
                   <div className={styles.nameDiv}>
