@@ -1,0 +1,86 @@
+.snippet {
+    padding-top: 3rem;
+}
+
+.blurb {
+    font-style: italic;
+    font-size: 1.3em;
+}
+
+.name, .address, .comment, .submit {
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+}
+
+.name, .address, .comment {
+    padding: 0.4rem 0.6rem;
+}
+
+.submit {
+    padding: 0.4rem 1rem;
+}
+
+.inputDiv {
+    display: flex;
+    align-content: stretch;
+}
+
+.nameDiv, .addressDiv {
+    flex: 1;
+}
+
+.blurbDiv, .inputDiv, .commentDiv {
+    margin-bottom: 2px;
+}
+
+.name, .address, .comment {
+    width: 100%;
+}
+
+.submitDiv {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.submit {
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
+}
+
+.submit, .submit:visited, .submit:active {
+    background-color: #b9b9b9;
+}
+
+.submit:hover {
+    background-color: #dddddd;
+}
+
+@media only screen and (min-width: 501px) {
+    .inputDiv {
+        flex-direction: row;
+    }
+
+    .nameDiv {
+        margin-right: 1px;
+        margin-bottom: 0px;
+    }
+
+    .addressDiv {
+        margin-left: 1px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .inputDiv {
+        flex-direction: column;
+    }
+
+    .nameDiv {
+        margin-right: 0px;
+        margin-bottom: 2px;
+    }
+
+    .addressDiv {
+        margin-left: 0px;
+    }
+}

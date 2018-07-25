@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 const IndexPage = () => (
   <div>
@@ -24,10 +25,7 @@ const IndexPage = () => (
     <p>
     When you work with us, you’ll never be left wondering - our collaborative development process, passion for educating our clients and commitment to transparency means we guide you seamlessly through every step of your project, from first contact to launch.
     </p>
-    <p>
-    Please reach out to us with any questions via email: hello at customprogrammingsolutions.com
-    </p>
-
+    <ContactSnippet />
   </div>
 )
 
