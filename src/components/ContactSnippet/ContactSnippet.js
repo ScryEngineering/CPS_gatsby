@@ -25,6 +25,7 @@ class ContactSnippet extends Component {
 
   constructor(props) {
     super(props);
+    console.log(this.props.source)
     this.state = {
       status: "empty",
       name: "",

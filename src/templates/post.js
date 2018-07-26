@@ -31,9 +31,9 @@ export default function Template({
           postHasCallToAction &&
             (
               postHasCallToActionText ?
-              <ContactSnippet source={post.frontmatter.fields.slug} blurb={post.frontmatter.callToActionText} />
+              <ContactSnippet source={post.fields.slug} blurb={post.frontmatter.callToActionText} />
               :
-              <ContactSnippet source={post.frontmatter.fields.slug} />
+              <ContactSnippet source={post.fields.slug} />
             )
         }
       </div>
@@ -53,6 +53,9 @@ export const query = graphql`
         draft
         callToActionText
         hideCallToAction
+      }
+      fields {
+        slug
       }
     }
   }
