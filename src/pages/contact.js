@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
-const ContactPage = () => (
+const ContactPage = props => (
   <div>
     <Helmet>
       <title>Contact</title>
@@ -15,7 +15,7 @@ const ContactPage = () => (
       Looking to find technical talent in the Melbourne, Australia or Toronto, Canada areas?
       If you would like to start a discussion about how we can help you we'd love to hear from you, send us an email: hello at customprogrammingsolutions.com
     </p>
-    <ContactSnippet blurb="Prefer to have us contact you? Fill out the form below and we'll get in touch as soon as possible." />
+    <ContactSnippet source={props.location.pathname} blurb="Prefer to have us contact you? Fill out the form below and we'll get in touch as soon as possible." />
   </div>
 )
 

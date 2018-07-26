@@ -11,32 +11,30 @@ import './index.css'
 
 require("prismjs/themes/prism-solarizedlight.css");
 
-const TemplateWrapper = ({ children, data }) => (
-  <div className="wrapper">
-    <Helmet
-      title="Custom Programming Solutions"
-      titleTemplate="Custom Programming Solutions - %s"
-      meta={[
-        { name: 'description', content: 'Custom Programming Solutions' },
-        { name: 'keywords', content: 'CPS' },
-      ]}
-    />
-    <Header />
-    <NavigationLinks />
-    <div className="contentdiv">
-      {children()}
-    </div>
-    <Footer
-      copyright={{
-        label: "Custom Programming Solutions Pty Ltd",
-        url: "https://www.customprogrammingsolutions.com"
-      }}
-    />
-  </div>
-)
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+export default class TemplateWrapper extends React.Component {
+  render() {
+    return (
+      <div className="wrapper">
+        <Helmet
+          title="Custom Programming Solutions"
+          titleTemplate="Custom Programming Solutions - %s"
+          meta={[
+            { name: 'description', content: 'Custom Programming Solutions' },
+            { name: 'keywords', content: 'CPS' },
+          ]}
+        />
+        <Header />
+        <NavigationLinks />
+        <div className="contentdiv">
+          {this.props.children()}
+        </div>
+        <Footer
+          copyright={{
+            label: "Custom Programming Solutions Pty Ltd",
+            url: "https://www.customprogrammingsolutions.com"
+          }}
+        />
+      </div>
+    )
+  }
 }
-
-export default TemplateWrapper
