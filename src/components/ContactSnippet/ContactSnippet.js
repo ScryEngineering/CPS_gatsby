@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import styles from "./ContactSnippet.module.css";
 
 import axios from "axios";
@@ -11,24 +11,26 @@ class ContactSnippet extends Component {
   static propTypes = {
     blurb: PropTypes.string,
     submittedBlurb: PropTypes.string,
-    comment: PropTypes.string
+    comment: PropTypes.string,
+    source: PropTypes.string
   };
 
   // We allow specifying a blurb, an after-submit message and the initial comment
   static defaultProps = {
-    blurb: 'Interested in the expertise we could provide to your business? Fill in the form below and one of our friendly partners will get back to you as soon as possible.',
-    submittedBlurb: 'Thanks for submitting an enquiry. One of our expert partners will get in touch with you soon.',
-    comment: ''
+    blurb: "Interested in the expertise we could provide to your business? Fill in the form below and one of our friendly partners will get back to you as soon as possible.",
+    submittedBlurb: "Thanks for submitting an enquiry. One of our expert partners will get in touch with you soon.",
+    comment: "",
+    source: ""
   };
 
   constructor(props) {
     super(props);
     this.state = {
       status: "empty",
-      name: '',
-      address: '',
+      name: "",
+      address: "",
       comment: this.props.comment,
-      source: window.location.href,
+      source: this.props.source,
       blurb: this.props.blurb
     };
 
@@ -93,14 +95,14 @@ class ContactSnippet extends Component {
               <div className={styles.snippetContainer}>
                 <div className={styles.inputDiv}>
                   <div className={styles.nameDiv}>
-                    <input className={styles.name} name="" type="text" placeholder="Your name and/or company" value={this.state.name} onChange={this.handleChange('name')} />
+                    <input className={styles.name} name="" type="text" placeholder="Your name and/or company" value={this.state.name} onChange={this.handleChange("name")} />
                   </div>
                   <div className={styles.addressDiv}>
-                    <input className={styles.address} type="text" placeholder="Email address or contact number" value={this.state.address} onChange={this.handleChange('address')} />
+                    <input className={styles.address} type="text" placeholder="Email address or contact number" value={this.state.address} onChange={this.handleChange("address")} />
                   </div>
                 </div>
                 <div className={styles.commentDiv}>
-                  <textarea rows="3" className={styles.comment} placeholder="Tell us a little bit about you and/or your company" value={this.state.comment} onChange={this.handleChange('comment')} />
+                  <textarea rows="3" className={styles.comment} placeholder="Tell us a little bit about you and/or your company" value={this.state.comment} onChange={this.handleChange("comment")} />
                 </div>
                 <div className={styles.submitDiv}>
                   <input className={styles.submit} type="submit" value="Submit" />

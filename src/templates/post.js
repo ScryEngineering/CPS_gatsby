@@ -31,9 +31,9 @@ export default function Template({
           postHasCallToAction &&
             (
               postHasCallToActionText ?
-              <ContactSnippet blurb={post.frontmatter.callToActionText} />
+              <ContactSnippet source={post.frontmatter.fields.slug} blurb={post.frontmatter.callToActionText} />
               :
-              <ContactSnippet />
+              <ContactSnippet source={post.frontmatter.fields.slug} />
             )
         }
       </div>

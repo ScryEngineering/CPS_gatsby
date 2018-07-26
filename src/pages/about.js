@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
-const IndexPage = () => (
+const IndexPage = props => (
   <div>
     <Helmet>
       <title>About</title>
@@ -25,7 +25,7 @@ const IndexPage = () => (
     <p>
     When you work with us, you’ll never be left wondering - our collaborative development process, passion for educating our clients and commitment to transparency means we guide you seamlessly through every step of your project, from first contact to launch.
     </p>
-    <ContactSnippet />
+    <ContactSnippet source={props.location.pathname} />
   </div>
 )
 
