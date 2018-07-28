@@ -23,3 +23,5 @@ deploy:
  bucket: "www.customprogrammingsolutions.com"
  skip_cleanup: true
  local_dir: public
+ on:
+  all_branches: true
