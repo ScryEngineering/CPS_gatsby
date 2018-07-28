@@ -7,6 +7,7 @@ cache:
     - node_modules
 env:
  - CONTENT_DIR="CPS_content/"
+ secure: "YC4S+1T/8lopDWBw6xdIOI80LA3d2waza6OXq3jprdPEX4ZB64HrGO/hG+sQDgUYkzrQHn0LPQ9h2fJ2cFyL1fv/NlML7KOFSqxCh9Ar1zEQDTNZ5lM7utiu+dAHnOf/wiNoU8dG6q1KX5S4SqRgbkjZavP4n0mwD4jS7Ap3+utEOLFLZ2+/zxWGWATyi37F+64+Vi7hR8e7Hp9LAPsud1Qd4diBDxOYfiHxrTrD8xUZTfS6B7ZJQk52txilRj8LE/ojrD0dQi/uNCYbtOH8UK+TFbXZ1nbzN3HzpIVBPTWvXsWoc/g8IRSkp5VD3cxWHQ07ugHxZgcW7yKzAyii1dNKn5kHSMxcrDCiNBw9ECQttS00P2Gm+ba1sCqTxrMQDtYQVtrl7n/x7ybPbbXNb5tJmXRdVJCd9XE6tPQm4VWlHJte2q6gTzKV6ZsT0EGfoDIcDqQABcV25uSsNp8VCAdUH03g/Dd789F8RzbpNdMFc6YHpPYps5LLwpgjNEM1KzGp/6kF1p6x+3Zvx1K4DhC2egHsj3X1sW7tVUYs0AIXm060luuhiPSWQby95oyX3JyJPFidBtB+D1uiAXmtz3MmSoB1K/LC1SM7yNxjRyj/vwxFeEEhLfmbU3wA/N9eVRsS8voxTgKU6IPCR2HL4c0p+FeUNsLMmglQeEXdr3s="
 before_install:
  - npm install --global gatsby-cli
  - openssl aes-256-cbc -K $encrypted_dbbb8c9e52bb_key -iv $encrypted_dbbb8c9e52bb_iv -in .travis.key.enc -out .travis.key -d
