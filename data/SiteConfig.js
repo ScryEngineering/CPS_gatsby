@@ -3,5 +3,5 @@ module.exports = {
   peopleDir: "people", // The name of directory that contains your 'people' folder.
   defaultAuthorName: "Custom Programming Solutions", // The default and fallback author ID used for blog posts without a defined author.
   contentDir: process.env.CONTENT_DIR || "content/",
-  contactFormEndpoint: "https://contact-form-api.customprogrammingsolutions.com/"
+  contactFormEndpoint: process.env.CONTACT_FORM_ENDPOINT || "http://localhost/contact-form-api";
 };
