@@ -1,5 +1,7 @@
 # CPS gatsby site
 
+[![Build status](https://api.travis-ci.org/customprogrammingsolutions/CPS_gatsby.svg?branch=master)](https://travis-ci.org/customprogrammingsolutions/CPS_gatsby)
+
 This is the repo for CustomProgrammingSolutions site made with gatsbyjs.
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).

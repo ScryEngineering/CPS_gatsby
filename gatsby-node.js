@@ -124,10 +124,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       console.log("Creating markdown pages")
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.frontmatter.draft === true) {
-          console.log("Skipping page creation for page ",
-                      node.fields.slug, "as it is marked as a draft");  
-        } else {
+        if (node.frontmatter.draft !== true) {
           const pagePath = node.fields.slug
           createPage({
             path: pagePath,
