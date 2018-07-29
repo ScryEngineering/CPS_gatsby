@@ -11,15 +11,13 @@
     ]
   },
   {
-    "id": "janis",
-    "name": "Janis Lesinskis",
-    "image": "janis.png",
-    "url": "https://www.lesinskis.com",
-    "location": "Australia/Canada",
-    "bio": "Co founder of CPS",
+    "id": "sts",
+    "name": "Sam the Sample",
+    "image": "rickroll.jpg",
+    "url": "https://www.example.com",
+    "location": "Your computer",
+    "bio": "The sample man",
     "socialUrls": [
-      "https://github.com/shuttle1987",
-      "mailto:janis@example.com"
     ]
   }
 ]
