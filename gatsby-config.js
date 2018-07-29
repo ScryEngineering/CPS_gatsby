@@ -3,6 +3,7 @@ const config = require("./data/SiteConfig.js");
 module.exports = {
   siteMetadata: {
     title: 'Custom Programming Solutions',
+    siteUrl: config.siteUrl,
   },
   plugins: [
     {
@@ -76,5 +77,8 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`
+    }
   ],
 };
