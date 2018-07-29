@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
 import styles from "./tutorials.module.css"
@@ -15,9 +15,7 @@ export default class BlogListingTemplate extends React.Component {
 
     return (
       <div>
-        <Helmet>
-          <title>Blog</title>
-        </Helmet>
+        <HelmetWrapper title="Blog" />
         <h1>
           Blog posts
         </h1>

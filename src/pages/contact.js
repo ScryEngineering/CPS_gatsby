@@ -1,14 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 const ContactPage = props => (
   <div>
-    <Helmet>
-      <title>Contact</title>
-    </Helmet>
+    <HelmetWrapper title="Contact" />
     <h1>Contact us</h1>
     <p>
       Do you have a question about projects, technologies, tutorial posts you'd like to see or something else that is of interest?

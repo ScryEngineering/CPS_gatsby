@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
 export default class PersonalAboutTemplate extends React.Component {
     render(){
@@ -10,9 +10,7 @@ export default class PersonalAboutTemplate extends React.Component {
       const title_text = `About ${currentPerson.name}`;
       return (
         <div>
-          <Helmet>
-            <title>{title_text}</title>
-          </Helmet>
+          <HelmetWrapper title={title_text} />
           <h1>
             About {currentPerson.name}
           </h1>

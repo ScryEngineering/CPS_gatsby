@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
 import PostListing from "../components/PostListing/PostListing";
@@ -14,9 +14,7 @@ export default class TagTemplate extends React.Component {
     var postCount = filteredPosts.filter(() => true).length;
     return (
       <div>
-        <Helmet>
-          <title>{tag} posts</title>
-        </Helmet>
+        <HelmetWrapper title={tag + " posts"} />
         <h1>
           Posts tagged as {tag}
         </h1>
