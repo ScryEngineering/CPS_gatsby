@@ -41,13 +41,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       createPostNode(node, getNode, createNodeField, "content/blog-posts", "blog")
       pageType = "blog";
     } else if (isOfType("people")) {
-      if (node.frontmatter.teamMember === true) {
-        createNodeField({
-          node,
-          name: `internalURL`,
-          value: `/about/${_.kebabCase(node.frontmatter.name)}/`,
-        })
-      }
+      createNodeField({
+        node,
+        name: `internalURL`,
+        value: `/about/${_.kebabCase(node.frontmatter.name)}/`,
+      })
       pageType = "person";
     } else {
       throw new Error(`Unknown markdown document encountered: ${node}`)
@@ -89,19 +87,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
     graphql(`
       {
-        allMarkdownRemark (filter: { fields: { isPost: { eq: true } } }) {
+        allMarkdownRemark (filter: { fields: { isPerson: { eq: true } } }) {
           edges {
             node {
               frontmatter {
-                tags
-                author
-                draft
-                contentType
-                callToActionText
-                hideCallToAction
+                name
+                image
+                url
+                bio
+                location
+                socialUrls
               }
               fields {
-                slug
+                internalURL
               }
             }
           }
@@ -114,60 +112,82 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         reject(result.errors);
       }
 
-      const tagSet = new Set();
-      const authorSet = new Set();
-      authorSet.add(siteConfig.defaultAuthorName);
-
-      result.data.allMarkdownRemark.edges.forEach(edge => {
-        if (edge.node.frontmatter.tags) {
-          edge.node.frontmatter.tags.forEach(tag => {
-            tagSet.add(tag);
-          });
-        }
-        if (edge.node.frontmatter.author) {
-          authorSet.add(edge.node.frontmatter.author);
-        }
-      });
-
-      const tagList = Array.from(tagSet);
-      tagList.forEach(tag => {
-        createPage({
-          path: `/tags/${_.kebabCase(tag)}/`,
-          component: tagPage,
-          context: {
-            tag
-          }
-        });
-      });
-
-      console.log("Creating markdown pages")
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.frontmatter.draft !== true) {
-          const pagePath = node.fields.slug
-          createPage({
-            path: pagePath,
-            component: postPage,
-            context: {
-              // Data passed to context is available in page queries as GraphQL variables.
-              slug: pagePath,
-            },
-          })
-        }
-      });
       console.log("Creating personal about pages")
-      const authorList = Array.from(authorSet);
-      console.log("With authors:", authorList)
-      authorList.forEach(author => {
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
-          path: `/about/${_.kebabCase(author)}/`,
+          path: node.fields.internalURL,
           component: authorPage,
           context: {
-            author
+            author: node.frontmatter.name
           }
         });
       });
 
-      resolve()
+      graphql(`
+        {
+          allMarkdownRemark (filter: { fields: { isPost: { eq: true } } }) {
+            edges {
+              node {
+                frontmatter {
+                  tags
+                  author
+                  draft
+                  contentType
+                  callToActionText
+                  hideCallToAction
+                }
+                fields {
+                  slug
+                }
+              }
+            }
+          }
+        }
+      `).then(result => {
+        if (result.errors) {
+          /* eslint no-console: "off" */
+          console.log(result.errors);
+          reject(result.errors);
+        }
+
+        const tagSet = new Set();
+
+        result.data.allMarkdownRemark.edges.forEach(edge => {
+          if (edge.node.frontmatter.tags) {
+            edge.node.frontmatter.tags.forEach(tag => {
+              tagSet.add(tag);
+            });
+          }
+        });
+
+        const tagList = Array.from(tagSet);
+        tagList.forEach(tag => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag)}/`,
+            component: tagPage,
+            context: {
+              tag
+            }
+          });
+        });
+
+        console.log("Creating markdown pages")
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          if (node.frontmatter.draft !== true) {
+            const pagePath = node.fields.slug
+            createPage({
+              path: pagePath,
+              component: postPage,
+              context: {
+                // Data passed to context is available in page queries as GraphQL variables.
+                slug: pagePath,
+              },
+            })
+          }
+        });
+
+        resolve()
+      })
     })
   })
 };
