@@ -25,6 +25,10 @@
     text-align: center;
 }
 
+.socialButtons > a {
+    margin: 3px;
+}
+
 .copyright {
     text-align: center;
     font-size: 0.8em;
