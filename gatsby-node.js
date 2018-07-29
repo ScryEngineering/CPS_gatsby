@@ -32,7 +32,7 @@ const createPostNode = (node, getNode, createNodeField, fileSourcePath, pageType
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    let isOfType = name => node.fileAbsolutePath.startsWith(siteConfig.contentDir + "/content/" + name)
+    let isOfType = name => node.fileAbsolutePath.includes(`content/${name}/`)
     let pageType; // default to blog post
     if (isOfType("tutorial-pages")) {
       createPostNode(node, getNode, createNodeField, "content/tutorial-pages", "tutorial")
