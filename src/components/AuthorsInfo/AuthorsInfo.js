@@ -23,7 +23,7 @@ function extract_authors(author_names, all_authors){
     author_names = [author_names];
   }
   for (let authorname of author_names) {
-    const current_author_obj = all_authors.find(x => x.node.name === authorname)
+    const current_author_obj = all_authors.find(x => x.node.frontmatter.name === authorname)
     authorsList.push(current_author_obj)
   }
   return authorsList;
@@ -42,7 +42,7 @@ export default class AuthorsInfo extends React.Component{
     return(
       <div>
         {authors.map(author => (
-        <Author name={author.node.name} authorLink={author.node.fields.internalURL}/>
+        <Author name={author.node.frontmatter.name} authorLink={author.node.fields.internalURL}/>
       ))}
       </div>
     );

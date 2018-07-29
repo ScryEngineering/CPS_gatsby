@@ -29,26 +29,30 @@ export default class TagTemplate extends React.Component {
 export const pageQuery = graphql`
   query TagPage($tag: String) {
     # authors
-    authors: allPeopleJson {
+    authors: allMarkdownRemark (filter: { fields: { isPerson: { eq: true } } }) {
       edges {
         node {
-          id
-          name
-          image
-          url
-          bio
-          location
-          socialUrls
+          frontmatter {
+            name
+            image
+            url
+            bio
+            location
+            socialUrls
+          }
           fields {
             internalURL
           }
         }
       }
     }
-    allMarkdownRemark(
+    allMarkdownRemark (
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: {
+        fields: { isPost: { eq: true } }
+        frontmatter: { tags: { in: [$tag] } }
+      }
     ) {
       totalCount
       edges {
