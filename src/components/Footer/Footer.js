@@ -19,6 +19,8 @@ class Footer extends Component {
           </section>
           <section className={styles.socialButtons}>
             <SocialIcon url="https://github.com/customprogrammingsolutions" />
+            <SocialIcon url="https://twitter.com/C_P_S_online" />
+            <SocialIcon url="https://www.linkedin.com/company/18716004/" />
             <SocialIcon url="/rss.xml" network="rss" />
           </section>
         </div>
