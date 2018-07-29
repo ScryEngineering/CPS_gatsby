@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
 import PostTags from "../components/PostTags/PostTags";
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
@@ -14,9 +14,7 @@ export default function Template({
   const postHasCallToActionText = post.frontmatter.callToActionText !== null
   return (
     <div className="post-container">
-      <Helmet>
-        <title>{post.frontmatter.title}</title>
-      </Helmet>
+      <HelmetWrapper title={post.frontmatter.title} />
       <div className="post">
         <h1>{post.frontmatter.title}</h1>
         <h2>by {post.frontmatter.author} on {post.frontmatter.date}</h2>

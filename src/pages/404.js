@@ -1,12 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
 
 const NotFoundPage = () => (
   <div>
-    <Helmet>
-      <title>404</title>
-    </Helmet>
+    <HelmetWrapper title="Not found" />
     <h1>Not found</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </div>

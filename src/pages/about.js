@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
+
+
 
 const IndexPage = props => (
   <div>
-    <Helmet>
-      <title>About</title>
-    </Helmet>
+    <HelmetWrapper title="About" />
     <h1>About CPS</h1>
     <p>
     We create bespoke software solutions for clients in the software, process automation and optimization industries.

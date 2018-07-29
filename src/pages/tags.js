@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import kebabCase from "lodash/kebabCase";
 
 // Components
-import Helmet from "react-helmet";
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
 const TagsPage = ({
@@ -17,9 +17,7 @@ const TagsPage = ({
   },
 }) => (
   <div>
-    <Helmet>
-        <title>Tags</title>
-    </Helmet>
+    <HelmetWrapper title="Tags" />
     <div>
       <h1>Tags</h1>
       <ul>

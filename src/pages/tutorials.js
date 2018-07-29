@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
 import styles from "./tutorials.module.css"
@@ -14,9 +14,7 @@ export default class TutorialListingTemplate extends React.Component {
     var postCount = filteredPosts.filter(() => true).length;
     return (
       <div>
-        <Helmet>
-          <title>Tutorials</title>
-        </Helmet>
+        <HelmetWrapper title="Tutorials" />
         <h1>
           Tutorials
         </h1>
