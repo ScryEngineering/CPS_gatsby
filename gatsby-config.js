@@ -3,6 +3,7 @@ const config = require("./data/SiteConfig.js");
 module.exports = {
   siteMetadata: {
     title: 'Custom Programming Solutions',
+    description: `A versatile programming, software development and consulting firm driven by trusted industry experts.`,
     siteUrl: config.siteUrl,
   },
   plugins: [
@@ -79,6 +80,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sitemap`
+    },
+    {
+      resolve: `gatsby-plugin-feed`
     }
   ],
 };
