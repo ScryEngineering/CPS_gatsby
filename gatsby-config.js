@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `people`,
-        path: `${config.contentDir}/content/${config.peopleDir}`
+        path: `${config.contentDir}/content/people`
       }
     },
     "gatsby-transformer-json",

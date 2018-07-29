@@ -7,9 +7,11 @@ import PostListing from "../components/PostListing/PostListing";
 
 export default class BlogListingTemplate extends React.Component {
   render(){
+    console.log(this.props.data)
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
+    console.log(allAuthors)
     const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
     var postCount = filteredPosts.filter(() => true).length;
 
@@ -29,16 +31,17 @@ export default class BlogListingTemplate extends React.Component {
 export const query = graphql`
 query IndexQuery {
   # authors
-  authors: allPeopleJson {
+  authors: allMarkdownRemark (filter: { fields: { isPerson: { eq: true } } }) {
     edges {
       node {
-        id
-        name
-        image
-        url
-        bio
-        location
-        socialUrls
+        frontmatter {
+          name
+          image
+          url
+          bio
+          location
+          socialUrls
+        }
         fields {
           internalURL
         }
@@ -46,9 +49,12 @@ query IndexQuery {
     }
   }
   # blog posts
-  allMarkdownRemark(
+  allMarkdownRemark (
     sort: { fields: [frontmatter___date], order: DESC }
-    filter: { frontmatter: { draft: { ne: true } } }
+    filter: {
+      frontmatter: { draft: { ne: true } }
+      fields: { isPost: { eq: true } }
+    }
   ) {
     totalCount
     edges {

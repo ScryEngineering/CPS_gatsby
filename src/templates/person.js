@@ -4,7 +4,7 @@ import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 export default class PersonalAboutTemplate extends React.Component {
     render(){
       //Note that if 2 people have the exact same name this will fail
-      const currentPerson = this.props.data.allPeopleJson.edges[0].node;
+      const currentPerson = this.props.data.authors.edges[0].node.frontmatter;
       console.log("current person", currentPerson);
 
       const title_text = `About ${currentPerson.name}`;
@@ -31,16 +31,25 @@ export default class PersonalAboutTemplate extends React.Component {
  /* eslint no-undef: "off" */
 export const pageQuery = graphql`
 query AuthorPage($author: String) {
-  allPeopleJson(filter: { name: { eq: $author } }) {
+  authors: allMarkdownRemark (
+    filter: {
+      fields: { isPerson: { eq: true } }
+      frontmatter: { name: { eq: $author } }
+    }
+  ) {
     edges {
       node {
-        id
-        name
-        image
-        url
-        bio
-        location
-        socialUrls
+        frontmatter {
+          name
+          image
+          url
+          bio
+          location
+          socialUrls
+        }
+        fields {
+          internalURL
+        }
       }
     }
   }

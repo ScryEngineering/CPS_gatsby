@@ -13,7 +13,7 @@ const webpackLodashPlugin = require("lodash-webpack-plugin");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 
-const createMarkdownNode = (node, getNode, createNodeField, fileSourcePath, pageType)=> {
+const createPostNode = (node, getNode, createNodeField, fileSourcePath, pageType)=> {
   if(!(pageType === "blog" || pageType === "tutorial")){
     throw new Error(`Only "blog" and "tutorial" are supported for pageType, got: ${pageType}`);
   }
@@ -30,24 +30,42 @@ const createMarkdownNode = (node, getNode, createNodeField, fileSourcePath, page
 }
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
-    if(node.frontmatter.contentType === "tutorial"){
-      createMarkdownNode(node, getNode, createNodeField, "content/tutorial-pages", "tutorial")
-    } else if(node.frontmatter.contentType === "blog"){
-      createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
+    let isOfType = name => node.fileAbsolutePath.startsWith(siteConfig.contentDir + "/content/" + name)
+    let pageType; // default to blog post
+    if (isOfType("tutorial-pages")) {
+      createPostNode(node, getNode, createNodeField, "content/tutorial-pages", "tutorial")
+      pageType = "tutorial";
+    } else if (isOfType("blog-posts")) {
+      createPostNode(node, getNode, createNodeField, "content/blog-posts", "blog")
+      pageType = "blog";
+    } else if (isOfType("people")) {
+      if (node.frontmatter.teamMember === true) {
+        createNodeField({
+          node,
+          name: `internalURL`,
+          value: `/about/${_.kebabCase(node.frontmatter.name)}/`,
+        })
+      }
+      pageType = "person";
     } else {
-      console.log("No contentType was found in the frontmatter, \
-creating blog post as a default for: ", node)
-      createMarkdownNode(node, getNode, createNodeField, "content/blog-posts", "blog")
+      throw new Error(`Unknown markdown document encountered: ${node}`)
     }
-  }
-  if (node.internal.type === `PeopleJson`) {
     createNodeField({
       node,
-      name: `internalURL`,
-      value: `/about/${_.kebabCase(node.name)}/`,
+      name: `contentType`,
+      value: pageType,
+    })
+    createNodeField({
+      node,
+      name: `isPost`,
+      value: pageType === "tutorial" || pageType === "blog",
+    })
+    createNodeField({
+      node,
+      name: `isPerson`,
+      value: pageType === "person",
     })
   }
 };
@@ -56,12 +74,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   const tagPage = path.resolve("src/templates/tag.js");
   const authorPage = path.resolve("src/templates/person.js");
-  const postPage = path.resolve(`./src/templates/post.js`);
+  const postPage = path.resolve("src/templates/post.js");
 
   return new Promise((resolve, reject) => {
     if (
       !fs.existsSync(
-        path.resolve(`content/${siteConfig.peopleDir}/`)
+        path.resolve(`content/people/`)
       )
     ) {
       reject(
@@ -71,7 +89,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark (filter: { fields: { isPost: { eq: true } } }) {
           edges {
             node {
               frontmatter {

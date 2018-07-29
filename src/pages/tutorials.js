@@ -28,16 +28,17 @@ export default class TutorialListingTemplate extends React.Component {
 export const query = graphql`
 query TutorialIndexQuery {
   # authors
-  authors: allPeopleJson {
+  authors: allMarkdownRemark (filter: { fields: { isPerson: { eq: true } } }) {
     edges {
       node {
-        id
-        name
-        image
-        url
-        bio
-        location
-        socialUrls
+        frontmatter {
+          name
+          image
+          url
+          bio
+          location
+          socialUrls
+        }
         fields {
           internalURL
         }
@@ -45,9 +46,12 @@ query TutorialIndexQuery {
     }
   }
   # tutorial posts
-  allMarkdownRemark(
+  allMarkdownRemark (
     sort: { fields: [frontmatter___date], order: DESC }
-    filter: { frontmatter: { draft: { ne: true } } }
+    filter: {
+      frontmatter: { draft: { ne: true } }
+      fields: { isPost: { eq: true } }
+    }
   ) {
     totalCount
     edges {
