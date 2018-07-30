@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import config from '../../data/SiteConfig';
 
 import './reset.css'
-import './index.css'
+import './index.scss'
 
 require("prismjs/themes/prism-solarizedlight.css");
 

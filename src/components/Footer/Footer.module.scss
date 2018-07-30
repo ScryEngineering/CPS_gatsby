@@ -1,13 +1,11 @@
-/* ==========================================================================
-       Footer - The bottom of every page
-   ========================================================================== */
+@import '../../styles/colors';
 
 .wrapper {
     position: absolute;
     bottom: 0;
-    background-color: #e5e8eb;
+    background-color: $color-light;
     width: 100%;
-    color: #1a2631;
+    color: $color-dark;
 }
 
 .logo {
@@ -35,7 +33,7 @@
 }
 
 .cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
-    color: #1a2631;
+    color: $color-dark;
 }
 
 .cpsLink, .cpsLink:active, .cpsLink:visited {

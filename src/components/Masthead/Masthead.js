@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import styles from "./Masthead.module.css";
+import styles from "./Masthead.module.scss";
 
 const Header = () => (
   <div className={styles.wrapper}>

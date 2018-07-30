@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .snippet {
     padding-top: 3rem;
 }
@@ -9,7 +11,7 @@
 
 .name, .address, .comment, .submit {
     border-radius: 3px;
-    border: 1px solid #cccccc;
+    border: 1px solid $color-light;
 }
 
 .name, .address, .comment {
@@ -45,14 +47,15 @@
 .submit {
     padding: 0.3rem 0.8rem;
     cursor: pointer;
+    transition: background-color 300ms ease;
 }
 
 .submit, .submit:visited, .submit:active {
-    background-color: #b9b9b9;
+    background-color: $color-light;
 }
 
 .submit:hover {
-    background-color: #dddddd;
+    background-color: $color-main;
 }
 
 @media only screen and (min-width: 501px) {

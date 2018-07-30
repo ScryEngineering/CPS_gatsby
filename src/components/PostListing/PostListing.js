@@ -5,7 +5,7 @@ This component exists to list posts such as tutorial or blog post
 import React from "react";
 import Link from "gatsby-link";
 
-import styles from "./PostListing.module.css"
+import styles from "./PostListing.module.scss"
 import PostTags from "../PostTags/PostTags";
 import AuthorsInfo from "../AuthorsInfo/AuthorsInfo";
 

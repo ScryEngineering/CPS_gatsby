@@ -2,7 +2,7 @@ import React from 'react'
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
-import styles from "./tutorials.module.css"
+import styles from "./tutorials.module.scss"
 import PostListing from "../components/PostListing/PostListing";
 
 export default class BlogListingTemplate extends React.Component {

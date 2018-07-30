@@ -1,38 +1,15 @@
-html, body {
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-}
-
-#___gatsby {
-  min-height: 100%;
-  position: relative;
-}
+@import "../styles/global.scss";
 
 h1 {
   padding-top: 1em;
 }
 
 .masthead, .contentdiv, .footer {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 1.0875rem;
+  @extend .centered-section;
 }
 
 .contentdiv {
   padding: 4rem 1.0875rem 10rem 1.0875rem;
-}
-
-a, a:hover, a:visited, a:active {
-  text-decoration: none;
-}
-
-a, a:visited, a:active {
-  color: #636466;
-}
-
-a:hover {
-  color: #000000;
 }
 
 .footer {

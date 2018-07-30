@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import Link from "gatsby-link";
 
-import styles from './PostTags.module.css'
+import styles from './PostTags.module.scss'
 
 class PostTags extends Component {
   render() {

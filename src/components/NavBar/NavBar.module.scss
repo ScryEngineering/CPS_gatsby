@@ -1,6 +1,8 @@
+@import '../../styles/colors';
+
 .wrapper {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e8eb;
+    background-color: $color-white;
+    border-bottom: 1px solid $color-light;
 }
 
 .navBar {
@@ -22,19 +24,19 @@
 }
 
 .logo, .logo:active, .logo:visited {
-    color: #3369B3;
+    color: $color-main;
 }
 
 .logo:hover {
-    color: #1a2631;
+    color: $color-dark;
 }
 
 .link, .link:visited, .link:active {
-    color: #3369B3;
+    color: $color-main;
 }
 
 .link:hover {
-    color: #1a2631;
+    color: $color-dark;
 }
 
 .logo > img {
