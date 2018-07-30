@@ -9,28 +9,5 @@ h1 {
 }
 
 .contentdiv {
-  padding: 4rem 1.0875rem 10rem 1.0875rem;
-}
-
-.footer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer > section {
-  flex: 1;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-@media only screen and (min-width: 501px) {
-  .footer {
-    flex-direction: row;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .footer {
-    flex-direction: column;
-  }
+  padding: 4rem 1.0875rem 32vh 1.0875rem;
 }

@@ -6,6 +6,7 @@
     background-color: $color-light;
     width: 100%;
     color: $color-dark;
+    min-height: 30vh;
 }
 
 .logo {
@@ -42,4 +43,28 @@
 
 .cpsLink:hover {
     text-decoration: underline;
+}
+
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer > section {
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media only screen and (min-width: 501px) {
+    .footer {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+    }
 }

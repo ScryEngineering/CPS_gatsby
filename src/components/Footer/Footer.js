@@ -7,7 +7,9 @@ class Footer extends Component {
     const { label, url, year } = this.props.copyright;
     return (
       <footer className={styles.wrapper}>
-        <div className="footer">
+        <div className={styles.footer}>
+          <div className={styles.top}>
+          </div>
           <section className={styles.logoContainer}>
             <img src="/logo-CPS.png" alt="CPS logo"></img>
           </section>
