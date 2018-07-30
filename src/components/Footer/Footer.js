@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import Link from "gatsby-link";
 
 import Logo from "../Logo/Logo";
 
 import styles from "./Footer.module.scss";
-var { SocialIcon } = require('react-social-icons');
 
 class Footer extends Component {
   render() {
@@ -16,22 +16,21 @@ class Footer extends Component {
               <div className={styles.group}>
                 <h4>Get in touch</h4>
                 <ul>
-                  <li>Contact form</li>
-                  <li>LinkedIn</li>
-                  <li>Facebook</li>
-                  <li>Twitter</li>
-                  <li>RSS</li>
-                  <li>GitHub</li>
-                  <li>Email</li>
+                  <li><Link className={styles.grouplink} to="/contact">Contact form</Link></li>
+                  <li><a className={styles.grouplink} href="https://www.linkedin.com/company/customprogrammingsolutions/">LinkedIn</a></li>
+                  {/*<li><a className={styles.grouplink} href="">Facebook</a></li>*/}
+                  <li><a className={styles.grouplink} href="https://twitter.com/C_P_S_online">Twitter</a></li>
+                  <li><a className={styles.grouplink} href="/rss.xml">RSS</a></li>
+                  <li><a className={styles.grouplink} href="https://github.com/customprogrammingsolutions">GitHub</a></li>
                 </ul>
               </div>
               <div className={styles.group}>
                 <h4>Pages</h4>
                 <ul>
-                  <li>Research</li>
-                  <li>Case studies</li>
-                  <li>Blogs &amp; Tutorials</li>
-                  <li>Team</li>
+                  <li><Link className={styles.grouplink} to="/">Research</Link></li>
+                  <li><Link className={styles.grouplink} to="/">Case studies</Link></li>
+                  <li><Link className={styles.grouplink} to="/blog">Blogs &amp; Tutorials</Link></li>
+                  <li><Link className={styles.grouplink} to="/">Team</Link></li>
                 </ul>
               </div>
             </div>

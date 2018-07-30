@@ -38,6 +38,14 @@
     line-height: 1.1em;
 }
 
+.grouplink, .grouplink:visited, .grouplink:active {
+    color: $color-dark;
+}
+
+.grouplink:hover {
+    color: $color-main;
+}
+
 .footer > section {
     flex: 1;
     margin-top: auto;
