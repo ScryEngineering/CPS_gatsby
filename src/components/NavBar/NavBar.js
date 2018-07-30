@@ -15,7 +15,7 @@ const Header = () => (
     <div className={styles.navBar}>
       <div className={styles.logoContainer}>
         <Link to="/" className={styles.logo}>
-          <img src="/crude-logo.png" alt="Logo"></img>
+          <img src="/CPS-logo-main.svg" alt="Logo"></img>
           <span>Custom Programming Solutions</span>
         </Link>
       </div>
