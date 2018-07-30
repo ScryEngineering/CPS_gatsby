@@ -1,0 +1,13 @@
+.centered-section {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.0875rem;
+}
+
+$extended-padding: 5rem;
+
+.extended-section {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0.3rem $extended-padding;
+}

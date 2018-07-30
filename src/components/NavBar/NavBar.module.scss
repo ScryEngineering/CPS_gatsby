@@ -1,6 +1,8 @@
 @import '../../styles/colors';
+@import '../../styles/global';
 
 .wrapper {
+    @extend .extended-section;
     background-color: $color-white;
     border-bottom: 1px solid $color-light;
 }

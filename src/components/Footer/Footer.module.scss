@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles/global';
 
 .wrapper {
     position: absolute;
@@ -6,7 +7,54 @@
     background-color: $color-light;
     width: 100%;
     color: $color-dark;
-    min-height: 30vh;
+    min-height: 60vh;
+}
+
+.footer {
+    @extend .extended-section;
+    padding: $extended-padding;
+}
+
+.content {
+    display: flex;
+}
+
+.left {
+    display: flex;
+}
+
+.group {
+    padding-right: 6rem;
+}
+
+.group h4 {
+    padding-bottom: 1rem;
+}
+
+.group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+    line-height: 1.1em;
+}
+
+.footer > section {
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media only screen and (min-width: 501px) {
+    .content {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .content {
+        flex-direction: column;
+    }
 }
 
 .logo {
@@ -29,8 +77,9 @@
 }
 
 .copyright {
-    text-align: center;
-    font-size: 0.8em;
+    margin: 0 0 0 auto;
+    text-align: right;
+    font-size: 0.6em;
 }
 
 .cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
@@ -45,26 +94,6 @@
     text-decoration: underline;
 }
 
-
-.footer {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer > section {
-    flex: 1;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-@media only screen and (min-width: 501px) {
-    .footer {
-        flex-direction: row;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .footer {
-        flex-direction: column;
-    }
+.bottom {
+    text-align: right;
 }
