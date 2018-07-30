@@ -4,6 +4,8 @@ import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import PostTags from "../components/PostTags/PostTags";
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
+import styles from "./post.module.scss";
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -16,8 +18,8 @@ export default function Template({
     <div className="post-container">
       <HelmetWrapper title={post.frontmatter.title} />
       <div className="post">
-        <h1>{post.frontmatter.title}</h1>
-        <h2>by {post.frontmatter.author} on {post.frontmatter.date}</h2>
+        <h1 className={styles.title}>{post.frontmatter.title}</h1>
+        <h2 className={styles.byline}>by {post.frontmatter.author} on {post.frontmatter.date}</h2>
         <div
           className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
