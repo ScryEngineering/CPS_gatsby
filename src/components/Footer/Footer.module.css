@@ -5,9 +5,9 @@
 .wrapper {
     position: absolute;
     bottom: 0;
-    background-color: #000000;
+    background-color: #e5e8eb;
     width: 100%;
-    color: #bbc7cc;
+    color: #1a2631;
 }
 
 .logo {
@@ -35,7 +35,7 @@
 }
 
 .cpsLink, .cpsLink:hover, .cpsLink:active, .cpsLink:visited {
-    color: #bbc7cc;
+    color: #1a2631;
 }
 
 .cpsLink, .cpsLink:active, .cpsLink:visited {
