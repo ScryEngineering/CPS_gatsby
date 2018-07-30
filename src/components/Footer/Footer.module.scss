@@ -1,5 +1,6 @@
 @import '../../styles/colors';
 @import '../../styles/global';
+@import '../../styles/global';
 
 .wrapper {
     position: absolute;
@@ -23,7 +24,8 @@
 }
 
 .group {
-    padding-right: 6rem;
+    flex: 1;
+    padding-bottom: 2rem;
 }
 
 .group h4 {
@@ -52,18 +54,6 @@
     margin-bottom: auto;
 }
 
-@media only screen and (min-width: 501px) {
-    .content {
-        flex-direction: row;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .content {
-        flex-direction: column;
-    }
-}
-
 .logo {
     text-align: center;
 }
@@ -84,8 +74,6 @@
 }
 
 .copyright {
-    margin: 0 0 0 auto;
-    text-align: right;
     font-size: 0.6em;
 }
 
@@ -101,6 +89,32 @@
     text-decoration: underline;
 }
 
-.bottom {
-    text-align: right;
+@media only screen and (min-width: $lg-bp) {
+    .content, .left {
+        flex-direction: row;
+    }
+    .group {
+        padding-right: 6rem;
+    }
+    .copyright, .bottom {
+        text-align: right;
+    }
+    .copyright {
+        margin: 0 0 0 auto;
+    }
+}
+
+@media only screen and (max-width: $me-bp) {
+    .content, .left {
+        flex-direction: column;
+    }
+    .group {
+        padding-right: 0;
+    }
+    .copyright, .bottom {
+        text-align: initial;
+    }
+    .copyright {
+        margin: 1rem 0 2rem 0;
+    }
 }

@@ -1,5 +1,6 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
+@import '../../styles/global';
 
 .snippet {
     padding-top: 3rem;
@@ -59,7 +60,7 @@
     background-color: $color-main;
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: $ms-bp) {
     .inputDiv {
         flex-direction: row;
     }
@@ -74,7 +75,7 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: $sm-bp) {
     .inputDiv {
         flex-direction: column;
     }
