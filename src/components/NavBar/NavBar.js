@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Logo from "../Logo/Logo";
+
 import styles from "./NavBar.module.scss";
 
 const NavLink = props =>
@@ -13,12 +15,7 @@ const NavLink = props =>
 const Header = () => (
   <div className={styles.wrapper}>
     <div className={styles.navBar}>
-      <div className={styles.logoContainer}>
-        <Link to="/" className={styles.logo}>
-          <img src="/CPS-logo-main.svg" alt="Logo"></img>
-          <span>Custom Programming Solutions</span>
-        </Link>
-      </div>
+      <Logo height={70} />
       <div className={styles.navLinkContainer}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about/">About</NavLink>

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import Logo from "../Logo/Logo";
+
 import styles from "./Footer.module.scss";
 var { SocialIcon } = require('react-social-icons');
 
@@ -40,7 +43,7 @@ class Footer extends Component {
             </div>
           </div>
           <div className={styles.bottom}>
-            <img height="50" src="/logo-CPS.png" alt="CPS logo"></img>
+            <Logo height={40} dark={true} />
           </div>
         </div>
       </footer>

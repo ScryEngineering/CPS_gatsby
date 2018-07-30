@@ -1,0 +1,47 @@
+@import '../../styles/colors';
+
+.logoContainer {
+    display: block;
+    transition: color 300ms ease;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'myriad-pro';
+    font-weight: 600;
+    font-size: 0.4em;
+}
+
+.logomain, .logomain:active, .logomain:visited {
+    color: $color-main;
+}
+
+.logomain:hover {
+    color: $color-dark;
+}
+
+.logodark, .logodark:active, .logodark:visited {
+    color: $color-dark;
+}
+
+.logodark:hover {
+    color: $color-dark;
+}
+
+.logo > img {
+    float: left;
+    padding: 0.2em;
+    margin: 0px;
+    display: block;
+}
+
+.logo > span {
+    float: left;
+    display: block;
+    padding: 0.6em 0;
+}
+
+.logo {
+    margin: 0.1em 0.3em;
+}

@@ -1,36 +1,17 @@
 import React from "react";
-import Helmet from "react-helmet";
+import Link from "gatsby-link";
 
-import config from "../../../data/SiteConfig"
+import styles from "./Logo.module.scss";
 
-export default class HelmetWrapper extends React.Component {
+export default class Logo extends React.Component {
   render(){
     return (
-      <Helmet
-        titleTemplate="%s — Custom Programming Solutions">
-        <title>{this.props.title}</title>
-        <meta property="og:title" content={this.props.title + " — Custom Programming Solutions"} />
-        <meta name="twitter:title" value={this.props.title + " — Custom Programming Solutions"} />
-        <meta property="og:description" content={this.props.description} />
-        <meta name="twitter:description" value={this.props.description} />
-        <meta property="og:image" content={config.siteUrl + "/" + this.props.image} />
-        <meta name="twitter:image" content={config.siteUrl + "/" + this.props.image} />
-        <meta name="twitter:image:alt" content={this.props.imageAlt} />
-        {this.props.children}
-      </Helmet>
+      <div className={styles.logoContainer} style={{"height": this.props.height, "font-size": this.props.height}}>
+        <Link to="/" className={styles.logo + " " + (this.props.dark ? styles.logodark : styles.logomain)}>
+          <img src={this.props.dark ? "/CPS-logo-dark.svg" : "/CPS-logo-main.svg"} alt="Logo" style={{"height": this.props.height * 0.9}}></img>
+          <span>Custom Programming Solutions</span>
+        </Link>
+      </div>
     );
   }
-}
-
-HelmetWrapper.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string,
-  image: React.PropTypes.string,
-  imageAlt: React.PropTypes.string,
-}
-
-HelmetWrapper.defaultProps = {
-  description: "A versatile programming, software development and consulting firm driven by trusted industry experts.",
-  image: "CPS-BW-header.png",
-  imageAlt: "Custom Programming Solutions",
 }
