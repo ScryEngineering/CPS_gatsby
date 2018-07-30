@@ -1,3 +1,8 @@
+$sm-bp: 500px;
+$ms-bp: 501px;
+$me-bp: 1200px;
+$lg-bp: 1201px;
+
 .centered-section {
     margin: 0 auto;
     max-width: 960px;
@@ -6,13 +11,18 @@
 
 $extended-padding: 5rem;
 
-.extended-section {
-    margin: 0 auto;
-    max-width: 1440px;
-    padding: 0.3rem $extended-padding;
+@media only screen and (min-width: $lg-bp) {
+    .extended-section {
+        margin: 0 auto;
+        max-width: 1440px;
+        padding: 0.3rem $extended-padding;
+    }
 }
 
-$sm-bp: 500px;
-$ms-bp: 501px;
-$me-bp: 1200px;
-$lg-bp: 1201px;
+@media only screen and (max-width: $me-bp) {
+    .extended-section {
+        margin: 0 auto;
+        max-width: 1440px;
+        padding: 1.0875rem;
+    }
+}
