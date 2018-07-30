@@ -37,14 +37,18 @@ html, body {
     padding: 1.0875rem;
 }
 
+a {
+    transition: color 300ms ease;
+}
+
 a, a:hover, a:visited, a:active {
     text-decoration: none;
 }
 
 a, a:visited, a:active {
-    color: #636466;
+    color: $color-main;
 }
 
 a:hover {
-    color: #000000;
+    color: $color-black;
 }

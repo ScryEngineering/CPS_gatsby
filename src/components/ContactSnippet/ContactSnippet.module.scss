@@ -1,12 +1,13 @@
 @import '../../styles/colors';
+@import '../../styles/fonts';
 
 .snippet {
     padding-top: 3rem;
 }
 
 .blurb {
-    font-style: italic;
-    font-size: 1.3em;
+    @extend .subtle-fonts;
+    color: $color-dark;
 }
 
 .name, .address, .comment, .submit {
