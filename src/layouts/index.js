@@ -10,7 +10,7 @@ import config from '../../data/SiteConfig';
 import './reset.css'
 import './index.scss'
 
-require("prismjs/themes/prism-solarizedlight.css");
+require("../styles/code.scss");
 
 export default class TemplateWrapper extends React.Component {
   render() {
