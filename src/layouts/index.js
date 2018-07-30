@@ -23,6 +23,7 @@ export default class TemplateWrapper extends React.Component {
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="og:url" content={config.siteUrl + this.props.location.pathname} />
           <meta name="twitter:url" value={config.siteUrl + this.props.location.pathname} />
+          <link rel="stylesheet" href="https://use.typekit.net/bae2fex.css" />
         </HelmetWrapper>
         <NavBar />
         <Masthead />
