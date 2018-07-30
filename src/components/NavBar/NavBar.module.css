@@ -1,6 +1,6 @@
 .wrapper {
     background-color: #ffffff;
-    border-bottom: 1px solid #535557;
+    border-bottom: 1px solid #e5e8eb;
 }
 
 .navBar {
@@ -8,8 +8,6 @@
 }
 
 .logoContainer {
-    font-family: "Roboto Condensed";
-    font-weight: 300;
     font-size: 1.5em;
     height: 70px;
     display: block;
@@ -18,24 +16,27 @@
 .logo {
     display: inline-block;
     vertical-align: top;
-    transition-duration: 300ms;
+    transition: color 300ms ease;
+    font-family: 'myriad-pro';
+    font-weight: 600;
 }
 
 .logo, .logo:active, .logo:visited {
-    color: #113f64;
+    color: #3369B3;
 }
 
 .logo:hover {
-    color: #010b13;
+    color: #1a2631;
 }
 
 .link, .link:visited, .link:active {
-    color: #113f64;
+    color: #3369B3;
 }
 
 .link:hover {
-    color: #010b13;
+    color: #1a2631;
 }
+
 .logo > img {
     float: left;
     padding: 0.3rem;
@@ -56,14 +57,15 @@
 .navLinkContainer {
     margin: 0.6rem 2rem 0.6rem auto;
     display: flex;
-    font-family: "Roboto";
-    font-weight: 400;
+    font-size: 0.9em;
 }
 
 .link {
-    padding: 0.6rem 1.2rem;
-    margin: 0px;
+    padding: 0.8rem 1.4rem;
+    margin: 2px;
     border-radius: 3px;
     display: inline-block;
-    transition-duration: 300ms;
+    transition: color 300ms ease;
+    font-family: 'myriad-pro';
+    font-weight: 500;
 }
