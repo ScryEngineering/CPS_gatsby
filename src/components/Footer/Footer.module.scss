@@ -3,11 +3,10 @@
 @import '../../styles/global';
 
 .wrapper {
-    position: absolute;
-    bottom: 0;
     background-color: $color-light;
     width: 100%;
     color: $color-dark;
+    min-height: 30vh;
 }
 
 .footer {
