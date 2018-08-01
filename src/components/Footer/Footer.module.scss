@@ -11,7 +11,8 @@
 
 .footer {
     @extend .extended-section;
-    padding: $extended-padding;
+    padding-top: $extended-padding;
+    padding-bottom: $extended-padding;
 }
 
 .content {
