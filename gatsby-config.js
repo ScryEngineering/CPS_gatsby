@@ -82,7 +82,41 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`
     },
     {
-      resolve: `gatsby-plugin-feed`
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            query: `
+            {
+              allMarkdownRemark(
+                limit: 1000,
+                sort: {
+                  order: DESC,
+                  fields: [frontmatter___date]
+                },
+                filter: {
+                  fields: { isPost: { eq: true }}
+                }
+              ) {
+                edges {
+                  node {
+                    frontmatter {
+                      title
+                      date
+                    }
+                    fields {
+                      slug
+                    }
+                    excerpt
+                    html
+                  }
+                }
+              }
+            }`,
+            output: `/rss.xml`
+          }
+        ]
+      }
     }
   ],
 };
