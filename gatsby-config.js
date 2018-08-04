@@ -95,7 +95,8 @@ module.exports = {
                   fields: [frontmatter___date]
                 },
                 filter: {
-                  fields: { isPost: { eq: true }}
+                  fields: { isPost: { eq: true } },
+                  frontmatter: { draft: { ne: true } }
                 }
               ) {
                 edges {
