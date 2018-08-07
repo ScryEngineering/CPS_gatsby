@@ -27,10 +27,11 @@ class Footer extends Component {
               <div className={styles.group}>
                 <h4>Pages</h4>
                 <ul>
-                  <li><Link className={styles.grouplink} to="/">Research</Link></li>
-                  <li><Link className={styles.grouplink} to="/">Case studies</Link></li>
-                  <li><Link className={styles.grouplink} to="/blog">Blogs &amp; Tutorials</Link></li>
-                  <li><Link className={styles.grouplink} to="/">Team</Link></li>
+                  <li><Link className={styles.grouplink} to="/">Home</Link></li>
+                  <li><Link className={styles.grouplink} to="/about">About</Link></li>
+                  <li><Link className={styles.grouplink} to="/contact">Contact</Link></li>
+                  <li><Link className={styles.grouplink} to="/blog">Blog</Link></li>
+                  <li><Link className={styles.grouplink} to="/tutorials">Tutorials</Link></li>
                 </ul>
               </div>
             </div>
