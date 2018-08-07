@@ -16,7 +16,7 @@ export default class TemplateWrapper extends React.Component {
   render() {
     return(
       <div className="wrapper">
-        <HelmetWrapper>
+        <HelmetWrapper title="Home">
           <meta property="og:type" content="website" />
           <meta name="twitter:domain" value="www.customprogrammingsolutions.com" />
           <meta property="og:site_name" content="Custom Programming Solutions" />
