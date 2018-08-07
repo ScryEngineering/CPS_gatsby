@@ -16,6 +16,8 @@ const Header = () => (
   <div className={styles.wrapper}>
     <div className={styles.navBar}>
       <Logo height={70} />
+      <input className={styles.menubtn} type="checkbox" id="menubtn" />
+      <label className={styles.menuicon} htmlFor="menubtn"><span className={styles.navicon}></span></label>
       <div className={styles.navLinkContainer}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about/">About</NavLink>
