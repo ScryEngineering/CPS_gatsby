@@ -2,9 +2,12 @@
 
 .wrapper {
     background-color: $color-main;
-    min-height: 35vh;
 }
 
 .masthead h1, .masthead p {
     color: $color-white;
+}
+
+.masthead p {
+    margin-top: 1.45rem;
 }

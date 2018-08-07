@@ -55,6 +55,11 @@ h1 {
   @extend .centered-section;
 }
 
+.masthead {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
 .contentdiv {
   padding: 4rem 1.0875rem;
   min-height: 50vh;
