@@ -11,7 +11,7 @@ import styles from './team.module.css'
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
     <div className={styles.teamMemberPhotoContainer}>
-      <img src="http://via.placeholder.com/400x400" className={styles.teamMemberPhoto} />
+      <img src="https://via.placeholder.com/400x400" className={styles.teamMemberPhoto} />
     </div>
     <div className={styles.teamMemberDetailsContainer}>
       <h2 className={styles.teamMemberName}>{props.person.frontmatter.name}</h2>
