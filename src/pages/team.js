@@ -44,7 +44,8 @@ export const query = graphql`
 query TeamQuery {
   teamMembers: allMarkdownRemark (
     filter: {
-      fields: { isPerson: { eq: true } }
+      fields: { isPerson: { eq: true } },
+      frontmatter: { teamMember: { eq: true } }
     }
   ) {
     edges {
