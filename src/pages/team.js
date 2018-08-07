@@ -41,19 +41,21 @@ export default class TeamPage extends React.Component {
 
 export const query = graphql`
 query TeamQuery {
-  # authors
-  teamMembers: allPeopleJson (
-    filter: { teamMember: { eq: true } }
-  ){
+  teamMembers: allMarkdownRemark (
+    filter: {
+      fields: { isPerson: { eq: true } }
+    }
+  ) {
     edges {
       node {
-        id
-        name
-        image
-        url
-        bio
-        location
-        socialUrls
+        frontmatter {
+          name
+          image
+          url
+          bio
+          location
+          socialUrls
+        }
         fields {
           internalURL
         }
