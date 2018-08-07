@@ -31,6 +31,6 @@ HelmetWrapper.propTypes = {
 
 HelmetWrapper.defaultProps = {
   description: "A versatile programming, software development and consulting firm driven by trusted industry experts.",
-  image: "CPS-BW-header.png",
+  image: "thumbnail.png",
   imageAlt: "Custom Programming Solutions",
 }

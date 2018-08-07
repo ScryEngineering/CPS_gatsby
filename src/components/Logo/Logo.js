@@ -8,8 +8,7 @@ export default class Logo extends React.Component {
     return (
       <div className={styles.logoContainer} style={{"height": this.props.height, "fontSize": this.props.height}}>
         <Link to="/" className={styles.logo + " " + (this.props.dark ? styles.logodark : styles.logomain)}>
-          <img src={this.props.dark ? "/CPS-logo-dark.svg" : "/CPS-logo-main.svg"} alt="Logo" style={{"height": this.props.height * 0.9}}></img>
-          <span>Custom Programming Solutions</span>
+          <img src={this.props.dark ? "/logo-with-text-dark.svg" : "/logo-with-text-main.svg"} alt="Logo" style={{"height": this.props.height}}></img>
         </Link>
       </div>
     );
