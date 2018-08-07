@@ -20,6 +20,7 @@
 }
 
 .left {
+    flex: 2;
     display: flex;
 }
 
@@ -101,6 +102,7 @@
     }
     .copyright {
         margin: 0 0 0 auto;
+        padding-left: 6rem;
     }
 }
 
