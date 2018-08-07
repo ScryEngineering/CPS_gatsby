@@ -32,7 +32,7 @@ html, body {
 }
 
 a {
-    transition: color 300ms ease;
+    transition: color 300ms ease-in-out;
 }
 
 a, a:hover, a:visited, a:active {

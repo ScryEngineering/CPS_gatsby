@@ -9,7 +9,7 @@
     margin: 2px;
     border-radius: 3px;
     display: inline-block;
-    transition: background-color 300ms ease;
+    transition: background-color 300ms ease-in-out;
 }
 
 .tag, .tag:hover, .tag:visited, a:active {
