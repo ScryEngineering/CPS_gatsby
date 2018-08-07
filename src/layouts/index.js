@@ -26,7 +26,7 @@ export default class TemplateWrapper extends React.Component {
           <link rel="stylesheet" href="https://use.typekit.net/bae2fex.css" />
         </HelmetWrapper>
         <NavBar />
-        <Masthead />
+        <Masthead heading={"High-tech software consulting in Melbourne."} paragraph={"We are a versatile programming, software development and consulting firm driven by trusted industry experts. Our clients are agile organizations who require high-quality, custom built solutions."} />
         <div className="contentdiv">
           {this.props.children()}
         </div>
