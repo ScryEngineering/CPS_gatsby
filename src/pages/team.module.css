@@ -1,13 +1,8 @@
 .teamMemberSection {
-    border-bottom: 1px dashed #cccccc;
     margin: 0;
     padding: 1.5rem;
     display: flex;
     justify-content: flex-start;
-}
-
-.teamMemberSection:last-child {
-    border-bottom: none;
 }
 
 .teamMemberSection > div {

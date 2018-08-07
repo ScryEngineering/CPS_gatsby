@@ -11,12 +11,12 @@ import styles from './team.module.css'
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
     <div className={styles.teamMemberPhotoContainer}>
-      <img src="https://via.placeholder.com/400x400" className={styles.teamMemberPhoto} />
+      <img src={props.person.frontmatter.image} className={styles.teamMemberPhoto} />
     </div>
     <div className={styles.teamMemberDetailsContainer}>
       <h2 className={styles.teamMemberName}>{props.person.frontmatter.name}</h2>
       <p className={styles.teamMemberTitle}>{props.person.frontmatter.bio}, <span className={styles.teamMemberLocation}>{props.person.frontmatter.location}</span></p>
-      <p>{props.person.frontmatter.bio}... <Link to={props.person.fields.internalURL}>Read more.</Link></p>
+      <p>{props.person.frontmatter.shortBlurb}. <Link to={props.person.fields.internalURL}>Read more.</Link></p>
     </div>
   </section>
 
@@ -54,9 +54,11 @@ query TeamQuery {
           name
           image
           url
-          bio
           location
+          bio
           socialUrls
+          shortBlurb
+          miniBlurb
         }
         fields {
           internalURL
