@@ -6,7 +6,7 @@ import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Masthead from '../components/Masthead/Masthead'
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
-import styles from './team.module.css'
+import styles from './team.module.scss'
 
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
