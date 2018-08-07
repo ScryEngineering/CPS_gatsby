@@ -1,5 +1,6 @@
 import React from 'react'
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
+import Masthead from '../components/Masthead/Masthead'
 import Link from "gatsby-link";
 
 import styles from "./tutorials.module.scss"
@@ -18,11 +19,11 @@ export default class BlogListingTemplate extends React.Component {
     return (
       <div>
         <HelmetWrapper title="Blog" />
-        <h1>
-          Blog posts
-        </h1>
-        <h4>{postCount} Posts</h4>
-        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
+        <Masthead heading="Blog posts" />
+        <div className="contentdiv">
+          <h4>{postCount} Posts</h4>
+          <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
+        </div>
       </div>
     );
   }

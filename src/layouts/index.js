@@ -2,7 +2,6 @@ import React from 'react'
 
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import NavBar from '../components/NavBar/NavBar'
-import Masthead from '../components/Masthead/Masthead'
 import Footer from '../components/Footer/Footer';
 
 import config from '../../data/SiteConfig';
@@ -26,10 +25,7 @@ export default class TemplateWrapper extends React.Component {
           <link rel="stylesheet" href="https://use.typekit.net/bae2fex.css" />
         </HelmetWrapper>
         <NavBar />
-        <Masthead heading={"High-tech software consulting in Melbourne."} paragraph={"We are a versatile programming, software development and consulting firm driven by trusted industry experts. Our clients are agile organizations who require high-quality, custom built solutions."} />
-        <div className="contentdiv">
-          {this.props.children()}
-        </div>
+        {this.props.children()}
         <Footer
           copyright={{
             label: "Custom Programming Solutions Pty Ltd",

@@ -2,6 +2,7 @@ import React from "react";
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
+import Masthead from '../components/Masthead/Masthead'
 import PostListing from "../components/PostListing/PostListing";
 
 export default class TagTemplate extends React.Component {
@@ -15,11 +16,11 @@ export default class TagTemplate extends React.Component {
     return (
       <div>
         <HelmetWrapper title={tag + " posts"} />
-        <h1>
-          Posts tagged as {tag}
-        </h1>
-        <h4>{postCount} Posts</h4>
-        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+        <Masthead heading={"Posts tagged as " + {tag}} />
+        <div className="contentdiv">
+          <h4>{postCount} posts</h4>
+          <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+        </div>
       </div>
     );
   }
