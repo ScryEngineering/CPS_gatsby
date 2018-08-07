@@ -10,7 +10,7 @@
 }
 
 .footer {
-    @extend .extended-section;
+    @extend .centered-section;
     padding-top: $extended-padding;
     padding-bottom: $extended-padding;
 }
