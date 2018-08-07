@@ -8,12 +8,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `tutorials`,
@@ -80,6 +74,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sitemap`
+    },
+    {
+      resolve: `gatsby-plugin-sass`
     },
     {
       resolve: `gatsby-plugin-feed`,

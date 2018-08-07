@@ -1,0 +1,13 @@
+@import '../../styles/colors';
+
+.wrapper {
+    background-color: $color-main;
+}
+
+.masthead h1, .masthead p {
+    color: $color-white;
+}
+
+.masthead p {
+    margin-top: 1.45rem;
+}

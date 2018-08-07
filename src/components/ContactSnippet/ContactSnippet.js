@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from "./ContactSnippet.module.css";
+import styles from "./ContactSnippet.module.scss";
 
 import axios from "axios";
 

@@ -2,7 +2,10 @@ import React from "react";
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
 import PostTags from "../components/PostTags/PostTags";
+import Masthead from '../components/Masthead/Masthead'
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
+
+import styles from "./post.module.scss";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -13,15 +16,11 @@ export default function Template({
   const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true
   const postHasCallToActionText = post.frontmatter.callToActionText !== null
   return (
-    <div className="post-container">
+    <div>
       <HelmetWrapper title={post.frontmatter.title} />
-      <div className="post">
-        <h1>{post.frontmatter.title}</h1>
-        <h2>by {post.frontmatter.author} on {post.frontmatter.date}</h2>
-        <div
-          className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+      <Masthead heading={post.frontmatter.title} paragraph={"Written by " + post.frontmatter.author + " on " + post.frontmatter.date + "."} />
+      <div className="contentdiv">
+        <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
         { postHasTags &&
           <PostTags tags={post.frontmatter.tags} />
         }

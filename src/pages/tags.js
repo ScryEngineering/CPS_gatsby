@@ -11,6 +11,8 @@ import kebabCase from "lodash/kebabCase";
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
+import Masthead from '../components/Masthead/Masthead'
+
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
@@ -18,8 +20,8 @@ const TagsPage = ({
 }) => (
   <div>
     <HelmetWrapper title="Tags" />
-    <div>
-      <h1>Tags</h1>
+    <Masthead heading="Tags" />
+    <div className="contentdiv">
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>

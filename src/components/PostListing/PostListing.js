@@ -5,7 +5,7 @@ This component exists to list posts such as tutorial or blog post
 import React from "react";
 import Link from "gatsby-link";
 
-import styles from "./PostListing.module.css"
+import styles from "./PostListing.module.scss"
 import PostTags from "../PostTags/PostTags";
 import AuthorsInfo from "../AuthorsInfo/AuthorsInfo";
 
@@ -31,7 +31,7 @@ class PostListing extends React.Component {
     const nonDraftPosts = postList.filter(post => post.draft !== true);
     return (
       <div className={styles.postContainer}>
-        {/* Your post list here. */
+        {
         nonDraftPosts.map(post => (
         <div className={styles.post}>
           <h2><Link to={post.path} key={post.title} className={styles.postTitle}>{post.title}</Link></h2>

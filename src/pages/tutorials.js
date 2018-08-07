@@ -2,7 +2,9 @@ import React from 'react'
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Link from "gatsby-link";
 
-import styles from "./tutorials.module.css"
+import Masthead from '../components/Masthead/Masthead'
+
+import styles from "./tutorials.module.scss"
 import PostListing from "../components/PostListing/PostListing";
 
 export default class TutorialListingTemplate extends React.Component {
@@ -15,11 +17,11 @@ export default class TutorialListingTemplate extends React.Component {
     return (
       <div>
         <HelmetWrapper title="Tutorials" />
-        <h1>
-          Tutorials
-        </h1>
-        <h4>{postCount} Posts</h4>
-        <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+        <Masthead heading="Tutorials" />
+        <div className="contentdiv">
+          <h4>{postCount} Posts</h4>
+          <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+        </div>
       </div>
     );
   }

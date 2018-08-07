@@ -1,28 +1,50 @@
 import React, { Component } from "react";
-import styles from "./Footer.module.css";
-var { SocialIcon } = require('react-social-icons');
+import Link from "gatsby-link";
+
+import Logo from "../Logo/Logo";
+
+import styles from "./Footer.module.scss";
 
 class Footer extends Component {
   render() {
     const { label, url, year } = this.props.copyright;
     return (
       <footer className={styles.wrapper}>
-        <div className="footer">
-          <section className={styles.logo}>
-            <img src="/logo-CPS.png" alt="CPS logo"></img>
-          </section>
-          <section className={styles.copyright}>
-            Copyright{" "}{year || new Date().getFullYear()}<br />
-            <a href={url || "/"} className={styles.cpsLink}>{label}</a><br />
-            ACN: 627 525 197<br />
-            ABN: 34627525197
-          </section>
-          <section className={styles.socialButtons}>
-            <SocialIcon url="https://github.com/customprogrammingsolutions" />
-            <SocialIcon url="https://twitter.com/C_P_S_online" />
-            <SocialIcon url="https://www.linkedin.com/company/18716004/" />
-            <SocialIcon url="/rss.xml" network="rss" />
-          </section>
+        <div className={styles.footer}>
+          <div className={styles.content}>
+            <div className={styles.left}>
+              <div className={styles.group}>
+                <h4>Get in touch</h4>
+                <ul>
+                  <li><Link className={styles.grouplink} to="/contact">Contact form</Link></li>
+                  <li><a className={styles.grouplink} href="https://www.linkedin.com/company/customprogrammingsolutions/">LinkedIn</a></li>
+                  {/*<li><a className={styles.grouplink} href="">Facebook</a></li>*/}
+                  <li><a className={styles.grouplink} href="https://twitter.com/C_P_S_online">Twitter</a></li>
+                  <li><a className={styles.grouplink} href="/rss.xml">RSS</a></li>
+                  <li><a className={styles.grouplink} href="https://github.com/customprogrammingsolutions">GitHub</a></li>
+                </ul>
+              </div>
+              <div className={styles.group}>
+                <h4>Pages</h4>
+                <ul>
+                  <li><Link className={styles.grouplink} to="/">Home</Link></li>
+                  <li><Link className={styles.grouplink} to="/about">About</Link></li>
+                  <li><Link className={styles.grouplink} to="/contact">Contact</Link></li>
+                  <li><Link className={styles.grouplink} to="/blog">Blog</Link></li>
+                  <li><Link className={styles.grouplink} to="/tutorials">Tutorials</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.copyright}>
+              &copy;{" "}{year || new Date().getFullYear()}{" "}
+              <a href={url || "/"} className={styles.cpsLink}>{label}</a><br />
+              ABN: 34627525197<br />
+              ACN: 627 525 197
+            </div>
+          </div>
+          <div className={styles.bottom}>
+            <Logo height={40} dark={true} />
+          </div>
         </div>
       </footer>
     );

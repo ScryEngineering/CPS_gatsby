@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .tagContainer {
     padding: 1rem 0px;
 }
@@ -7,18 +9,18 @@
     margin: 2px;
     border-radius: 3px;
     display: inline-block;
+    transition: background-color 300ms ease-in-out;
 }
 
 .tag, .tag:hover, .tag:visited, a:active {
     text-decoration: none;
+    color: $color-black;
 }
 
 .tag, .tag:visited, .tag:active {
-    color: #000000;
-    background-color: #b9b9b9;
+    background-color: $color-light;
 }
 
 .tag:hover {
-    color: #000000;
-    background-color: #dddddd;
+    background-color: $color-main;
 }

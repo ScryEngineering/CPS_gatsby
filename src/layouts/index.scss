@@ -1,0 +1,66 @@
+@import '../styles/colors';
+@import '../styles/fonts';
+@import '../styles/global';
+
+html {font-size: 100%;}
+@media (min-width: 40em) {
+ html {font-size: 112.5%;}
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @extend .heading-fonts;
+    color: $color-dark;
+}
+
+body, html, p {
+    @extend .body-fonts;
+}
+
+p {
+    line-height: 1.4em;
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+  
+#___gatsby {
+    min-height: 100%;
+    position: relative;
+}
+
+a {
+    transition: color 300ms ease-in-out;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+}
+
+a, a:visited, a:active {
+    color: $color-main;
+}
+
+a:hover {
+    color: $color-black;
+}
+
+h1 {
+  padding-top: 1em;
+}
+
+.masthead, .contentdiv, .footer {
+  @extend .centered-section;
+}
+
+.masthead {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.contentdiv {
+  padding: 4rem 1.0875rem;
+  min-height: 50vh;
+}
