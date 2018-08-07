@@ -35,6 +35,7 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end excerpt -->`,
         plugins: [
+          `gatsby-remark-katex`,
           {
             resolve: `gatsby-remark-images`,
             options: {
