@@ -10,6 +10,7 @@ import './reset.css'
 import './index.scss'
 
 require("../styles/code.scss");
+require(`katex/dist/katex.min.css`)
 
 export default class TemplateWrapper extends React.Component {
   render() {
