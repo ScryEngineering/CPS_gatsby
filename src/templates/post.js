@@ -17,7 +17,7 @@ export default function Template({
   const postHasCallToActionText = post.frontmatter.callToActionText !== null
   return (
     <div>
-      <HelmetWrapper title={post.frontmatter.title} />
+      <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
       <Masthead heading={post.frontmatter.title} paragraph={"Written by " + post.frontmatter.author + " on " + post.frontmatter.date + "."} />
       <div className="contentdiv">
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -41,6 +41,7 @@ export default function Template({
 export const query = graphql`
   query PostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      excerpt
       html
       frontmatter {
         date(formatString: "DD MMMM, YYYY")
