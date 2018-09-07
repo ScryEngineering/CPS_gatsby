@@ -1,12 +1,14 @@
 import React from 'react'
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
+import Masthead from '../components/Masthead/Masthead';
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 const ServicesPage = props => (
   <div>
     <HelmetWrapper title="Services" />
-    <h1>Our services</h1>
+    <Masthead heading="Our services" />
+    <div className="contentdiv">
     <p>
       With a collective industry experience of multiple decades we are well placed to offer our consulting services in the following areas:
       <ul>
@@ -32,6 +34,7 @@ const ServicesPage = props => (
 
     </p>
     <ContactSnippet source={props.location.pathname} blurb="Would you like to discuss how we could help you? Fill out the form below and we'll get in touch as soon as possible." />
+  </div>
   </div>
 )
 
