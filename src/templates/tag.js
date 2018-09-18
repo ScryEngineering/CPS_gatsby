@@ -16,7 +16,7 @@ export default class TagTemplate extends React.Component {
     return (
       <div>
         <HelmetWrapper title={tag + " posts"} />
-        <Masthead heading={"Posts tagged as " + {tag}} />
+        <Masthead heading={"Posts tagged with \"" + tag + "\""} />
         <div className="contentdiv">
           <h4>{postCount} posts</h4>
           <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
