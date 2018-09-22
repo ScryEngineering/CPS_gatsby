@@ -11,14 +11,14 @@ const ServicesPage = props => (
     <div className="contentdiv">
       <p>With a collective industry experience of multiple decades we are well placed to offer our consulting services in the following areas:</p>
       <ul>
-        <li>Business strategy</li>
-        <li>Technology management</li>
-        <li>Process optimization and automation</li>
         <li>Blockchain and distributed systems</li>
+        <li>Business strategy and technology management</li>
+        <li>Cloud services and DevOps</li>
+        <li>Machine learning and artificial intelligence</li>
+        <li>Process automation and optimization</li>
         <li>Cryptography and security</li>
-        <li>Mathematical optimization</li>
-        <li>Machine learning/AI systems</li>
         <li>Embedded systems and Linux kernel development</li>
+        <li>Mathematical optimization</li>
       </ul>
       <p>We are particularly keen to work on projects where we can partner to deliver value via our services.</p>
       <p>We also take a very strong interest in education and regularly attend and present at various workshops and conferences.</p>
