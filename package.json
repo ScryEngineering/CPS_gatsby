@@ -6,12 +6,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "gatsby": "^1.9.277",
+    "gatsby-image": "^1.0.55",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-feed": "^1.3.25",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-sass": "^1.0.26",
-    "gatsby-plugin-sharp": "^1.6.43",
+    "gatsby-plugin-sharp": "^1.6.48",
     "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-remark-images": "^1.5.62",
     "gatsby-remark-katex": "^1.0.14",
@@ -19,6 +20,7 @@
     "gatsby-source-filesystem": "^1.5.29",
     "gatsby-transformer-json": "^1.0.16",
     "gatsby-transformer-remark": "^1.7.39",
+    "gatsby-transformer-sharp": "^1.6.27",
     "lodash-webpack-plugin": "^0.11.4",
     "react-helmet": "^5.2.0",
     "react-social-icons": "^3.0.0"

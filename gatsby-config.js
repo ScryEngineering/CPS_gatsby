@@ -22,13 +22,22 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `people`,
         path: `${config.contentDir}/content/people`
       }
     },
-    "gatsby-transformer-json",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `faces`,
+        path: `${config.contentDir}/content/faces`
+      }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,

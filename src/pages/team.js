@@ -8,6 +8,8 @@ import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 import styles from './team.module.scss'
 
+import Img from "gatsby-image"
+
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
     <div className={styles.teamMemberPhotoContainer}>
