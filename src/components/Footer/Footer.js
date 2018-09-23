@@ -33,6 +33,7 @@ class Footer extends Component {
                   <li><Link className={styles.grouplink} to="/services">Services</Link></li>
                   <li><Link className={styles.grouplink} to="/blog">Blog</Link></li>
                   <li><Link className={styles.grouplink} to="/tutorials">Tutorials</Link></li>
+                  <li><Link className={styles.grouplink} to="/team">Team</Link></li>
                 </ul>
               </div>
             </div>
