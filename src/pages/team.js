@@ -13,7 +13,6 @@ import Img from "gatsby-image"
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
     <div className={styles.teamMemberPhotoContainer}>
-    {console.log(props)}
       <Img sizes={props.person.image.node.childImageSharp.sizes} className={styles.teamMemberPhoto} />
     </div>
     <div className={styles.teamMemberDetailsContainer}>
@@ -24,20 +23,17 @@ const TeamMemberSection = props =>
   </section>
 
 export default class TeamPage extends React.Component {
-  render(){
-    console.log(this.props)
+  render() {
     let images = this.props.data.faces.edges;
     let allTeamMembers = this.props.data.teamMembers.edges.map(person => {
       return {
         node: {
           ...person.node,
           image: images.find(image => image.node.relativePath === person.node.frontmatter.image)
-              || images.find(image => image.node.relativePath === "notfound.jpg")
+            || images.find(image => image.node.relativePath === "notfound.jpg")
         }
       };
     });
-    console.log("allTeamMembers: ", allTeamMembers);
-    console.log(this.props.data.faces.edges)
     return (
       <div>
         <HelmetWrapper title="Our Team" />
