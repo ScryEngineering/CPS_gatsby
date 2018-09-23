@@ -13,7 +13,8 @@ import Img from "gatsby-image"
 const TeamMemberSection = props =>
   <section className={styles.teamMemberSection}>
     <div className={styles.teamMemberPhotoContainer}>
-      <img src={props.person.frontmatter.image} className={styles.teamMemberPhoto} />
+    {console.log(props)}
+      <Img sizes={props.person.image.node.childImageSharp.sizes} className={styles.teamMemberPhoto} />
     </div>
     <div className={styles.teamMemberDetailsContainer}>
       <h2 className={styles.teamMemberName}>{props.person.frontmatter.name}</h2>
@@ -25,8 +26,18 @@ const TeamMemberSection = props =>
 export default class TeamPage extends React.Component {
   render(){
     console.log(this.props)
-    const allTeamMembers = this.props.data.teamMembers.edges;
+    let images = this.props.data.faces.edges;
+    let allTeamMembers = this.props.data.teamMembers.edges.map(person => {
+      return {
+        node: {
+          ...person.node,
+          image: images.find(image => image.node.relativePath === person.node.frontmatter.image)
+              || images.find(image => image.node.relativePath === "notfound.jpg")
+        }
+      };
+    });
     console.log("allTeamMembers: ", allTeamMembers);
+    console.log(this.props.data.faces.edges)
     return (
       <div>
         <HelmetWrapper title="Our Team" />
@@ -64,6 +75,18 @@ query TeamQuery {
         }
         fields {
           internalURL
+        }
+      }
+    }
+  },
+  faces: allFile {
+    edges {
+      node {
+        relativePath
+        childImageSharp {
+          sizes(maxWidth: 500) {
+          	...GatsbyImageSharpSizes
+          }
         }
       }
     }
