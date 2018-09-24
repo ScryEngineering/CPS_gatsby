@@ -7,10 +7,12 @@ import Img from "gatsby-image"
 
 export default class AuthorSection extends React.Component {
   render() {
+    const img = this.props.images.find(image => image.node.relativePath === this.props.person.frontmatter.image)
+      || this.props.images.find(image => image.node.relativePath === "notfound.jpg")
     return (
       <section className={styles.teamMemberSection}>
         <div className={styles.teamMemberPhotoContainer}>
-          <Img sizes={this.props.person.image.node.childImageSharp.sizes} className={styles.teamMemberPhoto} />
+          <Img sizes={img.node.childImageSharp.sizes} className={styles.teamMemberPhoto} />
         </div>
         <div className={styles.teamMemberDetailsContainer}>
           <h2 className={styles.teamMemberName}>{this.props.person.frontmatter.name}</h2>

@@ -10,23 +10,14 @@ import AuthorSection from "../components/AuthorSection/AuthorSection";
 
 export default class TeamPage extends React.Component {
   render() {
-    let images = this.props.data.faces.edges;
-    let allTeamMembers = this.props.data.teamMembers.edges.map(person => {
-      return {
-        node: {
-          ...person.node,
-          image: images.find(image => image.node.relativePath === person.node.frontmatter.image)
-            || images.find(image => image.node.relativePath === "notfound.jpg")
-        }
-      };
-    });
+    let allTeamMembers = this.props.data.teamMembers.edges;
     return (
       <div>
         <HelmetWrapper title="Our Team" />
         <Masthead heading="Our Team" />
         <div className="contentdiv">
           {allTeamMembers.map(person => (
-            <AuthorSection person={person.node} />
+            <AuthorSection person={person.node} images={this.props.data.allImages.edges} />
           ))}
           <ContactSnippet blurb="Interested in how our expert team could transform your business? Fill out the form below and one of them will get in touch with you soon." />
         </div>
@@ -60,8 +51,8 @@ query TeamQuery {
         }
       }
     }
-  },
-  faces: allFile {
+  }
+  allImages: allFile {
     edges {
       node {
         relativePath
