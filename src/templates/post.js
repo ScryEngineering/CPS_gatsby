@@ -20,6 +20,7 @@ export default function Template({
   const allAuthors = data.authors.edges;
   const authors = authorNameList.map(author => allAuthors.find(x => x.node.frontmatter.name === author));
   const postHasAuthor = authors.length != 0;
+  const postHasMultipleAuthors = authors.length > 1;
   return (
     <div>
       <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
@@ -29,7 +30,7 @@ export default function Template({
         { postHasAuthor &&
           (
             <section>
-              <h2>About the authors</h2>
+              <h2>About the {postHasMultipleAuthors ? "authors" : "author"}</h2>
               {authors.map(author =>
                 <AuthorSection person={author.node} images={data.allImages.edges} />
               )}
