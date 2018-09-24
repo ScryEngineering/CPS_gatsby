@@ -10,7 +10,6 @@ import styles from "./post.module.scss";
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  console.log(data)
   const post = data.markdownRemark; // data.markdownRemark holds our post data
   const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
   const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true

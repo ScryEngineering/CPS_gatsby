@@ -8,11 +8,9 @@ import PostListing from "../components/PostListing/PostListing";
 
 export default class BlogListingTemplate extends React.Component {
   render(){
-    console.log(this.props.data)
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
     const allAuthors = this.props.data.authors.edges;
-    console.log(allAuthors)
     const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
     var postCount = filteredPosts.filter(() => true).length;
 
