@@ -21,10 +21,12 @@ export default function Template({
   const authors = authorNameList.map(author => allAuthors.find(x => x.node.frontmatter.name === author));
   const postHasAuthor = authors.length != 0;
   const postHasMultipleAuthors = authors.length > 1;
+  // This is just null if no authors
+  const authorLine = (postHasMultipleAuthors ? authorNameList.slice(0, -1).join(', ') + " and " : "") + authorNameList[authorNameList.length - 1];
   return (
     <div>
       <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
-      <Masthead heading={post.frontmatter.title} paragraph={"Written by " + post.frontmatter.author + " on " + post.frontmatter.date + "."} />
+      <Masthead heading={post.frontmatter.title} paragraph={(postHasAuthor ? "Written by " + authorLine : "Posted") + " on " + post.frontmatter.date + "."} />
       <div className="contentdiv">
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
         { postHasAuthor &&
