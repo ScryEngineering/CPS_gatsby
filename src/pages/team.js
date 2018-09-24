@@ -6,21 +6,7 @@ import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Masthead from '../components/Masthead/Masthead'
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
-import styles from './team.module.scss'
-
-import Img from "gatsby-image"
-
-const TeamMemberSection = props =>
-  <section className={styles.teamMemberSection}>
-    <div className={styles.teamMemberPhotoContainer}>
-      <Img sizes={props.person.image.node.childImageSharp.sizes} className={styles.teamMemberPhoto} />
-    </div>
-    <div className={styles.teamMemberDetailsContainer}>
-      <h2 className={styles.teamMemberName}>{props.person.frontmatter.name}</h2>
-      <p className={styles.teamMemberTitle}>{props.person.frontmatter.bio}, <span className={styles.teamMemberLocation}>{props.person.frontmatter.location}</span></p>
-      <p>{props.person.frontmatter.miniBlurb} <Link to={props.person.fields.internalURL}>Read more.</Link></p>
-    </div>
-  </section>
+import AuthorSection from "../components/AuthorSection/AuthorSection";
 
 export default class TeamPage extends React.Component {
   render() {
@@ -40,7 +26,7 @@ export default class TeamPage extends React.Component {
         <Masthead heading="Our Team" />
         <div className="contentdiv">
           {allTeamMembers.map(person => (
-            <TeamMemberSection person={person.node} />
+            <AuthorSection person={person.node} />
           ))}
           <ContactSnippet blurb="Interested in how our expert team could transform your business? Fill out the form below and one of them will get in touch with you soon." />
         </div>
