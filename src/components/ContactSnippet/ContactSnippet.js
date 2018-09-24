@@ -25,7 +25,6 @@ class ContactSnippet extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.source)
     this.state = {
       status: "empty",
       name: "",
@@ -53,7 +52,6 @@ class ContactSnippet extends Component {
     this.setState({status: "sending"})
     axios.post(config.contactFormEndpoint, this.state)
       .then(res => {
-        console.log(res)
         if ("success" in res.data && res.data.success) {
           this.setState({status: "success"})
         } else {
