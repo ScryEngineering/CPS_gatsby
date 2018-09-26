@@ -5,23 +5,14 @@ import Masthead from '../components/Masthead/Masthead'
 export default class PersonalAboutTemplate extends React.Component {
     render(){
       //Note that if 2 people have the exact same name this will fail
-      const currentPerson = this.props.data.authors.edges[0].node.frontmatter;
-
-      const title_text = `About ${currentPerson.name}`;
+      const data = this.props.data.authors.edges[0].node;
+      const title_text = `About ${data.frontmatter.name}`;
       return (
         <div>
           <HelmetWrapper title={title_text} />
-          <Masthead heading={"About " + currentPerson.name} />
+          <Masthead heading={"About " + data.frontmatter.name} paragraph={data.frontmatter.bio + ", " + data.frontmatter.location} />
           <div className="contentdiv">
-            <div>
-              Bio: <p>{currentPerson.bio}</p>
-            </div>
-            <div>
-              Website: <p>{currentPerson.url}</p>
-            </div>
-            <div>
-              Location:<p>{currentPerson.location}</p>
-            </div>
+            <div className="post-content" dangerouslySetInnerHTML={{ __html: data.html }} />
           </div>
         </div>
       );
@@ -39,6 +30,7 @@ query AuthorPage($author: String) {
   ) {
     edges {
       node {
+        html
         frontmatter {
           name
           image

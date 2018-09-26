@@ -1,0 +1,36 @@
+.teamMemberSection {
+    margin: 0;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.teamMemberSection > div {
+    padding: 0px;
+}
+
+.teamMemberPhotoContainer {
+    flex: 1;
+}
+
+.teamMemberPhoto {
+    margin: 0px;
+    padding: 0px;
+}
+
+.teamMemberDetailsContainer {
+    flex: 3;
+    margin-left: 1.5rem;
+}
+
+.teamMemberName {
+    margin-bottom: 0.5rem;
+}
+
+.teamMemberTitle {
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.teamMemberLocation {
+}
