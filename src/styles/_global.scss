@@ -1,3 +1,5 @@
+@import 'colors';
+
 $sm-bp: 500px;
 $ms-bp: 501px;
 $me-bp: 1200px;
@@ -28,4 +30,8 @@ $extended-padding: 5rem;
         max-width: $max-width-sm;
         padding: 1.0875rem;
     }
+}
+
+body {
+    color: $color-black;
 }
