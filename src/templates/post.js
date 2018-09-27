@@ -15,7 +15,7 @@ export default function Template({
   const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
   const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true
   const postHasCallToActionText = post.frontmatter.callToActionText !== null
-  const authorNameList = post.frontmatter.author instanceof Array ? post.frontmatter.author : (post.frontmatter.author === null ? [] : [post.frontmatter.author]);
+  const authorNameList = post.frontmatter.authors || [];
   const allAuthors = data.authors.edges;
   const authors = authorNameList.map(author => allAuthors.find(x => x.node.frontmatter.name === author));
   const postHasAuthor = authors.length != 0;
