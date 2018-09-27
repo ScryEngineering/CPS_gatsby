@@ -11,7 +11,7 @@ export default class BlogListingTemplate extends React.Component {
         <HelmetWrapper title="Blog" />
         <Masthead heading="Blog posts" />
         <div className="contentdiv">
-          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} filter={post => post.node.frontmatter.contentType === "blog"}/>
+          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} filter={post => post.node.frontmatter.contentType === "blog"} />
         </div>
       </div>
     );

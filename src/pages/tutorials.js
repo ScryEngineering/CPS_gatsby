@@ -12,7 +12,7 @@ export default class TutorialListingTemplate extends React.Component {
         <HelmetWrapper title="Tutorials" />
         <Masthead heading="Tutorials" />
         <div className="contentdiv">
-          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} filter={post => post.node.frontmatter.contentType === "tutorial"}/>
+          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} filter={post => post.node.frontmatter.contentType === "tutorial"} />
         </div>
       </div>
     );
