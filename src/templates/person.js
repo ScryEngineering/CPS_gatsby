@@ -70,7 +70,7 @@ query AuthorPage($author: String) {
         frontmatter {
           title
           tags
-          date(formatString: "DD MMMM, YYYY")
+          date(formatString: "MMMM Do, YYYY")
           authors
           draft
           contentType

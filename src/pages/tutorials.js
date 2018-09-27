@@ -57,7 +57,7 @@ query TutorialIndexQuery {
         frontmatter {
           title
           tags
-          date(formatString: "DD MMMM, YYYY")
+          date(formatString: "MMMM Do, YYYY")
           authors
           draft
           contentType
