@@ -1,6 +1,6 @@
 # CPS gatsby site
 
-[![Build status](https://api.travis-ci.org/customprogrammingsolutions/CPS_gatsby.svg?branch=master)](https://travis-ci.org/customprogrammingsolutions/CPS_gatsby)
+[![Build status](https://api.travis-ci.org/CustomProgrammingSolutions/CPS_gatsby.svg?branch=master)](https://travis-ci.org/CustomProgrammingSolutions/CPS_gatsby)
 
 This is the repo for CustomProgrammingSolutions site made with gatsbyjs.
 
@@ -9,7 +9,7 @@ For an overview of the project structure please refer to the [Gatsby documentati
 ## Install
 
 This site uses the setup in the Vagrantfile over in:
-https://github.com/customprogrammingsolutions/gatsbyjs-vagrant
+https://github.com/CustomProgrammingSolutions/gatsbyjs-vagrant
 
 We are using the Yarn package manager to deal with package dependencies.
 
@@ -48,7 +48,7 @@ sudo gatsby develop -H 0.0.0.0
 
 (There might be a way set up the linux box such that specifying to serve on 0.0.0.0
 is not necessary but I haven't done that, if you fix this please upstream the fix to:
-https://github.com/customprogrammingsolutions/gatsbyjs-vagrant)
+https://github.com/CustomProgrammingSolutions/gatsbyjs-vagrant)
 
 ## Deploy
 
