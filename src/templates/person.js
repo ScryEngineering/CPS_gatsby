@@ -6,10 +6,9 @@ export default class PersonalAboutTemplate extends React.Component {
     render(){
       //Note that if 2 people have the exact same name this will fail
       const data = this.props.data.authors.edges[0].node;
-      const title_text = `About ${data.frontmatter.name}`;
       return (
         <div>
-          <HelmetWrapper title={title_text} />
+          <HelmetWrapper title={data.frontmatter.name} description={data.frontmatter.miniBlurb} />
           <Masthead heading={"About " + data.frontmatter.name} paragraph={data.frontmatter.bio + ", " + data.frontmatter.location} />
           <div className="contentdiv">
             <div className="post-content" dangerouslySetInnerHTML={{ __html: data.html }} />
@@ -38,6 +37,7 @@ query AuthorPage($author: String) {
           bio
           location
           socialUrls
+          miniBlurb
         }
         fields {
           internalURL
