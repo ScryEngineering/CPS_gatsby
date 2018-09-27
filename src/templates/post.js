@@ -101,7 +101,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         title
         tags
-        author
+        authors
         draft
         callToActionText
         hideCallToAction

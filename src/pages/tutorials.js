@@ -66,7 +66,7 @@ query TutorialIndexQuery {
           title
           tags
           date(formatString: "DD MMMM, YYYY")
-          author
+          authors
           draft
           contentType
         }
