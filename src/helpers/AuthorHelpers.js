@@ -21,8 +21,9 @@ Given a set of authors, generates a line like this with links:
 */
 export function authorAndDateLine(authors, date) {
   let out = [];
+  out.push(<span>Published on {date}</span>);
   if (authors.length > 0) {
-    out.push(<span>Posted by </span>);
+    out.push(<span> by </span>);
     for (let i = 0; i < authors.length - 1; i++) {
       out.push(<span><AuthorLink author={authors[i]} />{i == authors.length - 2 ? "" : ","} </span>);
     }
@@ -30,9 +31,7 @@ export function authorAndDateLine(authors, date) {
       out.push(<span>and </span>);
     }
     out.push(<span><AuthorLink author={authors[authors.length - 1]} /></span>);
-  } else {
-    out.push(<span>Posted</span>);
   }
-  out.push(<span> on {date}.</span>);
+  out.push(<span>.</span>);
   return out;
 }
