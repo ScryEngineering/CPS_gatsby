@@ -17,7 +17,7 @@ class PostListing extends React.Component {
         path: postEdge.node.fields.slug,
         tags: postEdge.node.frontmatter.tags,
         title: postEdge.node.frontmatter.title,
-        authors: postEdge.node.frontmatter.author,
+        authors: postEdge.node.frontmatter.authors,
         date: postEdge.node.frontmatter.date,
         excerpt: postEdge.node.excerpt,
         timeToRead: postEdge.node.timeToRead,

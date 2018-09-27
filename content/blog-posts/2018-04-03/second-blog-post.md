@@ -1,6 +1,7 @@
 ---
 title: "Another blog post"
-author: "Sam the Sample"
+authors:
+    - "Sam the Sample"
 date: "2018-04-03"
 tags:
     - gatsby

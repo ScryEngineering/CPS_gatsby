@@ -130,7 +130,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               node {
                 frontmatter {
                   tags
-                  author
+                  authors
                   draft
                   contentType
                   callToActionText
