@@ -11,36 +11,26 @@ import PostTags from "../PostTags/PostTags";
 import { matchNamesToAuthors, authorAndDateLine } from "../../helpers/AuthorHelpers";
 
 export default class PostListing extends React.Component {
-  getPostList() {
-    const postList = [];
-    this.props.postEdges.forEach(postEdge => {
-      postList.push({
-        path: postEdge.node.fields.slug,
-        tags: postEdge.node.frontmatter.tags,
-        title: postEdge.node.frontmatter.title,
-        authors: postEdge.node.frontmatter.authors,
-        date: postEdge.node.frontmatter.date,
-        excerpt: postEdge.node.excerpt,
-        timeToRead: postEdge.node.timeToRead,
-        draft: postEdge.node.frontmatter.draft
-      });
-    });
-    return postList;
-  }
   render() {
-    const postList = this.getPostList();
-    const nonDraftPosts = postList.filter(post => post.draft !== true);
+    const postList = this.props.postEdges;
+    const nonDraftPosts = postList.filter(post => post.node.frontmatter.draft !== true);
+    let displayedPosts = nonDraftPosts;
+    console.log(displayedPosts)
+    if (this.props.filter) {
+      displayedPosts = nonDraftPosts.filter(this.props.filter);
+    }
     return (
       <div className={styles.postContainer}>
+        <h4>{displayedPosts.length} Posts</h4>
         {
-        nonDraftPosts.map(post => (
+        displayedPosts.map(post => (
         <div className={styles.post}>
-          <h2><Link to={post.path} key={post.title} className={styles.postTitle}>{post.title}</Link></h2>
-          <Link to={post.path} className={styles.summarytext}>
-            <p>{post.excerpt}</p>
+          <h3><Link to={post.node.fields.slug} key={post.node.frontmatter.title} className={styles.postTitle}>{post.node.frontmatter.title}</Link></h3>
+          <Link to={post.node.fields.slug} className={styles.summarytext}>
+            <p>{post.node.excerpt}</p>
           </Link>
-          {authorAndDateLine(matchNamesToAuthors(post.authors, this.props.allAuthorsInfo), post.date)}
-          <PostTags tags={post.tags} />
+          {authorAndDateLine(matchNamesToAuthors(post.node.frontmatter.authors, this.props.allAuthorsInfo), post.node.frontmatter.date)}
+          <PostTags tags={post.node.frontmatter.tags} />
          </div>
         ))}
       </div>

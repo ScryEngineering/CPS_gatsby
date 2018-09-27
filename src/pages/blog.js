@@ -1,26 +1,17 @@
 import React from 'react'
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 import Masthead from '../components/Masthead/Masthead'
-import Link from "gatsby-link";
 
-import styles from "./tutorials.module.scss"
 import PostListing from "../components/PostListing/PostListing";
 
 export default class BlogListingTemplate extends React.Component {
   render(){
-    const postEdges = this.props.data.allMarkdownRemark.edges;
-    const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
-    const allAuthors = this.props.data.authors.edges;
-    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.contentType === "blog");
-    var postCount = filteredPosts.filter(() => true).length;
-
     return (
       <div>
         <HelmetWrapper title="Blog" />
         <Masthead heading="Blog posts" />
         <div className="contentdiv">
-          <h4>{postCount} Posts</h4>
-          <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors} />
+          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} filter={post => post.node.frontmatter.contentType === "blog"}/>
         </div>
       </div>
     );
