@@ -24,3 +24,6 @@ deploy:
  bucket: "www.customprogrammingsolutions.com"
  skip_cleanup: true
  local_dir: public
+ detect_encoding: true
+ default_text_charset: 'utf-8'
+ cache_control: "max-age=300"
