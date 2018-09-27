@@ -4,10 +4,16 @@
     background-color: $color-main;
 }
 
-.masthead h1, .masthead p {
-    color: $color-white;
-}
+.masthead {
+    h1, p {
+        color: $color-white;
+    }
 
-.masthead p {
-    margin-top: 1.45rem;
+    p {
+        margin-top: 1.45rem;
+    }
+
+    a:hover {
+        color: $color-light !important;
+    }
 }

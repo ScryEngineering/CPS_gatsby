@@ -1,37 +1,33 @@
 import React from "react";
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
 
-import PostTags from "../components/PostTags/PostTags";
-import Masthead from '../components/Masthead/Masthead'
-import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
-
-import styles from "./post.module.scss";
 import AuthorSection from "../components/AuthorSection/AuthorSection";
+import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
+import Masthead from "../components/Masthead/Masthead";
+import PostTags from "../components/PostTags/PostTags";
+
+import { matchNamesToAuthors, authorAndDateLine } from "../helpers/AuthorHelpers";
 
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  // this prop will be injected by the GraphQL query below.
+  data,
 }) {
-  const post = data.markdownRemark; // data.markdownRemark holds our post data
-  const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0
-  const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true
-  const postHasCallToActionText = post.frontmatter.callToActionText !== null
-  const authorNameList = post.frontmatter.authors || [];
-  const allAuthors = data.authors.edges;
-  const authors = authorNameList.map(author => allAuthors.find(x => x.node.frontmatter.name === author));
-  const postHasAuthor = authors.length != 0;
-  const postHasMultipleAuthors = authors.length > 1;
-  // This is just null if no authors
-  const authorLine = (postHasMultipleAuthors ? authorNameList.slice(0, -1).join(', ') + " and " : "") + authorNameList[authorNameList.length - 1];
+  // data.markdownRemark holds our post data
+  const post = data.markdownRemark;
+  const postHasTags = post.frontmatter.tags !== null && post.frontmatter.tags.length > 0;
+  const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true;
+  const postHasCallToActionText = post.frontmatter.callToActionText !== null;
+  const authors = matchNamesToAuthors(post.frontmatter.authors, data.authors.edges);
   return (
     <div>
       <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
-      <Masthead heading={post.frontmatter.title} paragraph={(postHasAuthor ? "Written by " + authorLine : "Posted") + " on " + post.frontmatter.date + "."} />
+      <Masthead heading={post.frontmatter.title} paragraph={authorAndDateLine(authors, post.frontmatter.date)} />
       <div className="contentdiv">
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-        { postHasAuthor &&
+        { authors.length > 0 &&
           (
             <section>
-              <h2>About the {postHasMultipleAuthors ? "authors" : "author"}</h2>
+              <h2>About the {authors.length > 1 ? "authors" : "author"}</h2>
               {authors.map(author =>
                 <AuthorSection person={author.node} images={data.allImages.edges} />
               )}

@@ -5,11 +5,12 @@ This component exists to list posts such as tutorial or blog post
 import React from "react";
 import Link from "gatsby-link";
 
-import styles from "./PostListing.module.scss"
+import styles from "./PostListing.module.scss";
 import PostTags from "../PostTags/PostTags";
-import AuthorsInfo from "../AuthorsInfo/AuthorsInfo";
 
-class PostListing extends React.Component {
+import { matchNamesToAuthors, authorAndDateLine } from "../../helpers/AuthorHelpers";
+
+export default class PostListing extends React.Component {
   getPostList() {
     const postList = [];
     this.props.postEdges.forEach(postEdge => {
@@ -38,7 +39,7 @@ class PostListing extends React.Component {
           <Link to={post.path} className={styles.summarytext}>
             <p>{post.excerpt}</p>
           </Link>
-          <AuthorsInfo authorNames={post.authors} allAuthorsInfo={this.props.allAuthorsInfo}/>
+          {authorAndDateLine(matchNamesToAuthors(post.authors, this.props.allAuthorsInfo), post.date)}
           <PostTags tags={post.tags} />
          </div>
         ))}
@@ -46,5 +47,3 @@ class PostListing extends React.Component {
     );
   }
 }
-
-export default PostListing;
