@@ -45,7 +45,8 @@ export const pageQuery = graphql`
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fields: { isPost: { eq: true } }
+        fields: {isPost: { eq: true } }
+        frontmatter: { draft: { ne: true } }
         frontmatter: { tags: { in: [$tag] } }
       }
     ) {
