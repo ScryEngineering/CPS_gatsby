@@ -1,6 +1,7 @@
 ---
 title: "How to write sample blogs"
-author: "Sam the Sample"
+authors:
+    - "Sam the Sample"
 date: "2018-04-07"
 tags:
     - Python
