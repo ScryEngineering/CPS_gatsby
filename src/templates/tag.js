@@ -8,18 +8,12 @@ import PostListing from "../components/PostListing/PostListing";
 export default class TagTemplate extends React.Component {
   render(){
     const tag = this.props.pathContext.tag;
-    const postEdges = this.props.data.allMarkdownRemark.edges;
-    const numberOfPosts = this.props.data.allMarkdownRemark.totalCount;
-    const allAuthors = this.props.data.authors.edges;
-    const filteredPosts = postEdges.filter(postEdges => postEdges.node.frontmatter.draft !== true);
-    var postCount = filteredPosts.filter(() => true).length;
     return (
       <div>
         <HelmetWrapper title={tag + " posts"} />
         <Masthead heading={"Posts tagged with \"" + tag + "\""} />
         <div className="contentdiv">
-          <h4>{postCount} posts</h4>
-          <PostListing postEdges={filteredPosts} allAuthorsInfo={allAuthors}/>
+          <PostListing postEdges={this.props.data.allMarkdownRemark.edges} allAuthorsInfo={this.props.data.authors.edges} />
         </div>
       </div>
     );
@@ -51,8 +45,11 @@ export const pageQuery = graphql`
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fields: { isPost: { eq: true } }
-        frontmatter: { tags: { in: [$tag] } }
+        fields: {isPost: { eq: true } }
+        frontmatter: {
+          draft: { ne: true }
+          tags: { in: [$tag] }
+        }
       }
     ) {
       totalCount
@@ -66,7 +63,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
-            date
+            date(formatString: "MMMM Do, YYYY")
             authors
             draft
           }

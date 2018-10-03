@@ -94,7 +94,7 @@ export const query = graphql`
       excerpt
       html
       frontmatter {
-        date(formatString: "DD MMMM, YYYY")
+        date(formatString: "MMMM Do, YYYY")
         title
         tags
         authors

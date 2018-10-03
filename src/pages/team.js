@@ -29,6 +29,7 @@ export default class TeamPage extends React.Component {
 export const query = graphql`
 query TeamQuery {
   teamMembers: allMarkdownRemark (
+    sort: { fields: [frontmatter___name], order: ASC }
     filter: {
       fields: { isPerson: { eq: true } },
       frontmatter: { teamMember: { eq: true } }
