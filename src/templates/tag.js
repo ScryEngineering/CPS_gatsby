@@ -46,8 +46,10 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         fields: {isPost: { eq: true } }
-        frontmatter: { draft: { ne: true } }
-        frontmatter: { tags: { in: [$tag] } }
+        frontmatter: {
+          draft: { ne: true }
+          tags: { in: [$tag] }
+        }
       }
     ) {
       totalCount
