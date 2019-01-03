@@ -29,6 +29,10 @@ const createPostNode = (node, getNode, createNodeField, fileSourcePath, pageType
   })
 }
 
+/* Creation of nodes includes a step where we take the directory the nodes were found in
+then make a flag to mark the type of node based on where it came from in the content directory.
+This is needed because it's hard to actually extract where a MarkdownRemark page came
+from after the fact when constructing the GraphQL queries. */
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
@@ -47,6 +51,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         value: `/about/${_.kebabCase(node.frontmatter.name)}/`,
       })
       pageType = "person";
+    } else if (isOfType("services")) {
+      createNodeField({
+        node,
+        name: `internalURL`,
+        value: `/service/${_.kebabCase(node.frontmatter.name)}/`,
+      })
+      pageType = "service";
     } else {
       throw new Error(`Unknown markdown document encountered: ${node}`)
     }
@@ -64,6 +75,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: `isPerson`,
       value: pageType === "person",
+    })
+    createNodeField({
+      node,
+      name: `isService`,
+      value: pageType === "service",
     })
   }
 };
