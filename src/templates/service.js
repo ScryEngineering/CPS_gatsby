@@ -1,5 +1,6 @@
 import React from "react";
 import HelmetWrapper from "../components/HelmetWrapper/HelmetWrapper";
+import Masthead from '../components/Masthead/Masthead'
 
 import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
@@ -15,6 +16,7 @@ export default function Template({
   return (
     <div>
       <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
+      <Masthead heading={post.frontmatter.name}/>
       <div className="contentdiv">
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
         {
