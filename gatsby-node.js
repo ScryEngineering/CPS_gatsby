@@ -55,7 +55,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       createNodeField({
         node,
         name: `internalURL`,
-        value: `/service/${_.kebabCase(node.frontmatter.name)}/`,
+        value: `/services/${_.kebabCase(node.frontmatter.name)}/`,
       })
       pageType = "service";
     } else {
