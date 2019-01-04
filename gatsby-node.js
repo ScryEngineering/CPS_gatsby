@@ -226,15 +226,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         graphql(`
         {
-          allMarkdownRemark (
-            filter: {
-              fields: {
-                isService: { eq: true }
-              }
-            })
-          {
+          allMarkdownRemark (filter: { fields: { isService: { eq: true } } }) {
             edges {
               node {
+                html
                 frontmatter {
                   name
                 }
