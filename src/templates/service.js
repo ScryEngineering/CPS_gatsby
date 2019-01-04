@@ -8,7 +8,8 @@ export default function Template({
   data,
 }) {
   // data.markdownRemark holds our service post data
-  const post = data.markdownRemark;
+  console.log(data)
+  const post = data.service.edges[0].node;
   const postHasCallToAction = post.frontmatter.hideCallToAction === null || post.frontmatter.hideCallToAction !== true;
   const postHasCallToActionText = post.frontmatter.callToActionText !== null;
   return (
@@ -44,8 +45,6 @@ export default function Template({
          html
          frontmatter {
            name
-           url
-           miniBlurb
          }
          fields {
            internalURL
