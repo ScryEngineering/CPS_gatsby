@@ -89,6 +89,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const tagPage = path.resolve("src/templates/tag.js");
   const authorPage = path.resolve("src/templates/person.js");
   const postPage = path.resolve("src/templates/post.js");
+  const servicePage = path.resolve("src/templates/service.js");
 
   return new Promise((resolve, reject) => {
     if (
@@ -211,7 +212,47 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         });
 
-        resolve()
+
+        graphql(`
+        {
+          allMarkdownRemark (
+            filter: {
+              fields: {
+                isService: { eq: true }
+              }
+            })
+          {
+            edges {
+              node {
+                frontmatter {
+                  name
+                }
+                fields {
+                  internalURL
+                }
+              }
+            }
+          }
+        }
+      `).then(result => {
+          if (result.errors) {
+            /* eslint no-console: "off" */
+            console.log(result.errors);
+            reject(result.errors);
+          }
+
+          console.log("Creating service pages")
+          result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+            createPage({
+              path: node.fields.internalURL,
+              component: servicePage,
+              context: {
+                service: node.frontmatter.name
+              }
+            });
+          });
+          resolve()
+        })
       })
     })
   })
