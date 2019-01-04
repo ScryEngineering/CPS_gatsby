@@ -101,6 +101,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         "The 'people' folder is missing within the 'content' folder."
       );
     }
+    if (
+      !fs.existsSync(
+        path.resolve(`content/services/`)
+      )
+    ) {
+      reject(
+        "The 'services' folder is missing within the 'content' folder."
+      );
+    }
+
+
 
     graphql(`
       {
