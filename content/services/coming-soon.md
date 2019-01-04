@@ -1,5 +1,5 @@
 ---
-name: "Sample service"
+name: "Coming soon service"
 draft: true
 ---
 
