@@ -40,7 +40,7 @@ class Footer extends Component {
             <div className={styles.copyright}>
               &copy;{" "}{year || new Date().getFullYear()}{" "}
               <a href={url || "/"} className={styles.cpsLink}>{label}</a><br />
-              ABN: 34627525197<br />
+              ABN: 34 627 525 197<br />
               ACN: 627 525 197
             </div>
           </div>
