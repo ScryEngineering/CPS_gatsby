@@ -29,6 +29,10 @@ const createPostNode = (node, getNode, createNodeField, fileSourcePath, pageType
   })
 }
 
+/* Creation of nodes includes a step where we take the directory the nodes were found in
+then make a flag to mark the type of node based on where it came from in the content directory.
+This is needed because it's hard to actually extract where a MarkdownRemark page came
+from after the fact when constructing the GraphQL queries. */
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
@@ -47,6 +51,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         value: `/about/${_.kebabCase(node.frontmatter.name)}/`,
       })
       pageType = "person";
+    } else if (isOfType("services")) {
+      createNodeField({
+        node,
+        name: `internalURL`,
+        value: `/services/${_.kebabCase(node.frontmatter.name)}/`,
+      })
+      pageType = "service";
     } else {
       throw new Error(`Unknown markdown document encountered: ${node}`)
     }
@@ -65,6 +76,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       name: `isPerson`,
       value: pageType === "person",
     })
+    createNodeField({
+      node,
+      name: `isService`,
+      value: pageType === "service",
+    })
   }
 };
 
@@ -73,6 +89,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const tagPage = path.resolve("src/templates/tag.js");
   const authorPage = path.resolve("src/templates/person.js");
   const postPage = path.resolve("src/templates/post.js");
+  const servicePage = path.resolve("src/templates/service.js");
 
   return new Promise((resolve, reject) => {
     if (
@@ -84,6 +101,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         "The 'people' folder is missing within the 'content' folder."
       );
     }
+    if (
+      !fs.existsSync(
+        path.resolve(`content/services/`)
+      )
+    ) {
+      reject(
+        "The 'services' folder is missing within the 'content' folder."
+      );
+    }
+
+
 
     graphql(`
       {
@@ -195,7 +223,51 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         });
 
-        resolve()
+
+        graphql(`
+        {
+          allMarkdownRemark (
+            filter: {
+              fields: {
+                isService: { eq: true }
+              }
+              frontmatter: {
+                draft: { ne: true }
+              }
+            })
+          {
+            edges {
+              node {
+                html
+                frontmatter {
+                  name
+                }
+                fields {
+                  internalURL
+                }
+              }
+            }
+          }
+        }
+      `).then(result => {
+          if (result.errors) {
+            /* eslint no-console: "off" */
+            console.log(result.errors);
+            reject(result.errors);
+          }
+
+          console.log("Creating service pages")
+          result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+            createPage({
+              path: node.fields.internalURL,
+              component: servicePage,
+              context: {
+                service: node.frontmatter.name
+              }
+            });
+          });
+          resolve()
+        })
       })
     })
   })
