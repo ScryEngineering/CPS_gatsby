@@ -21,7 +21,7 @@ const IndexPage = props => (
       </p>
       <p>
       Our elite software developers bring years of experience in specialty fields such as combinatorial optimization, blockchain,
-      Internet of Things hardware/software interfacing and implementation, complex integrations between back-end systems and web technologies such as content management systems and web applications.
+      complex integrations between back-end systems and web technologies such as content management systems and web applications.
       </p>
       <p>
       When you work with us, you’ll never be left wondering - our collaborative development process, passion for educating our clients and commitment to transparency means we guide you seamlessly through every step of your project, from first contact to launch.
