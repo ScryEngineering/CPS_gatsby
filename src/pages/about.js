@@ -20,7 +20,8 @@ const IndexPage = props => (
       Whether you’re looking for outside consulting help or augmentation for your existing internal team, we have the versatility and expertise to meet your specific requirements.
       </p>
       <p>
-      Our elite software developers bring years of experience in specialty fields such as combinatorial optimization, blockchain,
+      Our elite software developers bring years of experience in specialty fields such as
+      machine learning, natural language processing, combinatorial optimization, process automation, blockchain,
       complex integrations between back-end systems and web technologies such as content management systems and web applications.
       </p>
       <p>
