@@ -241,6 +241,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 html
                 frontmatter {
                   name
+                  callToActionText
+                  hideCallToAction
                 }
                 fields {
                   internalURL
