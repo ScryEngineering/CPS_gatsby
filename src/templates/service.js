@@ -47,6 +47,8 @@ export default function Template({
          html
          frontmatter {
            name
+           callToActionText
+           hideCallToAction
          }
          fields {
            internalURL
