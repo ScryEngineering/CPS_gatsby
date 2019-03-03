@@ -120,11 +120,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               frontmatter {
                 name
-                image
-                url
-                bio
-                location
-                socialUrls
               }
               fields {
                 internalURL
