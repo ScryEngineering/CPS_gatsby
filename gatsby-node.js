@@ -167,11 +167,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               node {
                 frontmatter {
                   tags
-                  authors
                   draft
-                  contentType
-                  callToActionText
-                  hideCallToAction
                 }
                 fields {
                   slug
