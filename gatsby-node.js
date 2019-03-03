@@ -238,11 +238,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           {
             edges {
               node {
-                html
                 frontmatter {
                   name
-                  callToActionText
-                  hideCallToAction
                 }
                 fields {
                   internalURL
