@@ -15,7 +15,7 @@ export default function Template({
   const postHasCallToActionText = post.frontmatter.callToActionText !== null;
   return (
     <div>
-      <HelmetWrapper title={post.frontmatter.title} description={post.excerpt} />
+      <HelmetWrapper title={post.frontmatter.name} description={post.excerpt} />
       <Masthead heading={post.frontmatter.name}/>
       <div className="contentdiv">
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
