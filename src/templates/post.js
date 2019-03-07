@@ -56,8 +56,7 @@ export const query = graphql`
     # authors
     authors: allMarkdownRemark (
       filter: {
-        fields: { isPerson: { eq: true } },
-        frontmatter: { teamMember: { eq: true } }
+        fields: { isPerson: { eq: true } }
       }
     ) {
       edges {
