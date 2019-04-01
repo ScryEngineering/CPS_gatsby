@@ -7,15 +7,14 @@ import ContactSnippet from "../components/ContactSnippet/ContactSnippet";
 
 const IndexPage = props => (
   <div>
-    <HelmetWrapper title="About" />
+   <HelmetWrapper title="About" />
     <Masthead heading="About Custom Programming Solutions" />
     <div className="contentdiv">
       <p>
       Pennies matter. Seconds matter. Data matters. Your time matters, so we want to help you spend it as efficiently as possible.  
       </p>
       <p>
-      At Custom Programming Solutions, we support and guide you to make the best decisions possible for your business. 
-      we stress that not all business problems can be solved by implementing new software. 
+      At Custom Programming Solutions, we stress that not all business problems can be solved by implementing new software. 
       In fact, if you introduce new software without solving your underlying operational issues, your problems will not only linger, they'll multiply.
       That's why we combine years of specialized expertise in workflow and process automation, mathematical optimization and software development to help you make better decisions.
       solve your problems at both a systems and organizational level.
@@ -27,7 +26,7 @@ const IndexPage = props => (
       </p>
       <p>
       Through workflow and process automation, we help you unlock value by automating your most tedious tasks so you can focus on your most important work. 
-      And through mathematical optimization, we explore your current processes from the ground up and identify areas for improvement.
+      And through mathematical optimization, we explore your current processes from the ground up and target areas for improvement, then execute a well-planned strategy suited to your needs.
       Our elite consultants and software developers bring years of experience in specialty fields such as:
       <ul>
       <li>- Mathematical optimization</li>
