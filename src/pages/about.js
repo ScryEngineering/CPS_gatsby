@@ -17,7 +17,6 @@ const IndexPage = props => (
       At Custom Programming Solutions, we stress that not all business problems can be solved by implementing new software. 
       In fact, if you introduce new software without solving your underlying operational issues, your problems will not only linger, they'll multiply.
       That's why we combine years of specialized expertise in workflow and process automation, mathematical optimization and software development to help you make better decisions.
-      solve your problems at both a systems and organizational level.
       </p>
       <p>
       We create bespoke software solutions for clients in the software, process automation and optimization industries.
