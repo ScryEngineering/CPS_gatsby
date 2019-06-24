@@ -28,12 +28,12 @@ const IndexPage = props => (
       And through mathematical optimization, we explore your current processes from the ground up and target areas for improvement, then execute a well-planned strategy suited to your needs.
       Our elite consultants and software developers bring years of experience in specialty fields such as:
       <ul>
-      <li>- Mathematical optimization</li>
-      <li>- Data science</li>
-      <li>- Natural language processing</li>
-      <li>- Machine learning</li>  
-      <li>- Process automation and optimization</li>
-      <li>- Complex integrations between back-end systems and web technologies, including content management systems and web applications</li>
+        <li><a href="/services/mathematical-optimization">Mathematical optimization</a></li>
+        <li><a href="/services/data-science">Data science</a></li>
+        <li><a href="/services/natural-language-processing">Natural language processing</a></li>
+        <li><a href="/services/machine-learning">Machine learning</a></li>
+        <li><a href="/services/process-automation">Process automation and optimization</a></li>
+        <li>Complex integrations between back-end systems and web technologies, including content management systems and web applications</li>
       </ul>
       </p>
       <p>
