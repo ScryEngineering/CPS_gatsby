@@ -11,7 +11,7 @@ const IndexPage = props => (
     <Masthead heading="About Custom Programming Solutions" />
     <div className="contentdiv">
       <p>
-      Pennies matter. Seconds matter. Data matters. Your time matters, so we want to help you spend it as efficiently as possible.  
+      Seconds matter. Data matters. Your time matters, so we want to help you spend it as efficiently as possible.
       </p>
       <p>
       At Custom Programming Solutions, we stress that not all business problems can be solved by implementing new software. 
