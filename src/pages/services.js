@@ -16,7 +16,7 @@ const ServicesPage = props => (
         <li>Business strategy and technology management</li>
         <li><a href="/services/natural-language-processing">Natural language processing</a></li>
         <li><a href="/services/machine-learning">Machine learning and artificial intelligence</a></li>
-        <li><a href="/services/process-automation">Process automation and optimization</a></li>
+        <li><a href="/services/process-automation-and-optimization">Process automation and optimization</a></li>
         <li>Cryptography and security</li>
         <li>Cloud services and DevOps</li>
         <li>Blockchain and distributed systems</li>
