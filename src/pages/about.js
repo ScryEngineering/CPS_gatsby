@@ -32,7 +32,7 @@ const IndexPage = props => (
         <li><a href="/services/data-science">Data science</a></li>
         <li><a href="/services/natural-language-processing">Natural language processing</a></li>
         <li><a href="/services/machine-learning">Machine learning</a></li>
-        <li><a href="/services/process-automation">Process automation and optimization</a></li>
+        <li><a href="/services/process-automation-and-optimization">Process automation and optimization</a></li>
         <li>Complex integrations between back-end systems and web technologies, including content management systems and web applications</li>
       </ul>
       </p>
