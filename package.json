@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Janis Lesinskis <janis@customprogrammingsolutions.com>",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gatsby": "^1.9.277",
     "gatsby-image": "^1.0.55",
     "gatsby-link": "^1.6.39",
